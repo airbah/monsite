@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Destinataire de l'email (votre adresse)
-    $recipient = "hakim.irbah@wisee.fr";
+    $recipient = "hakim.irbah@gmail.com";
     
     // Sujet de l'email
     $email_subject = "Message du site Wisee.fr : $subject";
