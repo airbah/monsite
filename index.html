@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisee.fr | Abdelhakim Irbah - Développeur Freelance</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette de couleurs moderne */
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-800: #1e293b;
+            
+            /* Variables d'espacement */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            
+            /* Variables pour le glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            
+            /* Variables pour les effets 3D */
+            --card-shadow: 
+                0 1px 1px rgba(0, 0, 0, 0.025),
+                0 2px 2px rgba(0, 0, 0, 0.025),
+                0 4px 4px rgba(0, 0, 0, 0.025),
+                0 8px 8px rgba(0, 0, 0, 0.025),
+                0 16px 16px rgba(0, 0, 0, 0.025);
+            --card-shadow-hover: 
+                0 1px 1px rgba(0, 0, 0, 0.075),
+                0 2px 2px rgba(0, 0, 0, 0.075),
+                0 4px 4px rgba(0, 0, 0, 0.075),
+                0 8px 8px rgba(0, 0, 0, 0.075),
+                0 16px 16px rgba(0, 0, 0, 0.075),
+                0 32px 32px rgba(0, 0, 0, 0.075);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Typographie moderne */
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.04em;
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            margin-bottom: var(--space-md);
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.02em;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.01em;
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            color: var(--gray-500);
+        }
+        
+        strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        /* Section */
+        section {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+        
+        section.alt {
+            background-color: var(--gray-100);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+        
+        .section-header p {
+            max-width: 600px;
+            margin: var(--space-sm) auto;
+            color: var(--gray-500);
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(248, 250, 252, 0.8);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .logo span {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .nav-links a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Accueil / Hero Section */
+        .hero {
+            padding: calc(var(--space-xl) * 2) 0 var(--space-xl);
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 80% 10%, rgba(124, 58, 237, 0.12), transparent 400px),
+                radial-gradient(circle at 10% 60%, rgba(37, 99, 235, 0.1), transparent 400px),
+                radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.08), transparent 800px);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            color: var(--gray-500);
+            margin-bottom: var(--space-lg);
+            font-weight: 400;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+        
+        .hero-scroll {
+            position: absolute;
+            bottom: var(--space-lg);
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--primary);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* Expertise */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .expertise-card {
+            background: white;
+            border-radius: 12px;
+            padding: var(--space-md);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--gray-200);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--gray-300);
+        }
+        
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 1;
+        }
+        
+        .expertise-card .icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--primary);
+            background-color: var(--gray-100);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-card:hover .icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transform: rotate(5deg);
+        }
+        
+        .expertise-card h3 {
+            margin-bottom: var(--space-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-card p {
+            color: var(--gray-500);
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+        
+        /* Projets */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .project-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: var(--space-md);
+            background: white;
+        }
+        
+        .project-title {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .project-desc {
+            color: var(--gray-500);
+            margin-bottom: var(--space-sm);
+            font-size: 0.95rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-top: var(--space-sm);
+        }
+        
+        .tag {
+            background-color: var(--gray-100);
+            color: var(--gray-800);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .tag.primary {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+        
+        .tag.secondary {
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--secondary);
+        }
+        
+        .tag.accent {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0.8));
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-md);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-overlay-content {
+            color: white;
+            transform: translateY(20px);
+            transition: all 0.3s ease 0.1s;
+        }
+        
+        .project-card:hover .project-overlay-content {
+            transform: translateY(0);
+        }
+        
+        .project-overlay-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .project-btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 0.5rem 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: var(--space-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .project-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Expérience */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-md) 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-lg);
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: var(--space-lg);
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: var(--space-lg);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 10px;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            border-color: var(--secondary);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background: white;
+            border-radius: 12px;
+            padding: var(--space-md);
+            position: relative;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--gray-300);
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            font-size: 0.9rem;
+        }
+        
+        .timeline-title {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .timeline-desc {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+        }
+        
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text {
+            color: var(--gray-500);
+        }
+        
+        .contact-text strong {
+            display: block;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            color: var(--gray-800);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--dark);
+            background: var(--gray-100);
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: var(--space-lg) 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--space-md);
+            display: inline-block;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+        
+        .footer-link {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-social a {
+            color: var(--gray-400);
+            font-size: 1.25rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-dot {
+                left: 30px !important;
+                right: auto !important;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 120px var(--space-lg) var(--space-lg);
+                transition: all 0.4s ease;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+                gap: var(--space-lg);
+                align-items: flex-start;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .timeline-content {
+                padding: var(--space-sm);
+            }
+            
+            .expertise-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo"><span>Wisee.fr</span></a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#about">À propos</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#projects">Projets</a>
+                <a href="#experience">Expérience</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Abdelhakim Irbah</h1>
+                <p class="hero-subtitle">Développeur Full Stack & DevOps Freelance | Expert en solutions web innovantes</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-outline">Me contacter</a>
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+    
+    <!-- À propos Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>À propos</h2>
+                <p>15+ ans d'expérience en conception et développement de solutions web innovantes</p>
+            </div>
+            <div class="row">
+                <p>Bienvenue sur Wisee.fr ! Je suis Abdelhakim Irbah, un développeur full stack et DevOps freelance basé à Paris. Je collabore avec des entreprises de toutes tailles pour créer des applications web robustes, évolutives et centrées sur l'utilisateur.</p>
+                <p>Mon approche combine <strong>expertise technique</strong>, <strong>rigueur méthodologique</strong> et <strong>focus sur les objectifs business</strong>. Je suis passionné par les technologies web modernes et j'applique les meilleures pratiques de développement pour garantir des solutions de haute qualité.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Expertise Section -->
+    <section id="expertise" class="alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mon expertise</h2>
+                <p>Des compétences diverses pour répondre à tous vos besoins de développement</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card fade-in">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Développement Web Full Stack</h3>
+                    <p>Conception et développement d'applications web complètes avec les technologies modernes (React, Angular, Vue.js, Node.js, PHP). Architecture logicielle robuste et évolutive.</p>
+                </div>
+                <div class="expertise-card fade-in">
+                    <div class="icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>DevOps & Cloud</h3>
+                    <p>Mise en place de pipelines CI/CD, déploiement et gestion d'infrastructures sur AWS, Azure et Google Cloud. Containerisation avec Docker et orchestration avec Kubernetes.</p>
+                </div>
+                <div class="expertise-card fade-in">
+                    <div class="icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Architecture Microservices</h3>
+                    <p>Conception et implémentation d'architectures microservices évolutives et résilientes. API RESTful et communication asynchrone entre services.</p>
+                </div>
+                <div class="expertise-card fade-in">
+                    <div class="icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Agilité & Gestion de projet</h3>
+                    <p>Animation d'équipes agiles, mise en place de Scrum et Kanban. Planification de sprints et suivi continu pour garantir la livraison dans les délais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projets Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Projets réalisés</h2>
+                <p>Découvrez quelques-unes de mes réalisations récentes</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <img src="/api/placeholder/400/320" alt="Transformation digitale BNP Paribas" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Transformation digitale BNP Paribas</h3>
+                        <p class="project-desc">Architecture et développement de microservices pour la modernisation des systèmes bancaires.</p>
+                        <div class="project-tags">
+                            <span class="tag primary">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag secondary">Microservices</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag accent">Docker</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <div class="project-overlay-content">
+                            <h3 class="project-overlay-title">Transformation digitale BNP Paribas</h3>
+                            <p>Mise en place d'une infrastructure Cloud avec haute disponibilité et sécurité renforcée pour les données bancaires.</p>
+                            <a href="#" class="project-btn">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="/api/placeholder/400/320" alt="Plateforme e-commerce Orange" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Plateforme e-commerce Orange</h3>
+                        <p class="project-desc">Développement d'une solution e-commerce évolutive pour la vente d'abonnements et d'accessoires.</p>
+                        <div class="project-tags">
+                            <span class="tag primary">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag secondary">MongoDB</span>
+                            <span class="tag">Express</span>
+                            <span class="tag accent">Redis</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <div class="project-overlay-content">
+                            <h3 class="project-overlay-title">Plateforme e-commerce Orange</h3>
+                            <p>Intégration avec les systèmes de paiement et de CRM pour une expérience utilisateur fluide et sécurisée.</p>
+                            <a href="#" class="project-btn">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="/api/placeholder/400/320" alt="Système de gestion Carrefour" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Système de gestion Carrefour</h3>
+                        <p class="project-desc">Conception d'un système de gestion interne pour optimiser les opérations logistiques.</p>
+                        <div class="project-tags">
+                            <span class="tag primary">Angular</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag secondary">PostgreSQL</span>
+                            <span class="tag">Azure</span>
+                            <span class="tag accent">Kubernetes</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <div class="project-overlay-content">
+                            <h3 class="project-overlay-title">Système de gestion Carrefour</h3>
+                            <p>Gestion des stocks en temps réel et optimisation des flux logistiques pour améliorer l'efficacité opérationnelle.</p>
+                            <a href="#" class="project-btn">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Expérience Section -->
+    <section id="experience" class="alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Expérience professionnelle</h2>
+                <p>Mon parcours professionnel au service de vos projets</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018 - Présent</div>
+                        <h3 class="timeline-title">Freelance - Wisee.fr</h3>
+                        <p class="timeline-desc">Développement de solutions web sur mesure pour divers clients. Architecture de systèmes, développement full stack et conseil en transformation digitale.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2015 - 2018</div>
+                        <h3 class="timeline-title">Lead Developer - BNP Paribas</h3>
+                        <p class="timeline-desc">Direction technique d'une équipe de développeurs. Modernisation des applications legacy vers des architectures microservices.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2012 - 2015</div>
+                        <h3 class="timeline-title">Développeur Senior - Orange</h3>
+                        <p class="timeline-desc">Développement et maintenance d'applications web critiques. Mise en place de pratiques DevOps et d'intégration continue.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2008 - 2012</div>
+                        <h3 class="timeline-title">Développeur Web - Carrefour</h3>
+                        <p class="timeline-desc">Développement de solutions e-commerce et d'applications internes de gestion logistique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Me contacter</h2>
+                <p>Discutons de votre projet et explorons comment je peux vous aider</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            contact@wisee.fr
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Téléphone</strong>
+                            +33 6 XX XX XX XX
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Localisation</strong>
+                            Paris, France (Disponible en télétravail)
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/%F0%9F%92%BB-abdelhakim-irbah-296a0930/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <!-- Message de confirmation AVANT le formulaire -->
+                    <div id="form-message" style="display: none; margin-bottom: 20px;"></div>
+                    <script>
+                        // Vérifier le statut de l'envoi du formulaire
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const status = urlParams.get('status');
+                            const formMessage = document.getElementById('form-message');
+                            
+                            if (status === 'success') {
+                                formMessage.innerHTML = '<div style="padding: 15px; background-color: #d4edda; color: #155724; border-radius: 4px;">Votre message a été envoyé avec succès. Je vous répondrai dans les plus brefs délais.</div>';
+                                formMessage.style.display = 'block';
+                            } else if (status === 'error') {
+                                formMessage.innerHTML = '<div style="padding: 15px; background-color: #f8d7da; color: #721c24; border-radius: 4px;">Une erreur s\'est produite lors de l\'envoi du message. Veuillez réessayer ultérieurement.</div>';
+                                formMessage.style.display = 'block';
+                            }
+                        });
+                    </script>
+                    
+                    <form action="traitement-contact.php" method="POST">
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nom</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Sujet</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Wisee.fr</div>
+                <p>Solutions web innovantes et développement sur mesure</p>
+                
+                <div class="footer-links">
+                    <a href="#about" class="footer-link">À propos</a>
+                    <a href="#expertise" class="footer-link">Expertise</a>
+                    <a href="#projects" class="footer-link">Projets</a>
+                    <a href="#experience" class="footer-link">Expérience</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/%F0%9F%92%BB-abdelhakim-irbah-296a0930/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                
+                <p class="copyright">&copy; 2025 Wisee.fr | Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script>
+        // Navigation active state & scroll effect
+        const navbar = document.querySelector('.navbar');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+        
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Scroll effect for navbar
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Fade in elements when scrolled into view
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+            
+            // Update active nav link based on scroll position
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (current && item.getAttribute('href').includes(current)) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Trigger fade-in for elements in viewport on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
