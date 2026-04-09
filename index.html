@@ -986,6 +986,119 @@
             border-radius: 2px;
         }
 
+        /* ===================== LOGOS CLIENTS ===================== */
+        .clients-section {
+            padding: var(--space-xl) 0;
+            background: white;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .clients-section .section-header {
+            margin-bottom: var(--space-lg);
+        }
+
+        .clients-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-lg) var(--space-xl);
+        }
+
+        .client-logo {
+            height: 36px;
+            width: auto;
+            filter: grayscale(100%) opacity(0.5);
+            transition: all 0.4s ease;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        .client-logo.logo-sm {
+            height: 28px;
+        }
+
+        .client-logo.logo-lg {
+            height: 44px;
+        }
+
+        /* ===================== CERTIFICATIONS BADGES ===================== */
+        .cert-badges {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .cert-badge:hover {
+            border-color: var(--primary);
+            box-shadow: var(--card-shadow);
+        }
+
+        .cert-badge img {
+            height: 28px;
+            width: auto;
+        }
+
+        .cert-badge span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* ===================== TOOLS LOGOS ===================== */
+        .tools-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+            align-items: center;
+        }
+
+        .tool-logo {
+            height: 24px;
+            width: auto;
+            filter: grayscale(100%) opacity(0.6);
+            transition: all 0.3s ease;
+        }
+
+        .tool-logo:hover {
+            filter: grayscale(0%) opacity(1);
+        }
+
+        @media (max-width: 768px) {
+            .clients-logos {
+                gap: var(--space-md) var(--space-lg);
+            }
+
+            .client-logo {
+                height: 28px;
+            }
+
+            .client-logo.logo-lg {
+                height: 34px;
+            }
+
+            .cert-badges {
+                flex-direction: column;
+            }
+        }
+
         /* ===================== ANIMATIONS ===================== */
         .fade-in {
             opacity: 0;
@@ -1176,6 +1289,26 @@
         </div>
     </div>
 
+    <!-- Logos Clients -->
+    <div class="clients-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ils m'ont fait confiance</h2>
+            </div>
+            <div class="clients-logos fade-in">
+                <img src="img/bouygues-telecom.svg" alt="Bouygues Telecom" class="client-logo">
+                <img src="img/engie.svg" alt="Engie" class="client-logo">
+                <img src="img/stellantis.svg" alt="Stellantis (PSA)" class="client-logo">
+                <img src="img/kering.svg" alt="Kering" class="client-logo logo-sm">
+                <img src="img/airfranceklm.svg" alt="Air France KLM" class="client-logo">
+                <img src="img/sncf.svg" alt="SNCF" class="client-logo">
+                <img src="img/veolia.svg" alt="Veolia" class="client-logo">
+                <img src="img/capgemini.svg" alt="Capgemini" class="client-logo">
+                <img src="img/tcs.svg" alt="Touring Club Suisse" class="client-logo logo-sm">
+            </div>
+        </div>
+    </div>
+
     <!-- A propos Section -->
     <section id="about">
         <div class="container">
@@ -1187,6 +1320,20 @@
                 <div class="about-text">
                     <p>Je suis Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> et <strong>Architecte Technique</strong> base a Paris. Depuis plus de 10 ans, j'accompagne les grands comptes (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) dans leurs projets Salesforce, de l'architecture a la mise en production.</p>
                     <p>Certifie <strong>Platform Developer I</strong> et <strong>Administrator</strong>, je maitrise l'ensemble de l'ecosysteme Salesforce : Sales Cloud, Service Cloud, Community Cloud, Vlocity. Mon expertise en <strong>Release Management</strong> avec Copado et en integration SI me permet de garantir des deployments fiables et continus sur des organisations complexes.</p>
+                    <div class="cert-badges">
+                        <div class="cert-badge">
+                            <img src="img/salesforce.svg" alt="Salesforce">
+                            <span>Platform Developer I</span>
+                        </div>
+                        <div class="cert-badge">
+                            <img src="img/salesforce.svg" alt="Salesforce">
+                            <span>Administrator</span>
+                        </div>
+                        <div class="cert-badge">
+                            <img src="img/copado.png" alt="Copado">
+                            <span>Expert Copado</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-highlights">
                     <div class="about-highlight-item">
