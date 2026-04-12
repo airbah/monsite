@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wisee.fr | Abdelhakim Irbah - Développeur Freelance</title>
+    <title>Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -225,6 +225,41 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 1001;
+        }
+
+        /* ===================== LANG TOGGLE ===================== */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            flex-shrink: 0;
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: none;
+            padding: 0.4rem 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            color: var(--gray-500);
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle button.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .lang-toggle button:hover:not(.active) {
+            color: var(--dark);
         }
 
         /* ===================== BOUTONS ===================== */
@@ -1200,6 +1235,12 @@
             .about-highlights {
                 grid-template-columns: 1fr;
             }
+
+            .lang-toggle {
+                position: absolute;
+                top: var(--space-sm);
+                right: 60px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1235,11 +1276,15 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links">
-                <a href="#about">A propos</a>
-                <a href="#expertise">Expertise</a>
-                <a href="#projects">Missions</a>
-                <a href="#experience">Parcours</a>
-                <a href="#contact">Contact</a>
+                <a href="#about" data-i18n="nav.about">A propos</a>
+                <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+                <a href="#projects" data-i18n="nav.missions">Missions</a>
+                <a href="#experience" data-i18n="nav.parcours">Parcours</a>
+                <a href="#contact" data-i18n="nav.contact">Contact</a>
+                <div class="lang-toggle">
+                    <button class="active" data-lang="fr">FR</button>
+                    <button data-lang="en">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -1250,13 +1295,13 @@
             <div class="hero-content">
                 <div class="hero-badge" style="border-color: rgba(239, 68, 68, 0.3);">
                     <span class="dot" style="background: #ef4444; animation: none;"></span>
-                    En mission - Non disponible actuellement
+                    <span data-i18n="hero.badge">En mission - Non disponible actuellement</span>
                 </div>
                 <h1 class="hero-title">Abdelhakim Irbah</h1>
-                <p class="hero-subtitle"><span class="highlight">Salesforce Release Manager</span> &amp; Architecte Technique. Certifie Platform Developer I &amp; Administrator. +10 ans d'expertise Salesforce au service des grands comptes.</p>
+                <p class="hero-subtitle" data-i18n-html="hero.subtitle"><span class="highlight">Salesforce Release Manager</span> &amp; Architecte Technique. Certifie Platform Developer I &amp; Administrator. +10 ans d'expertise Salesforce au service des grands comptes.</p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">Voir mes missions</a>
-                    <a href="#contact" class="btn btn-outline">Me contacter</a>
+                    <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Voir mes missions</a>
+                    <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Me contacter</a>
                 </div>
             </div>
         </div>
@@ -1271,19 +1316,19 @@
             <div class="stats-grid">
                 <div class="stat-item fade-in">
                     <div class="stat-number">10+</div>
-                    <div class="stat-label">Annees sur Salesforce</div>
+                    <div class="stat-label" data-i18n="stats.years">Annees sur Salesforce</div>
                 </div>
                 <div class="stat-item fade-in">
                     <div class="stat-number">15+</div>
-                    <div class="stat-label">Missions grands comptes</div>
+                    <div class="stat-label" data-i18n="stats.missions">Missions grands comptes</div>
                 </div>
                 <div class="stat-item fade-in">
                     <div class="stat-number">2</div>
-                    <div class="stat-label">Certifications Salesforce</div>
+                    <div class="stat-label" data-i18n="stats.certs">Certifications Salesforce</div>
                 </div>
                 <div class="stat-item fade-in">
                     <div class="stat-number">15k+</div>
-                    <div class="stat-label">Utilisateurs geres</div>
+                    <div class="stat-label" data-i18n="stats.users">Utilisateurs geres</div>
                 </div>
             </div>
         </div>
@@ -1293,7 +1338,7 @@
     <div class="clients-section">
         <div class="container">
             <div class="section-header">
-                <h2>Ils m'ont fait confiance</h2>
+                <h2 data-i18n="clients.title">Ils m'ont fait confiance</h2>
             </div>
             <div class="clients-logos fade-in">
                 <img src="img/bouygues-telecom.svg" alt="Bouygues Telecom" class="client-logo">
@@ -1313,13 +1358,13 @@
     <section id="about">
         <div class="container">
             <div class="section-header">
-                <h2>A propos</h2>
-                <p>Expert Salesforce certifie, specialise en Release Management et Architecture Technique</p>
+                <h2 data-i18n="about.title">A propos</h2>
+                <p data-i18n="about.subtitle">Expert Salesforce certifie, specialise en Release Management et Architecture Technique</p>
             </div>
             <div class="about-grid fade-in">
                 <div class="about-text">
-                    <p>Je suis Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> et <strong>Architecte Technique</strong> base a Paris. Depuis plus de 10 ans, j'accompagne les grands comptes (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) dans leurs projets Salesforce, de l'architecture a la mise en production.</p>
-                    <p>Certifie <strong>Platform Developer I</strong> et <strong>Administrator</strong>, je maitrise l'ensemble de l'ecosysteme Salesforce : Sales Cloud, Service Cloud, Community Cloud, Vlocity. Mon expertise en <strong>Release Management</strong> avec Copado et en integration SI me permet de garantir des deployments fiables et continus sur des organisations complexes.</p>
+                    <p data-i18n-html="about.p1">Je suis Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> et <strong>Architecte Technique</strong> base a Paris. Depuis plus de 10 ans, j'accompagne les grands comptes (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) dans leurs projets Salesforce, de l'architecture a la mise en production.</p>
+                    <p data-i18n-html="about.p2">Certifie <strong>Platform Developer I</strong> et <strong>Administrator</strong>, je maitrise l'ensemble de l'ecosysteme Salesforce : Sales Cloud, Service Cloud, Community Cloud, Vlocity. Mon expertise en <strong>Release Management</strong> avec Copado et en integration SI me permet de garantir des deployments fiables et continus sur des organisations complexes.</p>
                     <div class="cert-badges">
                         <div class="cert-badge">
                             <img src="img/salesforce.svg" alt="Salesforce">
@@ -1331,14 +1376,14 @@
                         </div>
                         <div class="cert-badge">
                             <img src="img/copado.png" alt="Copado">
-                            <span>Expert Copado</span>
+                            <span data-i18n="about.cert.copado">Expert Copado</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-highlights">
                     <div class="about-highlight-item">
                         <i class="fab fa-salesforce"></i>
-                        <h4>Certifie Salesforce</h4>
+                        <h4 data-i18n="about.h1">Certifie Salesforce</h4>
                         <p>Platform Developer I &amp; Administrator</p>
                     </div>
                     <div class="about-highlight-item">
@@ -1348,13 +1393,13 @@
                     </div>
                     <div class="about-highlight-item">
                         <i class="fas fa-project-diagram"></i>
-                        <h4>Architecture SI</h4>
-                        <p>Integration multi-cloud &amp; APIs</p>
+                        <h4 data-i18n="about.h3">Architecture SI</h4>
+                        <p data-i18n="about.h3.desc">Integration multi-cloud &amp; APIs</p>
                     </div>
                     <div class="about-highlight-item">
                         <i class="fas fa-users-cog"></i>
-                        <h4>Leadership technique</h4>
-                        <p>Pilotage d'equipes jusqu'a 15 personnes</p>
+                        <h4 data-i18n="about.h4">Leadership technique</h4>
+                        <p data-i18n="about.h4.desc">Pilotage d'equipes jusqu'a 15 personnes</p>
                     </div>
                 </div>
             </div>
@@ -1365,8 +1410,8 @@
     <section id="expertise" class="alt">
         <div class="container">
             <div class="section-header">
-                <h2>Mon expertise</h2>
-                <p>Un savoir-faire complet sur l'ecosysteme Salesforce et son integration</p>
+                <h2 data-i18n="expertise.title">Mon expertise</h2>
+                <p data-i18n="expertise.subtitle">Un savoir-faire complet sur l'ecosysteme Salesforce et son integration</p>
             </div>
             <div class="expertise-grid">
                 <div class="expertise-card fade-in">
@@ -1374,28 +1419,28 @@
                         <i class="fas fa-code-branch"></i>
                     </div>
                     <h3>Release Management</h3>
-                    <p>Mise en place et gestion de pipelines de deploiement avec Copado. Integration Gitlab, Quality Gates, gestion des environnements et des mises en production sur des organisations partagees.</p>
+                    <p data-i18n="expertise.card1.desc">Mise en place et gestion de pipelines de deploiement avec Copado. Integration Gitlab, Quality Gates, gestion des environnements et des mises en production sur des organisations partagees.</p>
                 </div>
                 <div class="expertise-card fade-in">
                     <div class="icon">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
-                    <h3>Architecture Technique Salesforce</h3>
-                    <p>Design de solutions multi-cloud (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Integration avec les SI existants via APIs REST, Talend, Informatica et Boomi.</p>
+                    <h3 data-i18n="expertise.card2.title">Architecture Technique Salesforce</h3>
+                    <p data-i18n="expertise.card2.desc">Design de solutions multi-cloud (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Integration avec les SI existants via APIs REST, Talend, Informatica et Boomi.</p>
                 </div>
                 <div class="expertise-card fade-in">
                     <div class="icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Developpement Salesforce</h3>
-                    <p>Developpement Apex, Visualforce, Composants Lightning et ReactJS. Webservices REST, parametrage avance, regles de validation et workflows complexes.</p>
+                    <h3 data-i18n="expertise.card3.title">Developpement Salesforce</h3>
+                    <p data-i18n="expertise.card3.desc">Developpement Apex, Visualforce, Composants Lightning et ReactJS. Webservices REST, parametrage avance, regles de validation et workflows complexes.</p>
                 </div>
                 <div class="expertise-card fade-in">
                     <div class="icon">
                         <i class="fas fa-users-cog"></i>
                     </div>
-                    <h3>Conseil &amp; Pilotage</h3>
-                    <p>Animation d'equipes techniques (jusqu'a 15 consultants). Specifications techniques, design de solutions, definition des bonnes pratiques de developpement et conseil client.</p>
+                    <h3 data-i18n="expertise.card4.title">Conseil &amp; Pilotage</h3>
+                    <p data-i18n="expertise.card4.desc">Animation d'equipes techniques (jusqu'a 15 consultants). Specifications techniques, design de solutions, definition des bonnes pratiques de developpement et conseil client.</p>
                 </div>
             </div>
         </div>
@@ -1405,8 +1450,8 @@
     <section id="projects">
         <div class="container">
             <div class="section-header">
-                <h2>Missions realisees</h2>
-                <p>Quelques missions significatives aupres de grands comptes</p>
+                <h2 data-i18n="projects.title">Missions realisees</h2>
+                <p data-i18n="projects.subtitle">Quelques missions significatives aupres de grands comptes</p>
             </div>
             <div class="projects-grid">
                 <div class="project-card fade-in">
@@ -1416,7 +1461,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Bouygues Telecom</h3>
-                        <p class="project-desc">Release Manager Salesforce. Mise en place et gestion du Release Management sur les projets SalesCloud et Vlocity. Implementation de Copado avec pipeline complexe.</p>
+                        <p class="project-desc" data-i18n="project.bouygues.desc">Release Manager Salesforce. Mise en place et gestion du Release Management sur les projets SalesCloud et Vlocity. Implementation de Copado avec pipeline complexe.</p>
                         <div class="project-tags">
                             <span class="tag primary">Copado</span>
                             <span class="tag">SalesCloud</span>
@@ -1434,10 +1479,10 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Engie</h3>
-                        <p class="project-desc">Architecte Technique &amp; Release Manager. Strategie de release management unifiee pour 26 developpeurs sur 3 projets partageant la meme Org Salesforce.</p>
+                        <p class="project-desc" data-i18n="project.engie.desc">Architecte Technique &amp; Release Manager. Strategie de release management unifiee pour 26 developpeurs sur 3 projets partageant la meme Org Salesforce.</p>
                         <div class="project-tags">
                             <span class="tag primary">Copado</span>
-                            <span class="tag">Multi-projets</span>
+                            <span class="tag" data-i18n="tag.multiprojects">Multi-projets</span>
                             <span class="tag secondary">Architecture</span>
                             <span class="tag accent">26 devs</span>
                         </div>
@@ -1451,7 +1496,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">PSA (Stellantis)</h3>
-                        <p class="project-desc">Architecte Technique Salesforce chez IBM Bluewolf. Plateforme de souscription de services connectes pour les vehicules des marques du Groupe PSA.</p>
+                        <p class="project-desc" data-i18n="project.psa.desc">Architecte Technique Salesforce chez IBM Bluewolf. Plateforme de souscription de services connectes pour les vehicules des marques du Groupe PSA.</p>
                         <div class="project-tags">
                             <span class="tag primary">Community Cloud</span>
                             <span class="tag">Drupal</span>
@@ -1468,11 +1513,11 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Air France KLM</h3>
-                        <p class="project-desc">Responsable Technique Salesforce chez Capgemini. Projet international Sales Cloud (2000 licences) avec integration via Informatica. Animation d'ateliers techniques.</p>
+                        <p class="project-desc" data-i18n="project.airfrance.desc">Responsable Technique Salesforce chez Capgemini. Projet international Sales Cloud (2000 licences) avec integration via Informatica. Animation d'ateliers techniques.</p>
                         <div class="project-tags">
                             <span class="tag primary">Sales Cloud</span>
                             <span class="tag">Informatica</span>
-                            <span class="tag secondary">2000 licences</span>
+                            <span class="tag secondary" data-i18n="tag.2000licenses">2000 licences</span>
                             <span class="tag accent">International</span>
                         </div>
                     </div>
@@ -1485,7 +1530,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">SNCF</h3>
-                        <p class="project-desc">Responsable Technique &amp; Architecte Salesforce chez Capgemini. Integration de la Console Service Cloud dans le SI SNCF pour 11 000 utilisateurs.</p>
+                        <p class="project-desc" data-i18n="project.sncf.desc">Responsable Technique &amp; Architecte Salesforce chez Capgemini. Integration de la Console Service Cloud dans le SI SNCF pour 11 000 utilisateurs.</p>
                         <div class="project-tags">
                             <span class="tag primary">Service Cloud</span>
                             <span class="tag">Console</span>
@@ -1502,7 +1547,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Touring Club Suisse</h3>
-                        <p class="project-desc">Responsable d'une equipe de 15 consultants techniques. Integration multi-cloud Service Cloud avec Zuora et Cameleon Cloud CPQ pour 1700 utilisateurs.</p>
+                        <p class="project-desc" data-i18n="project.tcs.desc">Responsable d'une equipe de 15 consultants techniques. Integration multi-cloud Service Cloud avec Zuora et Cameleon Cloud CPQ pour 1700 utilisateurs.</p>
                         <div class="project-tags">
                             <span class="tag primary">Service Cloud</span>
                             <span class="tag">Zuora</span>
@@ -1520,16 +1565,16 @@
     <section id="experience" class="alt">
         <div class="container">
             <div class="section-header">
-                <h2>Parcours professionnel</h2>
-                <p>Plus de 15 ans d'experience dans l'IT dont 10+ ans sur l'ecosysteme Salesforce</p>
+                <h2 data-i18n="experience.title">Parcours professionnel</h2>
+                <p data-i18n="experience.subtitle">Plus de 15 ans d'experience dans l'IT dont 10+ ans sur l'ecosysteme Salesforce</p>
             </div>
             <div class="timeline">
                 <div class="timeline-item fade-in">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">2021 - Present</div>
-                        <h3 class="timeline-title">Release Manager - Bouygues Telecom</h3>
-                        <p class="timeline-desc">Mise en place et gestion du Release Management Salesforce (SalesCloud, Vlocity). Implementation de Copado avec pipeline complexe et integration Gitlab.</p>
+                        <div class="timeline-date" data-i18n="exp.bouygues.date">2021 - Present</div>
+                        <h3 class="timeline-title" data-i18n="exp.bouygues.title">Release Manager - Bouygues Telecom</h3>
+                        <p class="timeline-desc" data-i18n="exp.bouygues.desc">Mise en place et gestion du Release Management Salesforce (SalesCloud, Vlocity). Implementation de Copado avec pipeline complexe et integration Gitlab.</p>
                     </div>
                 </div>
 
@@ -1537,8 +1582,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2019 - 2021</div>
-                        <h3 class="timeline-title">Architecte Technique &amp; Release Manager - Engie</h3>
-                        <p class="timeline-desc">Strategie de release management unifiee sur les projets Salesforce de la DGP Engie. Coordination de 26 developpeurs sur 3 projets (Talan/Manao).</p>
+                        <h3 class="timeline-title" data-i18n="exp.engie.title">Architecte Technique &amp; Release Manager - Engie</h3>
+                        <p class="timeline-desc" data-i18n="exp.engie.desc">Strategie de release management unifiee sur les projets Salesforce de la DGP Engie. Coordination de 26 developpeurs sur 3 projets (Talan/Manao).</p>
                     </div>
                 </div>
 
@@ -1546,8 +1591,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2018 - 2019</div>
-                        <h3 class="timeline-title">Architecte Technique Salesforce - PSA (IBM Bluewolf)</h3>
-                        <p class="timeline-desc">Plateforme de souscription de services connectes pour les vehicules du Groupe PSA. Community Cloud, Drupal, AWS.</p>
+                        <h3 class="timeline-title" data-i18n="exp.psa.title">Architecte Technique Salesforce - PSA (IBM Bluewolf)</h3>
+                        <p class="timeline-desc" data-i18n="exp.psa.desc">Plateforme de souscription de services connectes pour les vehicules du Groupe PSA. Community Cloud, Drupal, AWS.</p>
                     </div>
                 </div>
 
@@ -1555,8 +1600,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2016 - 2018</div>
-                        <h3 class="timeline-title">Expert Salesforce Freelance</h3>
-                        <p class="timeline-desc">Missions pour Kering (Capgemini), Chronopost, Criteo et ETS Global. Architecture, developpement Apex/Lightning et conseil technique.</p>
+                        <h3 class="timeline-title" data-i18n="exp.freelance.title">Expert Salesforce Freelance</h3>
+                        <p class="timeline-desc" data-i18n="exp.freelance.desc">Missions pour Kering (Capgemini), Chronopost, Criteo et ETS Global. Architecture, developpement Apex/Lightning et conseil technique.</p>
                     </div>
                 </div>
 
@@ -1564,8 +1609,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2011 - 2016</div>
-                        <h3 class="timeline-title">Responsable Technique Salesforce - Capgemini</h3>
-                        <p class="timeline-desc">Missions pour Touring Club Suisse, Air France KLM, SNCF, Veolia et Sodexo. Management d'equipes jusqu'a 15 consultants. Projets internationaux.</p>
+                        <h3 class="timeline-title" data-i18n="exp.capgemini.title">Responsable Technique Salesforce - Capgemini</h3>
+                        <p class="timeline-desc" data-i18n="exp.capgemini.desc">Missions pour Touring Club Suisse, Air France KLM, SNCF, Veolia et Sodexo. Management d'equipes jusqu'a 15 consultants. Projets internationaux.</p>
                     </div>
                 </div>
 
@@ -1573,8 +1618,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2006 - 2011</div>
-                        <h3 class="timeline-title">Formation &amp; Debut de carriere</h3>
-                        <p class="timeline-desc">Master 2 MIAGE/SIC (IAE Paris &amp; Paris 1 Pantheon-Sorbonne). Missions chez AXA France, LCL et SOFIDEEC en coordination de projets et ingenierie.</p>
+                        <h3 class="timeline-title" data-i18n="exp.formation.title">Formation &amp; Debut de carriere</h3>
+                        <p class="timeline-desc" data-i18n="exp.formation.desc">Master 2 MIAGE/SIC (IAE Paris &amp; Paris 1 Pantheon-Sorbonne). Missions chez AXA France, LCL et SOFIDEEC en coordination de projets et ingenierie.</p>
                     </div>
                 </div>
             </div>
@@ -1585,12 +1630,12 @@
     <section id="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Me contacter</h2>
-                <p>Besoin d'un expert Salesforce ? Discutons de votre projet</p>
+                <h2 data-i18n="contact.title">Me contacter</h2>
+                <p data-i18n="contact.subtitle">Besoin d'un expert Salesforce ? Discutons de votre projet</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info fade-in">
-                    <p class="contact-intro">Vous cherchez un Release Manager Salesforce ou un Architecte Technique pour votre projet ? N'hesitez pas a me contacter pour en discuter.</p>
+                    <p class="contact-intro" data-i18n="contact.intro">Vous cherchez un Release Manager Salesforce ou un Architecte Technique pour votre projet ? N'hesitez pas a me contacter pour en discuter.</p>
 
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -1607,7 +1652,7 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-text">
-                            <strong>Telephone</strong>
+                            <strong data-i18n="contact.phone">Telephone</strong>
                             06 20 10 45 53
                         </div>
                     </div>
@@ -1617,8 +1662,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-text">
-                            <strong>Localisation</strong>
-                            Paris, France (Disponible en teletravail)
+                            <strong data-i18n="contact.location">Localisation</strong>
+                            <span data-i18n="contact.location.desc">Paris, France (Disponible en teletravail)</span>
                         </div>
                     </div>
 
@@ -1648,26 +1693,26 @@
 
                     <form action="traitement-contact.php" method="POST">
                         <div class="form-group">
-                            <label for="name" class="form-label">Nom</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom" required>
+                            <label for="name" class="form-label" data-i18n="form.name">Nom</label>
+                            <input type="text" id="name" name="name" class="form-control" data-i18n-placeholder="form.name.ph" placeholder="Votre nom" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="votre@email.com" required>
+                            <input type="email" id="email" name="email" class="form-control" data-i18n-placeholder="form.email.ph" placeholder="votre@email.com" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="subject" class="form-label">Sujet</label>
-                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Sujet de votre message" required>
+                            <label for="subject" class="form-label" data-i18n="form.subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" class="form-control" data-i18n-placeholder="form.subject.ph" placeholder="Sujet de votre message" required>
                         </div>
 
                         <div class="form-group">
                             <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-control" placeholder="Decrivez votre besoin..." required></textarea>
+                            <textarea id="message" name="message" class="form-control" data-i18n-placeholder="form.message.ph" placeholder="Decrivez votre besoin..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        <button type="submit" class="btn btn-primary" data-i18n="form.submit">Envoyer le message</button>
                     </form>
                 </div>
             </div>
@@ -1679,16 +1724,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Wisee.fr</div>
-                <p>Expert Salesforce - Release Management &amp; Architecture Technique</p>
+                <p data-i18n="footer.tagline">Expert Salesforce - Release Management &amp; Architecture Technique</p>
 
                 <div class="footer-divider"></div>
 
                 <div class="footer-links">
-                    <a href="#about" class="footer-link">A propos</a>
-                    <a href="#expertise" class="footer-link">Expertise</a>
-                    <a href="#projects" class="footer-link">Missions</a>
-                    <a href="#experience" class="footer-link">Parcours</a>
-                    <a href="#contact" class="footer-link">Contact</a>
+                    <a href="#about" class="footer-link" data-i18n="nav.about">A propos</a>
+                    <a href="#expertise" class="footer-link" data-i18n="nav.expertise">Expertise</a>
+                    <a href="#projects" class="footer-link" data-i18n="nav.missions">Missions</a>
+                    <a href="#experience" class="footer-link" data-i18n="nav.parcours">Parcours</a>
+                    <a href="#contact" class="footer-link" data-i18n="nav.contact">Contact</a>
                 </div>
 
                 <div class="footer-social">
@@ -1704,6 +1749,211 @@
 
     <!-- Scripts -->
     <script>
+        // ===================== TRANSLATIONS =====================
+        const translations = {
+            fr: {
+                'nav.about': 'A propos',
+                'nav.expertise': 'Expertise',
+                'nav.missions': 'Missions',
+                'nav.parcours': 'Parcours',
+                'nav.contact': 'Contact',
+                'hero.badge': 'En mission - Non disponible actuellement',
+                'hero.subtitle': '<span class="highlight">Salesforce Release Manager</span> &amp; Architecte Technique. Certifie Platform Developer I &amp; Administrator. +10 ans d\'expertise Salesforce au service des grands comptes.',
+                'hero.cta1': 'Voir mes missions',
+                'hero.cta2': 'Me contacter',
+                'stats.years': 'Annees sur Salesforce',
+                'stats.missions': 'Missions grands comptes',
+                'stats.certs': 'Certifications Salesforce',
+                'stats.users': 'Utilisateurs geres',
+                'clients.title': 'Ils m\'ont fait confiance',
+                'about.title': 'A propos',
+                'about.subtitle': 'Expert Salesforce certifie, specialise en Release Management et Architecture Technique',
+                'about.p1': 'Je suis Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> et <strong>Architecte Technique</strong> base a Paris. Depuis plus de 10 ans, j\'accompagne les grands comptes (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) dans leurs projets Salesforce, de l\'architecture a la mise en production.',
+                'about.p2': 'Certifie <strong>Platform Developer I</strong> et <strong>Administrator</strong>, je maitrise l\'ensemble de l\'ecosysteme Salesforce : Sales Cloud, Service Cloud, Community Cloud, Vlocity. Mon expertise en <strong>Release Management</strong> avec Copado et en integration SI me permet de garantir des deployments fiables et continus sur des organisations complexes.',
+                'about.cert.copado': 'Expert Copado',
+                'about.h1': 'Certifie Salesforce',
+                'about.h3': 'Architecture SI',
+                'about.h3.desc': 'Integration multi-cloud &amp; APIs',
+                'about.h4': 'Leadership technique',
+                'about.h4.desc': 'Pilotage d\'equipes jusqu\'a 15 personnes',
+                'expertise.title': 'Mon expertise',
+                'expertise.subtitle': 'Un savoir-faire complet sur l\'ecosysteme Salesforce et son integration',
+                'expertise.card1.desc': 'Mise en place et gestion de pipelines de deploiement avec Copado. Integration Gitlab, Quality Gates, gestion des environnements et des mises en production sur des organisations partagees.',
+                'expertise.card2.title': 'Architecture Technique Salesforce',
+                'expertise.card2.desc': 'Design de solutions multi-cloud (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Integration avec les SI existants via APIs REST, Talend, Informatica et Boomi.',
+                'expertise.card3.title': 'Developpement Salesforce',
+                'expertise.card3.desc': 'Developpement Apex, Visualforce, Composants Lightning et ReactJS. Webservices REST, parametrage avance, regles de validation et workflows complexes.',
+                'expertise.card4.title': 'Conseil &amp; Pilotage',
+                'expertise.card4.desc': 'Animation d\'equipes techniques (jusqu\'a 15 consultants). Specifications techniques, design de solutions, definition des bonnes pratiques de developpement et conseil client.',
+                'projects.title': 'Missions realisees',
+                'projects.subtitle': 'Quelques missions significatives aupres de grands comptes',
+                'project.bouygues.desc': 'Release Manager Salesforce. Mise en place et gestion du Release Management sur les projets SalesCloud et Vlocity. Implementation de Copado avec pipeline complexe.',
+                'project.engie.desc': 'Architecte Technique &amp; Release Manager. Strategie de release management unifiee pour 26 developpeurs sur 3 projets partageant la meme Org Salesforce.',
+                'project.psa.desc': 'Architecte Technique Salesforce chez IBM Bluewolf. Plateforme de souscription de services connectes pour les vehicules des marques du Groupe PSA.',
+                'project.airfrance.desc': 'Responsable Technique Salesforce chez Capgemini. Projet international Sales Cloud (2000 licences) avec integration via Informatica. Animation d\'ateliers techniques.',
+                'project.sncf.desc': 'Responsable Technique &amp; Architecte Salesforce chez Capgemini. Integration de la Console Service Cloud dans le SI SNCF pour 11 000 utilisateurs.',
+                'project.tcs.desc': 'Responsable d\'une equipe de 15 consultants techniques. Integration multi-cloud Service Cloud avec Zuora et Cameleon Cloud CPQ pour 1700 utilisateurs.',
+                'tag.multiprojects': 'Multi-projets',
+                'tag.2000licenses': '2000 licences',
+                'experience.title': 'Parcours professionnel',
+                'experience.subtitle': 'Plus de 15 ans d\'experience dans l\'IT dont 10+ ans sur l\'ecosysteme Salesforce',
+                'exp.bouygues.date': '2021 - Present',
+                'exp.bouygues.title': 'Release Manager - Bouygues Telecom',
+                'exp.bouygues.desc': 'Mise en place et gestion du Release Management Salesforce (SalesCloud, Vlocity). Implementation de Copado avec pipeline complexe et integration Gitlab.',
+                'exp.engie.title': 'Architecte Technique &amp; Release Manager - Engie',
+                'exp.engie.desc': 'Strategie de release management unifiee sur les projets Salesforce de la DGP Engie. Coordination de 26 developpeurs sur 3 projets (Talan/Manao).',
+                'exp.psa.title': 'Architecte Technique Salesforce - PSA (IBM Bluewolf)',
+                'exp.psa.desc': 'Plateforme de souscription de services connectes pour les vehicules du Groupe PSA. Community Cloud, Drupal, AWS.',
+                'exp.freelance.title': 'Expert Salesforce Freelance',
+                'exp.freelance.desc': 'Missions pour Kering (Capgemini), Chronopost, Criteo et ETS Global. Architecture, developpement Apex/Lightning et conseil technique.',
+                'exp.capgemini.title': 'Responsable Technique Salesforce - Capgemini',
+                'exp.capgemini.desc': 'Missions pour Touring Club Suisse, Air France KLM, SNCF, Veolia et Sodexo. Management d\'equipes jusqu\'a 15 consultants. Projets internationaux.',
+                'exp.formation.title': 'Formation &amp; Debut de carriere',
+                'exp.formation.desc': 'Master 2 MIAGE/SIC (IAE Paris &amp; Paris 1 Pantheon-Sorbonne). Missions chez AXA France, LCL et SOFIDEEC en coordination de projets et ingenierie.',
+                'contact.title': 'Me contacter',
+                'contact.subtitle': 'Besoin d\'un expert Salesforce ? Discutons de votre projet',
+                'contact.intro': 'Vous cherchez un Release Manager Salesforce ou un Architecte Technique pour votre projet ? N\'hesitez pas a me contacter pour en discuter.',
+                'contact.phone': 'Telephone',
+                'contact.location': 'Localisation',
+                'contact.location.desc': 'Paris, France (Disponible en teletravail)',
+                'form.name': 'Nom',
+                'form.name.ph': 'Votre nom',
+                'form.email.ph': 'votre@email.com',
+                'form.subject': 'Sujet',
+                'form.subject.ph': 'Sujet de votre message',
+                'form.message.ph': 'Decrivez votre besoin...',
+                'form.submit': 'Envoyer le message',
+                'footer.tagline': 'Expert Salesforce - Release Management &amp; Architecture Technique'
+            },
+            en: {
+                'nav.about': 'About',
+                'nav.expertise': 'Expertise',
+                'nav.missions': 'Projects',
+                'nav.parcours': 'Career',
+                'nav.contact': 'Contact',
+                'hero.badge': 'On assignment - Currently unavailable',
+                'hero.subtitle': '<span class="highlight">Salesforce Release Manager</span> &amp; Technical Architect. Certified Platform Developer I &amp; Administrator. 10+ years of Salesforce expertise serving enterprise clients.',
+                'hero.cta1': 'View my projects',
+                'hero.cta2': 'Contact me',
+                'stats.years': 'Years on Salesforce',
+                'stats.missions': 'Enterprise projects',
+                'stats.certs': 'Salesforce certifications',
+                'stats.users': 'Managed users',
+                'clients.title': 'They trusted me',
+                'about.title': 'About',
+                'about.subtitle': 'Certified Salesforce expert, specialized in Release Management and Technical Architecture',
+                'about.p1': 'I am Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> and <strong>Technical Architect</strong> based in Paris. For over 10 years, I have supported enterprise clients (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) in their Salesforce projects, from architecture to production deployment.',
+                'about.p2': 'Certified <strong>Platform Developer I</strong> and <strong>Administrator</strong>, I master the entire Salesforce ecosystem: Sales Cloud, Service Cloud, Community Cloud, Vlocity. My expertise in <strong>Release Management</strong> with Copado and SI integration enables me to deliver reliable and continuous deployments on complex organizations.',
+                'about.cert.copado': 'Copado Expert',
+                'about.h1': 'Salesforce Certified',
+                'about.h3': 'IT Architecture',
+                'about.h3.desc': 'Multi-cloud integration &amp; APIs',
+                'about.h4': 'Technical Leadership',
+                'about.h4.desc': 'Managing teams of up to 15 people',
+                'expertise.title': 'My expertise',
+                'expertise.subtitle': 'Comprehensive know-how on the Salesforce ecosystem and its integration',
+                'expertise.card1.desc': 'Setup and management of deployment pipelines with Copado. Gitlab integration, Quality Gates, environment management and production releases on shared organizations.',
+                'expertise.card2.title': 'Salesforce Technical Architecture',
+                'expertise.card2.desc': 'Multi-cloud solution design (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Integration with existing IT systems via REST APIs, Talend, Informatica and Boomi.',
+                'expertise.card3.title': 'Salesforce Development',
+                'expertise.card3.desc': 'Apex development, Visualforce, Lightning Components and ReactJS. REST Webservices, advanced configuration, validation rules and complex workflows.',
+                'expertise.card4.title': 'Consulting &amp; Management',
+                'expertise.card4.desc': 'Leading technical teams (up to 15 consultants). Technical specifications, solution design, development best practices and client advisory.',
+                'projects.title': 'Completed projects',
+                'projects.subtitle': 'Key enterprise projects with major corporations',
+                'project.bouygues.desc': 'Salesforce Release Manager. Setup and management of Release Management for SalesCloud and Vlocity projects. Copado implementation with complex pipeline.',
+                'project.engie.desc': 'Technical Architect &amp; Release Manager. Unified release management strategy for 26 developers across 3 projects sharing the same Salesforce Org.',
+                'project.psa.desc': 'Salesforce Technical Architect at IBM Bluewolf. Connected services subscription platform for PSA Group vehicle brands.',
+                'project.airfrance.desc': 'Salesforce Technical Lead at Capgemini. International Sales Cloud project (2,000 licenses) with Informatica integration. Technical workshop facilitation.',
+                'project.sncf.desc': 'Technical Lead &amp; Salesforce Architect at Capgemini. Service Cloud Console integration into SNCF IT system for 11,000 users.',
+                'project.tcs.desc': 'Leading a team of 15 technical consultants. Multi-cloud Service Cloud integration with Zuora and Cameleon Cloud CPQ for 1,700 users.',
+                'tag.multiprojects': 'Multi-project',
+                'tag.2000licenses': '2,000 licenses',
+                'experience.title': 'Career path',
+                'experience.subtitle': 'Over 15 years in IT including 10+ years on the Salesforce ecosystem',
+                'exp.bouygues.date': '2021 - Present',
+                'exp.bouygues.title': 'Release Manager - Bouygues Telecom',
+                'exp.bouygues.desc': 'Setup and management of Salesforce Release Management (SalesCloud, Vlocity). Copado implementation with complex pipeline and Gitlab integration.',
+                'exp.engie.title': 'Technical Architect &amp; Release Manager - Engie',
+                'exp.engie.desc': 'Unified release management strategy for Engie DGP Salesforce projects. Coordinating 26 developers across 3 projects (Talan/Manao).',
+                'exp.psa.title': 'Salesforce Technical Architect - PSA (IBM Bluewolf)',
+                'exp.psa.desc': 'Connected services subscription platform for PSA Group vehicles. Community Cloud, Drupal, AWS.',
+                'exp.freelance.title': 'Salesforce Expert - Freelance',
+                'exp.freelance.desc': 'Projects for Kering (Capgemini), Chronopost, Criteo and ETS Global. Architecture, Apex/Lightning development and technical consulting.',
+                'exp.capgemini.title': 'Salesforce Technical Lead - Capgemini',
+                'exp.capgemini.desc': 'Projects for Touring Club Suisse, Air France KLM, SNCF, Veolia and Sodexo. Managing teams of up to 15 consultants. International projects.',
+                'exp.formation.title': 'Education &amp; Early career',
+                'exp.formation.desc': 'Master\'s Degree MIAGE/SIC (IAE Paris &amp; Paris 1 Pantheon-Sorbonne). Assignments at AXA France, LCL and SOFIDEEC in project coordination and engineering.',
+                'contact.title': 'Contact me',
+                'contact.subtitle': 'Need a Salesforce expert? Let\'s discuss your project',
+                'contact.intro': 'Looking for a Salesforce Release Manager or Technical Architect for your project? Don\'t hesitate to get in touch.',
+                'contact.phone': 'Phone',
+                'contact.location': 'Location',
+                'contact.location.desc': 'Paris, France (Available for remote work)',
+                'form.name': 'Name',
+                'form.name.ph': 'Your name',
+                'form.email.ph': 'your@email.com',
+                'form.subject': 'Subject',
+                'form.subject.ph': 'Subject of your message',
+                'form.message.ph': 'Describe your needs...',
+                'form.submit': 'Send message',
+                'footer.tagline': 'Salesforce Expert - Release Management &amp; Technical Architecture'
+            }
+        };
+
+        // ===================== LANG SWITCH =====================
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+
+            // Update text content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update HTML content (elements with inner HTML like <strong>)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            // Update toggle buttons
+            document.querySelectorAll('.lang-toggle button').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            // Update page title
+            document.title = lang === 'fr'
+                ? 'Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager'
+                : 'Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager';
+
+            localStorage.setItem('lang', lang);
+        }
+
+        // Init language toggle
+        document.querySelectorAll('.lang-toggle button').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+        });
+
+        // Restore saved language
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang && savedLang !== 'fr') {
+            setLanguage(savedLang);
+        }
+
+        // ===================== NAVIGATION =====================
         const navbar = document.querySelector('.navbar');
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -1749,7 +1999,7 @@
 
             navItems.forEach(item => {
                 item.classList.remove('active');
-                if (current && item.getAttribute('href').includes(current)) {
+                if (current && item.getAttribute('href') && item.getAttribute('href').includes(current)) {
                     item.classList.add('active');
                 }
             });
