@@ -4,1279 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager</title>
+    <meta name="description" content="Abdelhakim Irbah - Salesforce Release Manager & Architecte Technique certifié. +10 ans d'expertise Salesforce, Release Management Copado, Architecture multi-cloud. Paris, France.">
+    <meta name="author" content="Abdelhakim Irbah">
+    <link rel="canonical" href="https://wisee.fr">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager">
+    <meta property="og:description" content="Abdelhakim Irbah - Salesforce Release Manager & Architecte Technique certifié. +10 ans d'expertise Salesforce, Release Management Copado, Architecture multi-cloud. Paris, France.">
+    <meta property="og:url" content="https://wisee.fr">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager">
+    <meta name="twitter:description" content="Abdelhakim Irbah - Salesforce Release Manager & Architecte Technique certifié. +10 ans d'expertise Salesforce, Release Management Copado, Architecture multi-cloud. Paris, France.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7c3aed;
-            --accent: #06b6d4;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-800: #1e293b;
-
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2.5rem;
-            --space-xl: 4rem;
-
-            --card-shadow:
-                0 1px 1px rgba(0, 0, 0, 0.02),
-                0 2px 4px rgba(0, 0, 0, 0.02),
-                0 4px 8px rgba(0, 0, 0, 0.03),
-                0 8px 16px rgba(0, 0, 0, 0.03);
-            --card-shadow-hover:
-                0 4px 8px rgba(0, 0, 0, 0.04),
-                0 8px 16px rgba(0, 0, 0, 0.06),
-                0 16px 32px rgba(0, 0, 0, 0.06),
-                0 32px 64px rgba(0, 0, 0, 0.04);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-        }
-
-        h2 {
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            margin-bottom: var(--space-md);
-            position: relative;
-            display: inline-block;
-            letter-spacing: -0.02em;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: clamp(1.25rem, 2vw, 1.5rem);
-            margin-bottom: var(--space-sm);
-            letter-spacing: -0.01em;
-        }
-
-        p {
-            margin-bottom: var(--space-md);
-            color: var(--gray-500);
-        }
-
-        strong {
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-sm);
-        }
-
-        section {
-            padding: var(--space-xl) 0;
-            position: relative;
-        }
-
-        section.alt {
-            background-color: var(--gray-100);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-xl);
-            position: relative;
-        }
-
-        .section-header h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-header p {
-            max-width: 600px;
-            margin: var(--space-sm) auto 0;
-            color: var(--gray-500);
-        }
-
-        /* ===================== NAVIGATION ===================== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(248, 250, 252, 0.85);
-            border-bottom: 1px solid transparent;
-        }
-
-        .navbar.scrolled {
-            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--space-sm) 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-            position: relative;
-            z-index: 1001;
-        }
-
-        .logo span {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-
-        .nav-links a {
-            color: var(--gray-500);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--dark);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* ===================== LANG TOGGLE ===================== */
-        .lang-toggle {
-            display: flex;
-            align-items: center;
-            background: var(--gray-100);
-            border: 1px solid var(--gray-200);
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1001;
-            flex-shrink: 0;
-        }
-
-        .lang-toggle button {
-            background: none;
-            border: none;
-            padding: 0.4rem 0.6rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            color: var(--gray-500);
-            transition: all 0.3s ease;
-        }
-
-        .lang-toggle button.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .lang-toggle button:hover:not(.active) {
-            color: var(--dark);
-        }
-
-        /* ===================== BOUTONS ===================== */
-        .btn {
-            display: inline-block;
-            padding: 0.85rem 1.75rem;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            border: none;
-            font-size: 0.95rem;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.25);
-        }
-
-        /* ===================== HERO ===================== */
-        .hero {
-            padding: calc(var(--space-xl) * 2.5) 0 var(--space-xl);
-            display: flex;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-            background: var(--dark);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background:
-                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.3), transparent),
-                radial-gradient(ellipse 60% 40% at 80% 50%, rgba(124, 58, 237, 0.2), transparent),
-                radial-gradient(ellipse 50% 60% at 10% 80%, rgba(6, 182, 212, 0.15), transparent);
-            animation: heroGlow 8s ease-in-out infinite alternate;
-        }
-
-        @keyframes heroGlow {
-            0% { opacity: 0.8; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.05); }
-        }
-
-        /* Grille de points en arriere-plan */
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 0;
-        }
-
-        .hero-content {
-            max-width: 750px;
-            z-index: 1;
-            position: relative;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 100px;
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: var(--space-md);
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .hero h1 {
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: var(--space-sm);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
-            color: var(--gray-400);
-            margin-bottom: var(--space-lg);
-            font-weight: 400;
-            line-height: 1.7;
-        }
-
-        .hero-subtitle .highlight {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: var(--space-sm);
-            flex-wrap: wrap;
-        }
-
-        .hero .btn-outline {
-            color: rgba(255, 255, 255, 0.8);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .hero .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.4);
-            color: white;
-            box-shadow: none;
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: var(--space-lg);
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.3);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-15px) translateX(-50%); }
-            60% { transform: translateY(-8px) translateX(-50%); }
-        }
-
-        /* ===================== STATS BAR ===================== */
-        .stats-bar {
-            background: white;
-            border-bottom: 1px solid var(--gray-200);
-            padding: var(--space-lg) 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-md);
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: var(--space-sm);
-        }
-
-        .stat-number {
-            font-size: clamp(2rem, 3vw, 2.75rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--gray-500);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* ===================== A PROPOS ===================== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-
-        .about-text p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .about-highlights {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-sm);
-        }
-
-        .about-highlight-item {
-            background: white;
-            padding: var(--space-md);
-            border-radius: 16px;
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-        }
-
-        .about-highlight-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--gray-300);
-        }
-
-        .about-highlight-item i {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            display: block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .about-highlight-item h4 {
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-            color: var(--dark);
-        }
-
-        .about-highlight-item p {
-            font-size: 0.85rem;
-            margin: 0;
-            color: var(--gray-500);
-        }
-
-        /* ===================== EXPERTISE ===================== */
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--space-md);
-        }
-
-        .expertise-card {
-            background: white;
-            border-radius: 16px;
-            padding: var(--space-lg);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--gray-200);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--primary);
-        }
-
-        .expertise-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .expertise-card:hover::before {
-            opacity: 1;
-        }
-
-        .expertise-card .icon {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: var(--space-md);
-            color: var(--primary);
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08));
-            border-radius: 14px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .expertise-card:hover .icon {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            transform: scale(1.1) rotate(3deg);
-        }
-
-        .expertise-card h3 {
-            margin-bottom: var(--space-xs);
-            transition: all 0.3s ease;
-        }
-
-        .expertise-card p {
-            color: var(--gray-500);
-            margin-bottom: 0;
-            flex-grow: 1;
-            font-size: 0.92rem;
-            line-height: 1.7;
-        }
-
-        /* ===================== PROJETS ===================== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .project-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            background: white;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            height: 100%;
-            border: 1px solid var(--gray-200);
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--card-shadow-hover);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-img.gradient-1 {
-            background: linear-gradient(135deg, #1e3a5f, #2563eb, #7c3aed);
-        }
-
-        .project-img.gradient-2 {
-            background: linear-gradient(135deg, #f97316, #ef4444, #ec4899);
-        }
-
-        .project-img.gradient-3 {
-            background: linear-gradient(135deg, #059669, #06b6d4, #2563eb);
-        }
-
-        .project-img-pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
-        .project-img i {
-            position: relative;
-            z-index: 1;
-            opacity: 0.9;
-        }
-
-        .project-content {
-            padding: var(--space-md);
-            background: white;
-        }
-
-        .project-title {
-            margin-bottom: var(--space-xs);
-        }
-
-        .project-desc {
-            color: var(--gray-500);
-            margin-bottom: var(--space-sm);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-xs);
-            margin-top: var(--space-sm);
-        }
-
-        .tag {
-            background-color: var(--gray-100);
-            color: var(--gray-800);
-            font-size: 0.75rem;
-            padding: 0.3rem 0.75rem;
-            border-radius: 8px;
-            font-weight: 500;
-        }
-
-        .tag.primary {
-            background: rgba(37, 99, 235, 0.08);
-            color: var(--primary);
-        }
-
-        .tag.secondary {
-            background: rgba(124, 58, 237, 0.08);
-            color: var(--secondary);
-        }
-
-        .tag.accent {
-            background: rgba(6, 182, 212, 0.08);
-            color: var(--accent);
-        }
-
-        /* ===================== EXPERIENCE ===================== */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: var(--space-md) 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: var(--space-lg);
-            width: 50%;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: var(--space-lg);
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: var(--space-lg);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: 3px solid white;
-            border-radius: 50%;
-            top: 12px;
-            z-index: 2;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
-        }
-
-        .timeline-item:hover .timeline-dot {
-            transform: scale(1.4);
-            box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.2);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-        }
-
-        .timeline-content {
-            background: white;
-            border-radius: 16px;
-            padding: var(--space-md);
-            position: relative;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid var(--gray-200);
-        }
-
-        .timeline-item:hover .timeline-content {
-            transform: translateY(-4px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--primary);
-        }
-
-        .timeline-date {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-            font-size: 0.85rem;
-            letter-spacing: 0.02em;
-        }
-
-        .timeline-title {
-            margin-bottom: var(--space-xs);
-        }
-
-        .timeline-desc {
-            color: var(--gray-500);
-            font-size: 0.92rem;
-            margin: 0;
-            line-height: 1.7;
-        }
-
-        /* ===================== CONTACT ===================== */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: var(--space-xl);
-            align-items: start;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        .contact-intro {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--gray-500);
-            margin-bottom: var(--space-sm);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: var(--gray-100);
-        }
-
-        .contact-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .contact-text {
-            color: var(--gray-500);
-            font-size: 0.95rem;
-        }
-
-        .contact-text strong {
-            display: block;
-            color: var(--dark);
-            margin-bottom: 0.15rem;
-            font-size: 0.9rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: var(--space-sm);
-            margin-top: var(--space-sm);
-        }
-
-        .social-link {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--gray-100);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-500);
-            font-size: 1.2rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            transform: translateY(-4px);
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        .contact-form {
-            background: white;
-            border-radius: 20px;
-            padding: var(--space-lg);
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--gray-200);
-        }
-
-        .form-group {
-            margin-bottom: var(--space-md);
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: var(--space-xs);
-            color: var(--gray-800);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.85rem 1rem;
-            border: 1.5px solid var(--gray-200);
-            border-radius: 12px;
-            font-size: 0.95rem;
-            color: var(--dark);
-            background: var(--gray-100);
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
-        }
-
-        textarea.form-control {
-            min-height: 130px;
-            resize: vertical;
-        }
-
-        .contact-form .btn-primary {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-        }
-
-        /* ===================== FOOTER ===================== */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: var(--space-xl) 0 var(--space-lg);
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.7));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: var(--space-sm);
-            display: inline-block;
-        }
-
-        .footer-content > p {
-            color: var(--gray-400);
-            margin-bottom: var(--space-md);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-        }
-
-        .footer-link {
-            color: var(--gray-400);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .footer-link:hover {
-            color: white;
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-md);
-        }
-
-        .footer-social a {
-            color: var(--gray-400);
-            font-size: 1.25rem;
-            transition: all 0.3s;
-        }
-
-        .footer-social a:hover {
-            color: var(--accent);
-        }
-
-        .copyright {
-            color: var(--gray-500);
-            font-size: 0.85rem;
-        }
-
-        .footer-divider {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            margin: var(--space-md) auto;
-            border-radius: 2px;
-        }
-
-        /* ===================== LOGOS CLIENTS ===================== */
-        .clients-section {
-            padding: var(--space-xl) 0;
-            background: white;
-            border-top: 1px solid var(--gray-200);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .clients-section .section-header {
-            margin-bottom: var(--space-lg);
-        }
-
-        .clients-logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: var(--space-lg) var(--space-xl);
-        }
-
-        .client-logo {
-            height: 36px;
-            width: auto;
-            filter: grayscale(100%) opacity(0.5);
-            transition: all 0.4s ease;
-        }
-
-        .client-logo:hover {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.1);
-        }
-
-        .client-logo.logo-sm {
-            height: 28px;
-        }
-
-        .client-logo.logo-lg {
-            height: 44px;
-        }
-
-        /* ===================== CERTIFICATIONS BADGES ===================== */
-        .cert-badges {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-md);
-            flex-wrap: wrap;
-        }
-
-        .cert-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.25rem;
-            background: white;
-            border: 1px solid var(--gray-200);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .cert-badge:hover {
-            border-color: var(--primary);
-            box-shadow: var(--card-shadow);
-        }
-
-        .cert-badge img {
-            height: 28px;
-            width: auto;
-        }
-
-        .cert-badge span {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        /* ===================== TOOLS LOGOS ===================== */
-        .tools-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-            margin-top: var(--space-md);
-            align-items: center;
-        }
-
-        .tool-logo {
-            height: 24px;
-            width: auto;
-            filter: grayscale(100%) opacity(0.6);
-            transition: all 0.3s ease;
-        }
-
-        .tool-logo:hover {
-            filter: grayscale(0%) opacity(1);
-        }
-
-        @media (max-width: 768px) {
-            .clients-logos {
-                gap: var(--space-md) var(--space-lg);
-            }
-
-            .client-logo {
-                height: 28px;
-            }
-
-            .client-logo.logo-lg {
-                height: 34px;
-            }
-
-            .cert-badges {
-                flex-direction: column;
-            }
-        }
-
-        /* ===================== ANIMATIONS ===================== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===================== RESPONSIVE ===================== */
-        @media (max-width: 1024px) {
-            .timeline::before {
-                left: 40px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 80px;
-                padding-right: 0;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-dot {
-                left: 32px !important;
-                right: auto !important;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: var(--space-lg) 0;
-            }
-
-            .hero {
-                padding-top: calc(var(--space-xl) * 2);
-            }
-
-            .hero-content {
-                text-align: center;
-                margin: 0 auto;
-            }
-
-            .hero-badge {
-                margin: 0 auto var(--space-md);
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 400px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 120px var(--space-lg) var(--space-lg);
-                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-                gap: var(--space-lg);
-                align-items: flex-start;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-sm);
-            }
-
-            .about-highlights {
-                grid-template-columns: 1fr;
-            }
-
-            .lang-toggle {
-                position: absolute;
-                top: var(--space-sm);
-                right: 60px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-cta {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .timeline-content {
-                padding: var(--space-sm);
-            }
-
-            .expertise-grid, .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <noscript>
+        <div style="padding: 1rem; background: #fef3c7; color: #92400e; text-align: center; font-family: sans-serif;">
+            Ce site fonctionne mieux avec JavaScript activé. Veuillez activer JavaScript pour une expérience optimale.
+        </div>
+    </noscript>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo"><span>Wisee.fr</span></a>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Ouvrir le menu de navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links">
-                <a href="#about" data-i18n="nav.about">A propos</a>
+                <a href="#about" data-i18n="nav.about">À propos</a>
                 <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
                 <a href="#projects" data-i18n="nav.missions">Missions</a>
                 <a href="#experience" data-i18n="nav.parcours">Parcours</a>
@@ -1298,26 +60,27 @@
                     <span data-i18n="hero.badge">En mission - Non disponible actuellement</span>
                 </div>
                 <h1 class="hero-title">Abdelhakim Irbah</h1>
-                <p class="hero-subtitle" data-i18n-html="hero.subtitle"><span class="highlight">Salesforce Release Manager</span> &amp; Architecte Technique. Certifie Platform Developer I &amp; Administrator. +10 ans d'expertise Salesforce au service des grands comptes.</p>
+                <p class="hero-subtitle" data-i18n-html="hero.subtitle"><span class="highlight">Salesforce Release Manager</span> &amp; Architecte Technique. Certifié Platform Developer I &amp; Administrator. +10 ans d'expertise Salesforce au service des grands comptes.</p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Voir mes missions</a>
                     <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Me contacter</a>
-                    <a href="cv.html" target="_blank" class="btn btn-outline" data-i18n="hero.cv"><i class="fas fa-file-pdf" style="margin-right: 0.5rem;"></i>Telecharger CV</a>
+                    <a href="cv.html" target="_blank" class="btn btn-outline" data-i18n="hero.cv"><i class="fas fa-file-pdf" style="margin-right: 0.5rem;"></i>Télécharger CV</a>
                 </div>
             </div>
         </div>
-        <a href="#about" class="hero-scroll">
+        <a href="#about" class="hero-scroll" aria-label="Défiler vers le contenu">
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
 
+    <main>
     <!-- Stats Bar -->
     <div class="stats-bar">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item fade-in">
                     <div class="stat-number">10+</div>
-                    <div class="stat-label" data-i18n="stats.years">Annees sur Salesforce</div>
+                    <div class="stat-label" data-i18n="stats.years">Années sur Salesforce</div>
                 </div>
                 <div class="stat-item fade-in">
                     <div class="stat-number">15+</div>
@@ -1329,7 +92,7 @@
                 </div>
                 <div class="stat-item fade-in">
                     <div class="stat-number">15k+</div>
-                    <div class="stat-label" data-i18n="stats.users">Utilisateurs geres</div>
+                    <div class="stat-label" data-i18n="stats.users">Utilisateurs gérés</div>
                 </div>
             </div>
         </div>
@@ -1342,41 +105,41 @@
                 <h2 data-i18n="clients.title">Ils m'ont fait confiance</h2>
             </div>
             <div class="clients-logos fade-in">
-                <img src="img/bouygues-telecom.svg" alt="Bouygues Telecom" class="client-logo">
-                <img src="img/engie.svg" alt="Engie" class="client-logo">
-                <img src="img/stellantis.svg" alt="Stellantis (PSA)" class="client-logo">
-                <img src="img/kering.svg" alt="Kering" class="client-logo logo-sm">
-                <img src="img/airfranceklm.svg" alt="Air France KLM" class="client-logo">
-                <img src="img/sncf.svg" alt="SNCF" class="client-logo">
-                <img src="img/veolia.svg" alt="Veolia" class="client-logo">
-                <img src="img/capgemini.svg" alt="Capgemini" class="client-logo">
-                <img src="img/tcs.svg" alt="Touring Club Suisse" class="client-logo logo-sm">
+                <img src="img/bouygues-telecom.svg" alt="Bouygues Telecom" class="client-logo" loading="lazy">
+                <img src="img/engie.svg" alt="Engie" class="client-logo" loading="lazy">
+                <img src="img/stellantis.svg" alt="Stellantis (PSA)" class="client-logo" loading="lazy">
+                <img src="img/kering.svg" alt="Kering" class="client-logo logo-sm" loading="lazy">
+                <img src="img/airfranceklm.svg" alt="Air France KLM" class="client-logo" loading="lazy">
+                <img src="img/sncf.svg" alt="SNCF" class="client-logo" loading="lazy">
+                <img src="img/veolia.svg" alt="Veolia" class="client-logo" loading="lazy">
+                <img src="img/capgemini.svg" alt="Capgemini" class="client-logo" loading="lazy">
+                <img src="img/tcs.svg" alt="Touring Club Suisse" class="client-logo logo-sm" loading="lazy">
             </div>
         </div>
     </div>
 
-    <!-- A propos Section -->
+    <!-- À propos Section -->
     <section id="about">
         <div class="container">
             <div class="section-header">
-                <h2 data-i18n="about.title">A propos</h2>
-                <p data-i18n="about.subtitle">Expert Salesforce certifie, specialise en Release Management et Architecture Technique</p>
+                <h2 data-i18n="about.title">À propos</h2>
+                <p data-i18n="about.subtitle">Expert Salesforce certifié, spécialisé en Release Management et Architecture Technique</p>
             </div>
             <div class="about-grid fade-in">
                 <div class="about-text">
-                    <p data-i18n-html="about.p1">Je suis Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> et <strong>Architecte Technique</strong> base a Paris. Depuis plus de 10 ans, j'accompagne les grands comptes (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) dans leurs projets Salesforce, de l'architecture a la mise en production.</p>
-                    <p data-i18n-html="about.p2">Certifie <strong>Platform Developer I</strong> et <strong>Administrator</strong>, je maitrise l'ensemble de l'ecosysteme Salesforce : Sales Cloud, Service Cloud, Community Cloud, Vlocity. Mon expertise en <strong>Release Management</strong> avec Copado et en integration SI me permet de garantir des deployments fiables et continus sur des organisations complexes.</p>
+                    <p data-i18n-html="about.p1">Je suis Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> et <strong>Architecte Technique</strong> basé à Paris. Depuis plus de 10 ans, j'accompagne les grands comptes (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) dans leurs projets Salesforce, de l'architecture à la mise en production.</p>
+                    <p data-i18n-html="about.p2">Certifié <strong>Platform Developer I</strong> et <strong>Administrator</strong>, je maîtrise l'ensemble de l'écosystème Salesforce : Sales Cloud, Service Cloud, Community Cloud, Vlocity. Mon expertise en <strong>Release Management</strong> avec Copado et en intégration SI me permet de garantir des déploiements fiables et continus sur des organisations complexes.</p>
                     <div class="cert-badges">
                         <div class="cert-badge">
-                            <img src="img/salesforce.svg" alt="Salesforce">
+                            <img src="img/salesforce.svg" alt="Logo Salesforce - Certification Platform Developer I" loading="lazy">
                             <span>Platform Developer I</span>
                         </div>
                         <div class="cert-badge">
-                            <img src="img/salesforce.svg" alt="Salesforce">
+                            <img src="img/salesforce.svg" alt="Logo Salesforce - Certification Administrator" loading="lazy">
                             <span>Administrator</span>
                         </div>
                         <div class="cert-badge">
-                            <img src="img/copado.png" alt="Copado">
+                            <img src="img/copado.png" alt="Logo Copado - Expert certifié" loading="lazy">
                             <span data-i18n="about.cert.copado">Expert Copado</span>
                         </div>
                     </div>
@@ -1384,7 +147,7 @@
                 <div class="about-highlights">
                     <div class="about-highlight-item">
                         <i class="fab fa-salesforce"></i>
-                        <h4 data-i18n="about.h1">Certifie Salesforce</h4>
+                        <h4 data-i18n="about.h1">Certifié Salesforce</h4>
                         <p>Platform Developer I &amp; Administrator</p>
                     </div>
                     <div class="about-highlight-item">
@@ -1395,12 +158,12 @@
                     <div class="about-highlight-item">
                         <i class="fas fa-project-diagram"></i>
                         <h4 data-i18n="about.h3">Architecture SI</h4>
-                        <p data-i18n="about.h3.desc">Integration multi-cloud &amp; APIs</p>
+                        <p data-i18n="about.h3.desc">Intégration multi-cloud &amp; APIs</p>
                     </div>
                     <div class="about-highlight-item">
                         <i class="fas fa-users-cog"></i>
                         <h4 data-i18n="about.h4">Leadership technique</h4>
-                        <p data-i18n="about.h4.desc">Pilotage d'equipes jusqu'a 15 personnes</p>
+                        <p data-i18n="about.h4.desc">Pilotage d'équipes jusqu'à 15 personnes</p>
                     </div>
                 </div>
             </div>
@@ -1412,7 +175,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 data-i18n="expertise.title">Mon expertise</h2>
-                <p data-i18n="expertise.subtitle">Un savoir-faire complet sur l'ecosysteme Salesforce et son integration</p>
+                <p data-i18n="expertise.subtitle">Un savoir-faire complet sur l'écosystème Salesforce et son intégration</p>
             </div>
             <div class="expertise-grid">
                 <div class="expertise-card fade-in">
@@ -1420,28 +183,28 @@
                         <i class="fas fa-code-branch"></i>
                     </div>
                     <h3>Release Management</h3>
-                    <p data-i18n="expertise.card1.desc">Mise en place et gestion de pipelines de deploiement avec Copado. Integration Gitlab, Quality Gates, gestion des environnements et des mises en production sur des organisations partagees.</p>
+                    <p data-i18n="expertise.card1.desc">Mise en place et gestion de pipelines de déploiement avec Copado. Intégration Gitlab, Quality Gates, gestion des environnements et des mises en production sur des organisations partagées.</p>
                 </div>
                 <div class="expertise-card fade-in">
                     <div class="icon">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
                     <h3 data-i18n="expertise.card2.title">Architecture Technique Salesforce</h3>
-                    <p data-i18n="expertise.card2.desc">Design de solutions multi-cloud (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Integration avec les SI existants via APIs REST, Talend, Informatica et Boomi.</p>
+                    <p data-i18n="expertise.card2.desc">Design de solutions multi-cloud (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Intégration avec les SI existants via APIs REST, Talend, Informatica et Boomi.</p>
                 </div>
                 <div class="expertise-card fade-in">
                     <div class="icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3 data-i18n="expertise.card3.title">Developpement Salesforce</h3>
-                    <p data-i18n="expertise.card3.desc">Developpement Apex, Visualforce, Composants Lightning et ReactJS. Webservices REST, parametrage avance, regles de validation et workflows complexes.</p>
+                    <h3 data-i18n="expertise.card3.title">Développement Salesforce</h3>
+                    <p data-i18n="expertise.card3.desc">Développement Apex, Visualforce, Composants Lightning et ReactJS. Webservices REST, paramétrage avancé, règles de validation et workflows complexes.</p>
                 </div>
                 <div class="expertise-card fade-in">
                     <div class="icon">
                         <i class="fas fa-users-cog"></i>
                     </div>
                     <h3 data-i18n="expertise.card4.title">Conseil &amp; Pilotage</h3>
-                    <p data-i18n="expertise.card4.desc">Animation d'equipes techniques (jusqu'a 15 consultants). Specifications techniques, design de solutions, definition des bonnes pratiques de developpement et conseil client.</p>
+                    <p data-i18n="expertise.card4.desc">Animation d'équipes techniques (jusqu'à 15 consultants). Spécifications techniques, design de solutions, définition des bonnes pratiques de développement et conseil client.</p>
                 </div>
             </div>
         </div>
@@ -1451,8 +214,8 @@
     <section id="projects">
         <div class="container">
             <div class="section-header">
-                <h2 data-i18n="projects.title">Missions realisees</h2>
-                <p data-i18n="projects.subtitle">Quelques missions significatives aupres de grands comptes</p>
+                <h2 data-i18n="projects.title">Missions réalisées</h2>
+                <p data-i18n="projects.subtitle">Quelques missions significatives auprès de grands comptes</p>
             </div>
             <div class="projects-grid">
                 <div class="project-card fade-in">
@@ -1462,7 +225,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Bouygues Telecom</h3>
-                        <p class="project-desc" data-i18n="project.bouygues.desc">Release Manager Salesforce. Mise en place et gestion du Release Management sur les projets SalesCloud et Vlocity. Implementation de Copado avec pipeline complexe.</p>
+                        <p class="project-desc" data-i18n="project.bouygues.desc">Release Manager Salesforce. Mise en place et gestion du Release Management sur les projets SalesCloud et Vlocity. Implémentation de Copado avec pipeline complexe.</p>
                         <div class="project-tags">
                             <span class="tag primary">Copado</span>
                             <span class="tag">SalesCloud</span>
@@ -1480,7 +243,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Engie</h3>
-                        <p class="project-desc" data-i18n="project.engie.desc">Architecte Technique &amp; Release Manager. Strategie de release management unifiee pour 26 developpeurs sur 3 projets partageant la meme Org Salesforce.</p>
+                        <p class="project-desc" data-i18n="project.engie.desc">Architecte Technique &amp; Release Manager. Stratégie de release management unifiée pour 26 développeurs sur 3 projets partageant la même Org Salesforce.</p>
                         <div class="project-tags">
                             <span class="tag primary">Copado</span>
                             <span class="tag" data-i18n="tag.multiprojects">Multi-projets</span>
@@ -1497,7 +260,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">PSA (Stellantis)</h3>
-                        <p class="project-desc" data-i18n="project.psa.desc">Architecte Technique Salesforce chez IBM Bluewolf. Plateforme de souscription de services connectes pour les vehicules des marques du Groupe PSA.</p>
+                        <p class="project-desc" data-i18n="project.psa.desc">Architecte Technique Salesforce chez IBM Bluewolf. Plateforme de souscription de services connectés pour les véhicules des marques du Groupe PSA.</p>
                         <div class="project-tags">
                             <span class="tag primary">Community Cloud</span>
                             <span class="tag">Drupal</span>
@@ -1514,7 +277,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Air France KLM</h3>
-                        <p class="project-desc" data-i18n="project.airfrance.desc">Responsable Technique Salesforce chez Capgemini. Projet international Sales Cloud (2000 licences) avec integration via Informatica. Animation d'ateliers techniques.</p>
+                        <p class="project-desc" data-i18n="project.airfrance.desc">Responsable Technique Salesforce chez Capgemini. Projet international Sales Cloud (2000 licences) avec intégration via Informatica. Animation d'ateliers techniques.</p>
                         <div class="project-tags">
                             <span class="tag primary">Sales Cloud</span>
                             <span class="tag">Informatica</span>
@@ -1531,7 +294,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">SNCF</h3>
-                        <p class="project-desc" data-i18n="project.sncf.desc">Responsable Technique &amp; Architecte Salesforce chez Capgemini. Integration de la Console Service Cloud dans le SI SNCF pour 11 000 utilisateurs.</p>
+                        <p class="project-desc" data-i18n="project.sncf.desc">Responsable Technique &amp; Architecte Salesforce chez Capgemini. Intégration de la Console Service Cloud dans le SI SNCF pour 11 000 utilisateurs.</p>
                         <div class="project-tags">
                             <span class="tag primary">Service Cloud</span>
                             <span class="tag">Console</span>
@@ -1548,7 +311,7 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Touring Club Suisse</h3>
-                        <p class="project-desc" data-i18n="project.tcs.desc">Responsable d'une equipe de 15 consultants techniques. Integration multi-cloud Service Cloud avec Zuora et Cameleon Cloud CPQ pour 1700 utilisateurs.</p>
+                        <p class="project-desc" data-i18n="project.tcs.desc">Responsable d'une équipe de 15 consultants techniques. Intégration multi-cloud Service Cloud avec Zuora et Cameleon Cloud CPQ pour 1700 utilisateurs.</p>
                         <div class="project-tags">
                             <span class="tag primary">Service Cloud</span>
                             <span class="tag">Zuora</span>
@@ -1567,15 +330,15 @@
         <div class="container">
             <div class="section-header">
                 <h2 data-i18n="experience.title">Parcours professionnel</h2>
-                <p data-i18n="experience.subtitle">Plus de 15 ans d'experience dans l'IT dont 10+ ans sur l'ecosysteme Salesforce</p>
+                <p data-i18n="experience.subtitle">Plus de 15 ans d'expérience dans l'IT dont 10+ ans sur l'écosystème Salesforce</p>
             </div>
             <div class="timeline">
                 <div class="timeline-item fade-in">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date" data-i18n="exp.bouygues.date">2021 - Present</div>
+                        <div class="timeline-date" data-i18n="exp.bouygues.date">2021 - Présent</div>
                         <h3 class="timeline-title" data-i18n="exp.bouygues.title">Release Manager - Bouygues Telecom</h3>
-                        <p class="timeline-desc" data-i18n="exp.bouygues.desc">Mise en place et gestion du Release Management Salesforce (SalesCloud, Vlocity). Implementation de Copado avec pipeline complexe et integration Gitlab.</p>
+                        <p class="timeline-desc" data-i18n="exp.bouygues.desc">Mise en place et gestion du Release Management Salesforce (SalesCloud, Vlocity). Implémentation de Copado avec pipeline complexe et intégration Gitlab.</p>
                     </div>
                 </div>
 
@@ -1584,7 +347,7 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2019 - 2021</div>
                         <h3 class="timeline-title" data-i18n="exp.engie.title">Architecte Technique &amp; Release Manager - Engie</h3>
-                        <p class="timeline-desc" data-i18n="exp.engie.desc">Strategie de release management unifiee sur les projets Salesforce de la DGP Engie. Coordination de 26 developpeurs sur 3 projets (Talan/Manao).</p>
+                        <p class="timeline-desc" data-i18n="exp.engie.desc">Stratégie de release management unifiée sur les projets Salesforce de la DGP Engie. Coordination de 26 développeurs sur 3 projets (Talan/Manao).</p>
                     </div>
                 </div>
 
@@ -1593,7 +356,7 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2018 - 2019</div>
                         <h3 class="timeline-title" data-i18n="exp.psa.title">Architecte Technique Salesforce - PSA (IBM Bluewolf)</h3>
-                        <p class="timeline-desc" data-i18n="exp.psa.desc">Plateforme de souscription de services connectes pour les vehicules du Groupe PSA. Community Cloud, Drupal, AWS.</p>
+                        <p class="timeline-desc" data-i18n="exp.psa.desc">Plateforme de souscription de services connectés pour les véhicules du Groupe PSA. Community Cloud, Drupal, AWS.</p>
                     </div>
                 </div>
 
@@ -1602,7 +365,7 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2016 - 2018</div>
                         <h3 class="timeline-title" data-i18n="exp.freelance.title">Expert Salesforce Freelance</h3>
-                        <p class="timeline-desc" data-i18n="exp.freelance.desc">Missions pour Kering (Capgemini), Chronopost, Criteo et ETS Global. Architecture, developpement Apex/Lightning et conseil technique.</p>
+                        <p class="timeline-desc" data-i18n="exp.freelance.desc">Missions pour Kering (Capgemini), Chronopost, Criteo et ETS Global. Architecture, développement Apex/Lightning et conseil technique.</p>
                     </div>
                 </div>
 
@@ -1611,7 +374,7 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2011 - 2016</div>
                         <h3 class="timeline-title" data-i18n="exp.capgemini.title">Responsable Technique Salesforce - Capgemini</h3>
-                        <p class="timeline-desc" data-i18n="exp.capgemini.desc">Missions pour Touring Club Suisse, Air France KLM, SNCF, Veolia et Sodexo. Management d'equipes jusqu'a 15 consultants. Projets internationaux.</p>
+                        <p class="timeline-desc" data-i18n="exp.capgemini.desc">Missions pour Touring Club Suisse, Air France KLM, SNCF, Veolia et Sodexo. Management d'équipes jusqu'à 15 consultants. Projets internationaux.</p>
                     </div>
                 </div>
 
@@ -1619,8 +382,8 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2006 - 2011</div>
-                        <h3 class="timeline-title" data-i18n="exp.formation.title">Formation &amp; Debut de carriere</h3>
-                        <p class="timeline-desc" data-i18n="exp.formation.desc">Master 2 MIAGE/SIC (IAE Paris &amp; Paris 1 Pantheon-Sorbonne). Missions chez AXA France, LCL et SOFIDEEC en coordination de projets et ingenierie.</p>
+                        <h3 class="timeline-title" data-i18n="exp.formation.title">Formation &amp; Début de carrière</h3>
+                        <p class="timeline-desc" data-i18n="exp.formation.desc">Master 2 MIAGE/SIC (IAE Paris &amp; Paris 1 Panthéon-Sorbonne). Missions chez AXA France, LCL et SOFIDEEC en coordination de projets et ingénierie.</p>
                     </div>
                 </div>
             </div>
@@ -1636,7 +399,7 @@
             </div>
             <div class="contact-container">
                 <div class="contact-info fade-in">
-                    <p class="contact-intro" data-i18n="contact.intro">Vous cherchez un Release Manager Salesforce ou un Architecte Technique pour votre projet ? N'hesitez pas a me contacter pour en discuter.</p>
+                    <p class="contact-intro" data-i18n="contact.intro">Vous cherchez un Release Manager Salesforce ou un Architecte Technique pour votre projet ? N'hésitez pas à me contacter pour en discuter.</p>
 
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -1653,7 +416,7 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-text">
-                            <strong data-i18n="contact.phone">Telephone</strong>
+                            <strong data-i18n="contact.phone">Téléphone</strong>
                             06 20 10 45 53
                         </div>
                     </div>
@@ -1664,61 +427,72 @@
                         </div>
                         <div class="contact-text">
                             <strong data-i18n="contact.location">Localisation</strong>
-                            <span data-i18n="contact.location.desc">Paris, France (Disponible en teletravail)</span>
+                            <span data-i18n="contact.location.desc">Paris, France (Disponible en télétravail)</span>
                         </div>
                     </div>
 
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/%F0%9F%92%BB-abdelhakim-irbah-296a0930/" target="_blank" class="social-link">
+                        <a href="https://www.linkedin.com/in/%F0%9F%92%BB-abdelhakim-irbah-296a0930/" target="_blank" class="social-link" aria-label="Profil LinkedIn d'Abdelhakim Irbah">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
                 <div class="contact-form fade-in">
                     <div id="form-message" style="display: none; margin-bottom: 20px;"></div>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const urlParams = new URLSearchParams(window.location.search);
-                            const status = urlParams.get('status');
-                            const formMessage = document.getElementById('form-message');
 
-                            if (status === 'success') {
-                                formMessage.innerHTML = '<div style="padding: 15px; background-color: #d1fae5; color: #065f46; border-radius: 12px; font-weight: 500;">Votre message a ete envoye avec succes. Je vous repondrai dans les plus brefs delais.</div>';
-                                formMessage.style.display = 'block';
-                            } else if (status === 'error') {
-                                formMessage.innerHTML = '<div style="padding: 15px; background-color: #fee2e2; color: #991b1b; border-radius: 12px; font-weight: 500;">Une erreur s\'est produite lors de l\'envoi du message. Veuillez reessayer ulterieurement.</div>';
-                                formMessage.style.display = 'block';
-                            }
-                        });
-                    </script>
+                    <form id="contactForm" action="traitement-contact.php" method="POST">
+                        <!-- CSRF Token (fetched dynamically from csrf-token.php) -->
+                        <input type="hidden" id="csrf_token" name="csrf_token" value="">
 
-                    <form action="traitement-contact.php" method="POST">
+                        <!-- Honeypot anti-spam (hidden from humans, bots fill it) -->
+                        <div style="position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden;" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div class="form-group">
                             <label for="name" class="form-label" data-i18n="form.name">Nom</label>
-                            <input type="text" id="name" name="name" class="form-control" data-i18n-placeholder="form.name.ph" placeholder="Votre nom" required>
+                            <input type="text" id="name" name="name" class="form-control" data-i18n-placeholder="form.name.ph" placeholder="Votre nom" required minlength="2" maxlength="100" pattern="[A-Za-zÀ-ÿ\s\-']+">
                         </div>
 
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" data-i18n-placeholder="form.email.ph" placeholder="votre@email.com" required>
+                            <input type="email" id="email" name="email" class="form-control" data-i18n-placeholder="form.email.ph" placeholder="votre@email.com" required maxlength="100">
                         </div>
 
                         <div class="form-group">
                             <label for="subject" class="form-label" data-i18n="form.subject">Sujet</label>
-                            <input type="text" id="subject" name="subject" class="form-control" data-i18n-placeholder="form.subject.ph" placeholder="Sujet de votre message" required>
+                            <input type="text" id="subject" name="subject" class="form-control" data-i18n-placeholder="form.subject.ph" placeholder="Sujet de votre message" required maxlength="100">
                         </div>
 
                         <div class="form-group">
                             <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-control" data-i18n-placeholder="form.message.ph" placeholder="Decrivez votre besoin..." required></textarea>
+                            <textarea id="message" name="message" class="form-control" data-i18n-placeholder="form.message.ph" placeholder="Décrivez votre besoin..." required minlength="10" maxlength="2000"></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary" data-i18n="form.submit">Envoyer le message</button>
                     </form>
+
+                    <!-- Fetch CSRF token on page load -->
+                    <script>
+                    (function() {
+                        fetch('csrf-token.php', { credentials: 'same-origin' })
+                            .then(function(response) { return response.json(); })
+                            .then(function(data) {
+                                if (data.token) {
+                                    document.getElementById('csrf_token').value = data.token;
+                                }
+                            })
+                            .catch(function() {
+                                // Silently fail - server-side will handle missing token
+                            });
+                    })();
+                    </script>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -1730,7 +504,7 @@
                 <div class="footer-divider"></div>
 
                 <div class="footer-links">
-                    <a href="#about" class="footer-link" data-i18n="nav.about">A propos</a>
+                    <a href="#about" class="footer-link" data-i18n="nav.about">À propos</a>
                     <a href="#expertise" class="footer-link" data-i18n="nav.expertise">Expertise</a>
                     <a href="#projects" class="footer-link" data-i18n="nav.missions">Missions</a>
                     <a href="#experience" class="footer-link" data-i18n="nav.parcours">Parcours</a>
@@ -1738,278 +512,17 @@
                 </div>
 
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/%F0%9F%92%BB-abdelhakim-irbah-296a0930/" target="_blank">
+                    <a href="https://www.linkedin.com/in/%F0%9F%92%BB-abdelhakim-irbah-296a0930/" target="_blank" aria-label="Profil LinkedIn d'Abdelhakim Irbah">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
 
-                <p class="copyright">&copy; 2025 Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager</p>
+                <p class="copyright">&copy; 2026 Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script>
-        // ===================== TRANSLATIONS =====================
-        const translations = {
-            fr: {
-                'nav.about': 'A propos',
-                'nav.expertise': 'Expertise',
-                'nav.missions': 'Missions',
-                'nav.parcours': 'Parcours',
-                'nav.contact': 'Contact',
-                'hero.badge': 'En mission - Non disponible actuellement',
-                'hero.subtitle': '<span class="highlight">Salesforce Release Manager</span> &amp; Architecte Technique. Certifie Platform Developer I &amp; Administrator. +10 ans d\'expertise Salesforce au service des grands comptes.',
-                'hero.cta1': 'Voir mes missions',
-                'hero.cta2': 'Me contacter',
-                'hero.cv': 'Telecharger CV',
-                'stats.years': 'Annees sur Salesforce',
-                'stats.missions': 'Missions grands comptes',
-                'stats.certs': 'Certifications Salesforce',
-                'stats.users': 'Utilisateurs geres',
-                'clients.title': 'Ils m\'ont fait confiance',
-                'about.title': 'A propos',
-                'about.subtitle': 'Expert Salesforce certifie, specialise en Release Management et Architecture Technique',
-                'about.p1': 'Je suis Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> et <strong>Architecte Technique</strong> base a Paris. Depuis plus de 10 ans, j\'accompagne les grands comptes (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) dans leurs projets Salesforce, de l\'architecture a la mise en production.',
-                'about.p2': 'Certifie <strong>Platform Developer I</strong> et <strong>Administrator</strong>, je maitrise l\'ensemble de l\'ecosysteme Salesforce : Sales Cloud, Service Cloud, Community Cloud, Vlocity. Mon expertise en <strong>Release Management</strong> avec Copado et en integration SI me permet de garantir des deployments fiables et continus sur des organisations complexes.',
-                'about.cert.copado': 'Expert Copado',
-                'about.h1': 'Certifie Salesforce',
-                'about.h3': 'Architecture SI',
-                'about.h3.desc': 'Integration multi-cloud &amp; APIs',
-                'about.h4': 'Leadership technique',
-                'about.h4.desc': 'Pilotage d\'equipes jusqu\'a 15 personnes',
-                'expertise.title': 'Mon expertise',
-                'expertise.subtitle': 'Un savoir-faire complet sur l\'ecosysteme Salesforce et son integration',
-                'expertise.card1.desc': 'Mise en place et gestion de pipelines de deploiement avec Copado. Integration Gitlab, Quality Gates, gestion des environnements et des mises en production sur des organisations partagees.',
-                'expertise.card2.title': 'Architecture Technique Salesforce',
-                'expertise.card2.desc': 'Design de solutions multi-cloud (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Integration avec les SI existants via APIs REST, Talend, Informatica et Boomi.',
-                'expertise.card3.title': 'Developpement Salesforce',
-                'expertise.card3.desc': 'Developpement Apex, Visualforce, Composants Lightning et ReactJS. Webservices REST, parametrage avance, regles de validation et workflows complexes.',
-                'expertise.card4.title': 'Conseil &amp; Pilotage',
-                'expertise.card4.desc': 'Animation d\'equipes techniques (jusqu\'a 15 consultants). Specifications techniques, design de solutions, definition des bonnes pratiques de developpement et conseil client.',
-                'projects.title': 'Missions realisees',
-                'projects.subtitle': 'Quelques missions significatives aupres de grands comptes',
-                'project.bouygues.desc': 'Release Manager Salesforce. Mise en place et gestion du Release Management sur les projets SalesCloud et Vlocity. Implementation de Copado avec pipeline complexe.',
-                'project.engie.desc': 'Architecte Technique &amp; Release Manager. Strategie de release management unifiee pour 26 developpeurs sur 3 projets partageant la meme Org Salesforce.',
-                'project.psa.desc': 'Architecte Technique Salesforce chez IBM Bluewolf. Plateforme de souscription de services connectes pour les vehicules des marques du Groupe PSA.',
-                'project.airfrance.desc': 'Responsable Technique Salesforce chez Capgemini. Projet international Sales Cloud (2000 licences) avec integration via Informatica. Animation d\'ateliers techniques.',
-                'project.sncf.desc': 'Responsable Technique &amp; Architecte Salesforce chez Capgemini. Integration de la Console Service Cloud dans le SI SNCF pour 11 000 utilisateurs.',
-                'project.tcs.desc': 'Responsable d\'une equipe de 15 consultants techniques. Integration multi-cloud Service Cloud avec Zuora et Cameleon Cloud CPQ pour 1700 utilisateurs.',
-                'tag.multiprojects': 'Multi-projets',
-                'tag.2000licenses': '2000 licences',
-                'experience.title': 'Parcours professionnel',
-                'experience.subtitle': 'Plus de 15 ans d\'experience dans l\'IT dont 10+ ans sur l\'ecosysteme Salesforce',
-                'exp.bouygues.date': '2021 - Present',
-                'exp.bouygues.title': 'Release Manager - Bouygues Telecom',
-                'exp.bouygues.desc': 'Mise en place et gestion du Release Management Salesforce (SalesCloud, Vlocity). Implementation de Copado avec pipeline complexe et integration Gitlab.',
-                'exp.engie.title': 'Architecte Technique &amp; Release Manager - Engie',
-                'exp.engie.desc': 'Strategie de release management unifiee sur les projets Salesforce de la DGP Engie. Coordination de 26 developpeurs sur 3 projets (Talan/Manao).',
-                'exp.psa.title': 'Architecte Technique Salesforce - PSA (IBM Bluewolf)',
-                'exp.psa.desc': 'Plateforme de souscription de services connectes pour les vehicules du Groupe PSA. Community Cloud, Drupal, AWS.',
-                'exp.freelance.title': 'Expert Salesforce Freelance',
-                'exp.freelance.desc': 'Missions pour Kering (Capgemini), Chronopost, Criteo et ETS Global. Architecture, developpement Apex/Lightning et conseil technique.',
-                'exp.capgemini.title': 'Responsable Technique Salesforce - Capgemini',
-                'exp.capgemini.desc': 'Missions pour Touring Club Suisse, Air France KLM, SNCF, Veolia et Sodexo. Management d\'equipes jusqu\'a 15 consultants. Projets internationaux.',
-                'exp.formation.title': 'Formation &amp; Debut de carriere',
-                'exp.formation.desc': 'Master 2 MIAGE/SIC (IAE Paris &amp; Paris 1 Pantheon-Sorbonne). Missions chez AXA France, LCL et SOFIDEEC en coordination de projets et ingenierie.',
-                'contact.title': 'Me contacter',
-                'contact.subtitle': 'Besoin d\'un expert Salesforce ? Discutons de votre projet',
-                'contact.intro': 'Vous cherchez un Release Manager Salesforce ou un Architecte Technique pour votre projet ? N\'hesitez pas a me contacter pour en discuter.',
-                'contact.phone': 'Telephone',
-                'contact.location': 'Localisation',
-                'contact.location.desc': 'Paris, France (Disponible en teletravail)',
-                'form.name': 'Nom',
-                'form.name.ph': 'Votre nom',
-                'form.email.ph': 'votre@email.com',
-                'form.subject': 'Sujet',
-                'form.subject.ph': 'Sujet de votre message',
-                'form.message.ph': 'Decrivez votre besoin...',
-                'form.submit': 'Envoyer le message',
-                'footer.tagline': 'Expert Salesforce - Release Management &amp; Architecture Technique'
-            },
-            en: {
-                'nav.about': 'About',
-                'nav.expertise': 'Expertise',
-                'nav.missions': 'Projects',
-                'nav.parcours': 'Career',
-                'nav.contact': 'Contact',
-                'hero.badge': 'On assignment - Currently unavailable',
-                'hero.subtitle': '<span class="highlight">Salesforce Release Manager</span> &amp; Technical Architect. Certified Platform Developer I &amp; Administrator. 10+ years of Salesforce expertise serving enterprise clients.',
-                'hero.cta1': 'View my projects',
-                'hero.cta2': 'Contact me',
-                'hero.cv': 'Download CV',
-                'stats.years': 'Years on Salesforce',
-                'stats.missions': 'Enterprise projects',
-                'stats.certs': 'Salesforce certifications',
-                'stats.users': 'Managed users',
-                'clients.title': 'They trusted me',
-                'about.title': 'About',
-                'about.subtitle': 'Certified Salesforce expert, specialized in Release Management and Technical Architecture',
-                'about.p1': 'I am Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> and <strong>Technical Architect</strong> based in Paris. For over 10 years, I have supported enterprise clients (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) in their Salesforce projects, from architecture to production deployment.',
-                'about.p2': 'Certified <strong>Platform Developer I</strong> and <strong>Administrator</strong>, I master the entire Salesforce ecosystem: Sales Cloud, Service Cloud, Community Cloud, Vlocity. My expertise in <strong>Release Management</strong> with Copado and SI integration enables me to deliver reliable and continuous deployments on complex organizations.',
-                'about.cert.copado': 'Copado Expert',
-                'about.h1': 'Salesforce Certified',
-                'about.h3': 'IT Architecture',
-                'about.h3.desc': 'Multi-cloud integration &amp; APIs',
-                'about.h4': 'Technical Leadership',
-                'about.h4.desc': 'Managing teams of up to 15 people',
-                'expertise.title': 'My expertise',
-                'expertise.subtitle': 'Comprehensive know-how on the Salesforce ecosystem and its integration',
-                'expertise.card1.desc': 'Setup and management of deployment pipelines with Copado. Gitlab integration, Quality Gates, environment management and production releases on shared organizations.',
-                'expertise.card2.title': 'Salesforce Technical Architecture',
-                'expertise.card2.desc': 'Multi-cloud solution design (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Integration with existing IT systems via REST APIs, Talend, Informatica and Boomi.',
-                'expertise.card3.title': 'Salesforce Development',
-                'expertise.card3.desc': 'Apex development, Visualforce, Lightning Components and ReactJS. REST Webservices, advanced configuration, validation rules and complex workflows.',
-                'expertise.card4.title': 'Consulting &amp; Management',
-                'expertise.card4.desc': 'Leading technical teams (up to 15 consultants). Technical specifications, solution design, development best practices and client advisory.',
-                'projects.title': 'Completed projects',
-                'projects.subtitle': 'Key enterprise projects with major corporations',
-                'project.bouygues.desc': 'Salesforce Release Manager. Setup and management of Release Management for SalesCloud and Vlocity projects. Copado implementation with complex pipeline.',
-                'project.engie.desc': 'Technical Architect &amp; Release Manager. Unified release management strategy for 26 developers across 3 projects sharing the same Salesforce Org.',
-                'project.psa.desc': 'Salesforce Technical Architect at IBM Bluewolf. Connected services subscription platform for PSA Group vehicle brands.',
-                'project.airfrance.desc': 'Salesforce Technical Lead at Capgemini. International Sales Cloud project (2,000 licenses) with Informatica integration. Technical workshop facilitation.',
-                'project.sncf.desc': 'Technical Lead &amp; Salesforce Architect at Capgemini. Service Cloud Console integration into SNCF IT system for 11,000 users.',
-                'project.tcs.desc': 'Leading a team of 15 technical consultants. Multi-cloud Service Cloud integration with Zuora and Cameleon Cloud CPQ for 1,700 users.',
-                'tag.multiprojects': 'Multi-project',
-                'tag.2000licenses': '2,000 licenses',
-                'experience.title': 'Career path',
-                'experience.subtitle': 'Over 15 years in IT including 10+ years on the Salesforce ecosystem',
-                'exp.bouygues.date': '2021 - Present',
-                'exp.bouygues.title': 'Release Manager - Bouygues Telecom',
-                'exp.bouygues.desc': 'Setup and management of Salesforce Release Management (SalesCloud, Vlocity). Copado implementation with complex pipeline and Gitlab integration.',
-                'exp.engie.title': 'Technical Architect &amp; Release Manager - Engie',
-                'exp.engie.desc': 'Unified release management strategy for Engie DGP Salesforce projects. Coordinating 26 developers across 3 projects (Talan/Manao).',
-                'exp.psa.title': 'Salesforce Technical Architect - PSA (IBM Bluewolf)',
-                'exp.psa.desc': 'Connected services subscription platform for PSA Group vehicles. Community Cloud, Drupal, AWS.',
-                'exp.freelance.title': 'Salesforce Expert - Freelance',
-                'exp.freelance.desc': 'Projects for Kering (Capgemini), Chronopost, Criteo and ETS Global. Architecture, Apex/Lightning development and technical consulting.',
-                'exp.capgemini.title': 'Salesforce Technical Lead - Capgemini',
-                'exp.capgemini.desc': 'Projects for Touring Club Suisse, Air France KLM, SNCF, Veolia and Sodexo. Managing teams of up to 15 consultants. International projects.',
-                'exp.formation.title': 'Education &amp; Early career',
-                'exp.formation.desc': 'Master\'s Degree MIAGE/SIC (IAE Paris &amp; Paris 1 Pantheon-Sorbonne). Assignments at AXA France, LCL and SOFIDEEC in project coordination and engineering.',
-                'contact.title': 'Contact me',
-                'contact.subtitle': 'Need a Salesforce expert? Let\'s discuss your project',
-                'contact.intro': 'Looking for a Salesforce Release Manager or Technical Architect for your project? Don\'t hesitate to get in touch.',
-                'contact.phone': 'Phone',
-                'contact.location': 'Location',
-                'contact.location.desc': 'Paris, France (Available for remote work)',
-                'form.name': 'Name',
-                'form.name.ph': 'Your name',
-                'form.email.ph': 'your@email.com',
-                'form.subject': 'Subject',
-                'form.subject.ph': 'Subject of your message',
-                'form.message.ph': 'Describe your needs...',
-                'form.submit': 'Send message',
-                'footer.tagline': 'Salesforce Expert - Release Management &amp; Technical Architecture'
-            }
-        };
-
-        // ===================== LANG SWITCH =====================
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-
-            // Update text content
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-
-            // Update HTML content (elements with inner HTML like <strong>)
-            document.querySelectorAll('[data-i18n-html]').forEach(el => {
-                const key = el.getAttribute('data-i18n-html');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-
-            // Update placeholders
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
-            });
-
-            // Update toggle buttons
-            document.querySelectorAll('.lang-toggle button').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-
-            // Update page title
-            document.title = lang === 'fr'
-                ? 'Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager'
-                : 'Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager';
-
-            localStorage.setItem('lang', lang);
-        }
-
-        // Init language toggle
-        document.querySelectorAll('.lang-toggle button').forEach(btn => {
-            btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
-        });
-
-        // Restore saved language
-        const savedLang = localStorage.getItem('lang');
-        if (savedLang && savedLang !== 'fr') {
-            setLanguage(savedLang);
-        }
-
-        // ===================== NAVIGATION =====================
-        const navbar = document.querySelector('.navbar');
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.nav-links a');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
-        });
-
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-
-        function handleScroll() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
-
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (current && item.getAttribute('href') && item.getAttribute('href').includes(current)) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('DOMContentLoaded', handleScroll);
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
