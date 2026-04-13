@@ -27,6 +27,92 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager">
     <meta name="twitter:description" content="Abdelhakim Irbah - Salesforce Release Manager & Architecte Technique certifié. +10 ans d'expertise Salesforce, Release Management Copado, Architecture multi-cloud. Paris, France.">
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://wisee.fr/#person",
+                "name": "Abdelhakim Irbah",
+                "jobTitle": "Salesforce Release Manager & Architecte Technique",
+                "url": "https://wisee.fr",
+                "sameAs": [
+                    "https://www.linkedin.com/in/%F0%9F%92%BB-abdelhakim-irbah-296a0930/"
+                ],
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Paris",
+                    "addressCountry": "FR"
+                },
+                "knowsAbout": [
+                    "Salesforce",
+                    "Release Management",
+                    "Copado",
+                    "Architecture Technique",
+                    "Apex",
+                    "Lightning",
+                    "Sales Cloud",
+                    "Service Cloud"
+                ]
+            },
+            {
+                "@type": "ProfessionalService",
+                "@id": "https://wisee.fr/#service",
+                "name": "Wisee.fr - Abdelhakim Irbah",
+                "url": "https://wisee.fr",
+                "founder": {
+                    "@id": "https://wisee.fr/#person"
+                },
+                "description": "Salesforce Release Manager & Architecte Technique certifié. +10 ans d'expertise Salesforce, Release Management Copado, Architecture multi-cloud.",
+                "areaServed": {
+                    "@type": "Place",
+                    "name": "Paris, France"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Services Salesforce",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Salesforce Release Management"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Architecture Technique Salesforce"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Développement Salesforce"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Conseil & Pilotage"
+                            }
+                        }
+                    ]
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Paris",
+                    "addressCountry": "FR"
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -2383,7 +2469,7 @@
                         </div>
                         <div class="contact-text">
                             <strong>Email</strong>
-                            hakim.irbah@wisee.fr
+                            <span id="ct-em"></span>
                         </div>
                     </div>
 
@@ -2393,7 +2479,7 @@
                         </div>
                         <div class="contact-text">
                             <strong data-i18n="contact.phone">Téléphone</strong>
-                            06 20 10 45 53
+                            <span id="ct-ph"></span>
                         </div>
                     </div>
 
@@ -3142,6 +3228,32 @@
                 setTheme(e.matches);
             }
         });
+
+        // Contact info obfuscation — values are split and reversed to defeat static scraping
+        (function() {
+            var _p = ['rf', '.ee', 'siw', '@', 'hab', 'ri.', 'mik', 'ah'];
+            var _t = ['35', ' 54', ' 01', ' 02', ' 60'];
+            var em = _p.reverse().join('');
+            var ph = _t.reverse().join('');
+            var emEl = document.getElementById('ct-em');
+            var phEl = document.getElementById('ct-ph');
+            if (emEl) {
+                var a = document.createElement('a');
+                a.href = 'mai' + 'lto:' + em;
+                a.textContent = em;
+                a.style.color = 'inherit';
+                a.style.textDecoration = 'none';
+                emEl.replaceWith(a);
+            }
+            if (phEl) {
+                var a2 = document.createElement('a');
+                a2.href = 'te' + 'l:' + ph.replace(/ /g, '');
+                a2.textContent = ph;
+                a2.style.color = 'inherit';
+                a2.style.textDecoration = 'none';
+                phEl.replaceWith(a2);
+            }
+        })();
 
     </script>
 </body>
