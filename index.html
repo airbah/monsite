@@ -2,6 +2,15 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <script>
+        // Apply theme BEFORE render to avoid flash
+        (function() {
+            var saved = localStorage.getItem('theme');
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wisee.fr | Abdelhakim Irbah - Salesforce Release Manager</title>
     <meta name="description" content="Abdelhakim Irbah - Salesforce Release Manager & Architecte Technique certifié. +10 ans d'expertise Salesforce, Release Management Copado, Architecture multi-cloud. Paris, France.">
@@ -53,6 +62,20 @@
                 0 8px 16px rgba(0, 0, 0, 0.06),
                 0 16px 32px rgba(0, 0, 0, 0.06),
                 0 32px 64px rgba(0, 0, 0, 0.04);
+        }
+
+        /* ===================== DARK MODE VARIABLES ===================== */
+        [data-theme="dark"] {
+            --dark: #e2e8f0;
+            --light: #0f172a;
+            --gray-100: #1e293b;
+            --gray-200: #334155;
+            --gray-300: #475569;
+            --gray-400: #94a3b8;
+            --gray-500: #cbd5e1;
+            --gray-800: #e2e8f0;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
+            --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3);
         }
 
         * {
@@ -1268,6 +1291,305 @@
             transform: translateY(0);
         }
 
+        /* ===================== THEME TOGGLE BUTTON ===================== */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            cursor: pointer;
+            color: var(--gray-500);
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            z-index: 1001;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        .theme-toggle i {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .theme-toggle:hover i {
+            transform: rotate(20deg) scale(1.1);
+        }
+
+        /* ===================== DARK MODE OVERRIDES ===================== */
+        body,
+        .navbar,
+        .expertise-card,
+        .project-card,
+        .project-content,
+        .timeline-content,
+        .contact-form,
+        .form-control,
+        .about-highlight-item,
+        .cert-badge,
+        .stats-bar,
+        .clients-section,
+        section,
+        section.alt,
+        .contact-item,
+        .social-link,
+        .tag,
+        footer {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Body */
+        [data-theme="dark"] body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        /* Navbar */
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        [data-theme="dark"] .navbar.scrolled {
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid #334155;
+        }
+
+        [data-theme="dark"] .mobile-menu-btn {
+            color: #e2e8f0;
+        }
+
+        /* Nav links mobile panel */
+        @media (max-width: 768px) {
+            [data-theme="dark"] .nav-links {
+                background: #0f172a;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* Lang toggle dark */
+        [data-theme="dark"] .lang-toggle {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-theme="dark"] .lang-toggle button {
+            color: #94a3b8;
+        }
+
+        [data-theme="dark"] .lang-toggle button:hover:not(.active) {
+            color: #e2e8f0;
+        }
+
+        /* Theme toggle dark */
+        [data-theme="dark"] .theme-toggle {
+            background: #1e293b;
+            border-color: #334155;
+            color: #fbbf24;
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            border-color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        /* Stats bar */
+        [data-theme="dark"] .stats-bar {
+            background: #111827;
+            border-bottom-color: #1e293b;
+        }
+
+        /* Clients section */
+        [data-theme="dark"] .clients-section {
+            background: #111827;
+            border-top-color: #1e293b;
+            border-bottom-color: #1e293b;
+        }
+
+        [data-theme="dark"] .client-logo {
+            filter: grayscale(100%) opacity(0.4) brightness(2);
+        }
+
+        [data-theme="dark"] .client-logo:hover {
+            filter: grayscale(0%) opacity(1) brightness(1.1);
+        }
+
+        /* About highlights */
+        [data-theme="dark"] .about-highlight-item {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-theme="dark"] .about-highlight-item:hover {
+            border-color: #475569;
+        }
+
+        [data-theme="dark"] .about-highlight-item h4 {
+            color: #e2e8f0;
+        }
+
+        /* Cert badges */
+        [data-theme="dark"] .cert-badge {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-theme="dark"] .cert-badge:hover {
+            border-color: var(--primary);
+        }
+
+        [data-theme="dark"] .cert-badge span {
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .cert-badge img {
+            filter: brightness(1.2);
+        }
+
+        /* Section alt (expertise, experience) */
+        [data-theme="dark"] section.alt {
+            background-color: #111827;
+        }
+
+        /* Expertise cards */
+        [data-theme="dark"] .expertise-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-theme="dark"] .expertise-card:hover {
+            border-color: var(--primary);
+        }
+
+        [data-theme="dark"] .expertise-card .icon {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(124, 58, 237, 0.15));
+        }
+
+        /* Project cards */
+        [data-theme="dark"] .project-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-theme="dark"] .project-content {
+            background: #1e293b;
+        }
+
+        /* Tags */
+        [data-theme="dark"] .tag {
+            background-color: #334155;
+            color: #cbd5e1;
+        }
+
+        [data-theme="dark"] .tag.primary {
+            background: rgba(37, 99, 235, 0.15);
+            color: #60a5fa;
+        }
+
+        [data-theme="dark"] .tag.secondary {
+            background: rgba(124, 58, 237, 0.15);
+            color: #a78bfa;
+        }
+
+        [data-theme="dark"] .tag.accent {
+            background: rgba(6, 182, 212, 0.15);
+            color: #22d3ee;
+        }
+
+        /* Timeline */
+        [data-theme="dark"] .timeline-content {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-theme="dark"] .timeline-item:hover .timeline-content {
+            border-color: var(--primary);
+        }
+
+        [data-theme="dark"] .timeline-dot {
+            border-color: #1e293b;
+        }
+
+        /* Contact */
+        [data-theme="dark"] .contact-item:hover {
+            background: #1e293b;
+        }
+
+        [data-theme="dark"] .contact-text strong {
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .social-link {
+            background: #1e293b;
+            color: #94a3b8;
+        }
+
+        [data-theme="dark"] .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        /* Contact form */
+        [data-theme="dark"] .contact-form {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-theme="dark"] .form-control {
+            background: #0f172a;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .form-control:focus {
+            background: #111827;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+
+        [data-theme="dark"] .form-control::placeholder {
+            color: #64748b;
+        }
+
+        [data-theme="dark"] .form-label {
+            color: #cbd5e1;
+        }
+
+        /* Footer */
+        [data-theme="dark"] footer {
+            background: #020617;
+        }
+
+        /* Strong text */
+        [data-theme="dark"] strong {
+            color: #e2e8f0;
+        }
+
+        /* Tool logos */
+        [data-theme="dark"] .tool-logo {
+            filter: grayscale(100%) opacity(0.5) brightness(2);
+        }
+
+        [data-theme="dark"] .tool-logo:hover {
+            filter: grayscale(0%) opacity(1) brightness(1.1);
+        }
+
+        /* Buttons in dark mode */
+        [data-theme="dark"] .btn-outline {
+            border-color: rgba(37, 99, 235, 0.4);
+        }
+
+        /* Form messages */
+        [data-theme="dark"] #form-message div {
+            opacity: 0.9;
+        }
+
         /* ===================== ANIMATIONS ===================== */
         .fade-in {
             opacity: 0;
@@ -1371,6 +1693,12 @@
             }
 
             .lang-toggle {
+                position: absolute;
+                top: var(--space-sm);
+                right: 100px;
+            }
+
+            .theme-toggle {
                 position: absolute;
                 top: var(--space-sm);
                 right: 60px;
@@ -1482,6 +1810,9 @@
                     <button class="active" data-lang="fr">FR</button>
                     <button data-lang="en">EN</button>
                 </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
         <div class="nav-overlay" id="navOverlay"></div>
@@ -2295,6 +2626,44 @@
                     loader.remove();
                 });
             }, remaining);
+        });
+
+        // ===================== DARK MODE TOGGLE =====================
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        function setTheme(isDark) {
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeToggle.setAttribute('aria-label', 'Passer en mode clair');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                themeToggle.setAttribute('aria-label', 'Passer en mode sombre');
+            }
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Initialize icon state based on current theme (set by head script)
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            themeToggle.setAttribute('aria-label', 'Passer en mode clair');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            const isDark = document.documentElement.getAttribute('data-theme') !== 'dark';
+            setTheme(isDark);
+        });
+
+        // Listen for system theme changes (only if no manual preference saved)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches);
+            }
         });
 
     </script>
