@@ -634,6 +634,8 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             height: 100%;
             border: 1px solid var(--gray-200);
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -684,6 +686,9 @@
         .project-content {
             padding: var(--space-md);
             background: white;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-title {
@@ -695,6 +700,29 @@
             margin-bottom: var(--space-sm);
             font-size: 0.92rem;
             line-height: 1.6;
+        }
+
+        .project-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: var(--space-md);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .project-cta:hover {
+            color: var(--secondary);
+            gap: 0.75rem;
+        }
+        .project-cta i {
+            transition: transform 0.3s ease;
+        }
+        .project-cta:hover i {
+            transform: translateX(4px);
         }
 
         .project-tags {
@@ -1493,6 +1521,7 @@
                             <span class="tag">Gitlab</span>
                             <span class="tag accent">Quality Gates</span>
                         </div>
+                        <a href="#contact" class="project-cta" data-i18n-html="projects.cta">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -1510,6 +1539,7 @@
                             <span class="tag secondary">Architecture</span>
                             <span class="tag accent">26 devs</span>
                         </div>
+                        <a href="#contact" class="project-cta" data-i18n-html="projects.cta">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -1527,6 +1557,7 @@
                             <span class="tag secondary">AWS</span>
                             <span class="tag accent">Lightning</span>
                         </div>
+                        <a href="#contact" class="project-cta" data-i18n-html="projects.cta">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -1544,6 +1575,7 @@
                             <span class="tag secondary" data-i18n="tag.2000licenses">2000 licences</span>
                             <span class="tag accent">International</span>
                         </div>
+                        <a href="#contact" class="project-cta" data-i18n-html="projects.cta">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -1561,6 +1593,7 @@
                             <span class="tag secondary">11k users</span>
                             <span class="tag accent">Mobile</span>
                         </div>
+                        <a href="#contact" class="project-cta" data-i18n-html="projects.cta">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -1579,6 +1612,7 @@
                             <span class="tag">Boomi</span>
                             <span class="tag accent">15 consultants</span>
                         </div>
+                        <a href="#contact" class="project-cta" data-i18n-html="projects.cta">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1837,6 +1871,7 @@
                 'expertise.card4.desc': 'Animation d\'équipes techniques (jusqu\'à 15 consultants). Spécifications techniques, design de solutions, définition des bonnes pratiques de développement et conseil client.',
                 'projects.title': 'Missions réalisées',
                 'projects.subtitle': 'Quelques missions significatives auprès de grands comptes',
+                'projects.cta': 'En savoir plus <i class="fas fa-arrow-right"></i>',
                 'project.bouygues.desc': 'Release Manager Salesforce. Mise en place et gestion du Release Management sur les projets SalesCloud et Vlocity. Implémentation de Copado avec pipeline complexe.',
                 'project.engie.desc': 'Architecte Technique &amp; Release Manager. Stratégie de release management unifiée pour 26 développeurs sur 3 projets partageant la même Org Salesforce.',
                 'project.psa.desc': 'Architecte Technique Salesforce chez IBM Bluewolf. Plateforme de souscription de services connectés pour les véhicules des marques du Groupe PSA.',
@@ -1912,6 +1947,7 @@
                 'expertise.card4.desc': 'Leading technical teams (up to 15 consultants). Technical specifications, solution design, development best practices and client advisory.',
                 'projects.title': 'Completed projects',
                 'projects.subtitle': 'Key enterprise projects with major corporations',
+                'projects.cta': 'Learn more <i class="fas fa-arrow-right"></i>',
                 'project.bouygues.desc': 'Salesforce Release Manager. Setup and management of Release Management for SalesCloud and Vlocity projects. Copado implementation with complex pipeline.',
                 'project.engie.desc': 'Technical Architect &amp; Release Manager. Unified release management strategy for 26 developers across 3 projects sharing the same Salesforce Org.',
                 'project.psa.desc': 'Salesforce Technical Architect at IBM Bluewolf. Connected services subscription platform for PSA Group vehicle brands.',
