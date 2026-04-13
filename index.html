@@ -1150,6 +1150,76 @@
             }
         }
 
+        /* ===================== PAGE LOADER ===================== */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1a3e 40%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .page-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .loader-logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: loaderPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes loaderPulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .loader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.15);
+            border-top-color: var(--accent);
+            border-right-color: var(--secondary);
+            border-radius: 50%;
+            animation: loaderSpin 0.8s linear infinite;
+        }
+
+        @keyframes loaderSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Section reveal on page load */
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .section-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* ===================== ANIMATIONS ===================== */
         .fade-in {
             opacity: 0;
@@ -1285,6 +1355,14 @@
     </style>
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <span class="loader-logo">Wisee.fr</span>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
     <noscript>
         <div style="padding: 1rem; background: #fef3c7; color: #92400e; text-align: center; font-family: sans-serif;">
             Ce site fonctionne mieux avec JavaScript activé. Veuillez activer JavaScript pour une expérience optimale.
@@ -1312,7 +1390,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero section-reveal" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge" style="border-color: rgba(239, 68, 68, 0.3);">
@@ -1379,7 +1457,7 @@
     </div>
 
     <!-- À propos Section -->
-    <section id="about">
+    <section id="about" class="section-reveal">
         <div class="container">
             <div class="section-header">
                 <h2 data-i18n="about.title">À propos</h2>
@@ -1431,7 +1509,7 @@
     </section>
 
     <!-- Expertise Section -->
-    <section id="expertise" class="alt">
+    <section id="expertise" class="alt section-reveal">
         <div class="container">
             <div class="section-header">
                 <h2 data-i18n="expertise.title">Mon expertise</h2>
@@ -1471,7 +1549,7 @@
     </section>
 
     <!-- Projets / Missions Section -->
-    <section id="projects">
+    <section id="projects" class="section-reveal">
         <div class="container">
             <div class="section-header">
                 <h2 data-i18n="projects.title">Missions réalisées</h2>
@@ -1586,7 +1664,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="alt">
+    <section id="experience" class="alt section-reveal">
         <div class="container">
             <div class="section-header">
                 <h2 data-i18n="experience.title">Parcours professionnel</h2>
@@ -1651,7 +1729,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="section-reveal">
         <div class="container">
             <div class="section-header">
                 <h2 data-i18n="contact.title">Me contacter</h2>
@@ -2058,6 +2136,33 @@
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('DOMContentLoaded', handleScroll);
+
+        // ===================== PAGE LOADER =====================
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('pageLoader');
+            // Minimum display of 500ms so the loader is visible
+            const minDelay = 500;
+            const loadTime = performance.now();
+            const remaining = Math.max(0, minDelay - loadTime);
+
+            setTimeout(function() {
+                // Fade out the loader
+                loader.classList.add('loaded');
+
+                // Reveal sections sequentially
+                const sections = document.querySelectorAll('.section-reveal');
+                sections.forEach(function(section, index) {
+                    setTimeout(function() {
+                        section.classList.add('revealed');
+                    }, index * 120);
+                });
+
+                // Remove loader from DOM after transition ends
+                loader.addEventListener('transitionend', function() {
+                    loader.remove();
+                });
+            }, remaining);
+        });
 
     </script>
 </body>
