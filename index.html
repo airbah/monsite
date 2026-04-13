@@ -991,6 +991,7 @@
 
         .form-group {
             margin-bottom: var(--space-md);
+            position: relative;
         }
 
         .form-label {
@@ -1003,7 +1004,7 @@
 
         .form-control {
             width: 100%;
-            padding: 0.85rem 1rem;
+            padding: 0.85rem 2.2rem 0.85rem 1rem;
             border: 1.5px solid var(--gray-200);
             border-radius: 12px;
             font-size: 0.95rem;
@@ -1029,6 +1030,7 @@
             width: 100%;
             padding: 1rem;
             font-size: 1rem;
+            position: relative;
         }
 
         /* ===================== FOOTER ===================== */
@@ -1777,6 +1779,202 @@
             }
         }
 
+        /* ===================== FORM VALIDATION ===================== */
+        .form-group.valid .form-control {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
+
+        .form-group.valid .form-control:focus {
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+        }
+
+        .form-group.error .form-control {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .form-group.error .form-control:focus {
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+        }
+
+        .form-group .field-icon {
+            position: absolute;
+            right: 12px;
+            top: 38px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .form-group.valid .field-icon {
+            opacity: 1;
+            transform: scale(1);
+            color: #22c55e;
+        }
+
+        .form-group.error .field-icon {
+            opacity: 1;
+            transform: scale(1);
+            color: #ef4444;
+        }
+
+        .form-group.valid .field-icon::before {
+            content: '\2713';
+        }
+
+        .form-group.error .field-icon::before {
+            content: '\2717';
+        }
+
+        .field-error {
+            display: block;
+            color: #ef4444;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 6px;
+            padding-left: 4px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .form-group.error .field-error {
+            max-height: 40px;
+            opacity: 1;
+        }
+
+        .char-counter {
+            display: block;
+            text-align: right;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 6px;
+            color: var(--gray-400);
+            transition: color 0.3s ease;
+        }
+
+        .char-counter.warning {
+            color: #f59e0b;
+        }
+
+        .char-counter.danger {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .btn-primary.loading {
+            pointer-events: none;
+            opacity: 0.85;
+            position: relative;
+        }
+
+        .btn-primary .btn-text {
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary.loading .btn-text {
+            opacity: 0;
+        }
+
+        .btn-primary .btn-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary.loading .btn-loader {
+            opacity: 1;
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2.5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .form-success-message {
+            text-align: center;
+            padding: var(--space-lg);
+            animation: formSuccessIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes formSuccessIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .form-success-message .success-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 1.75rem;
+            color: white;
+            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+        }
+
+        .form-success-message h3 {
+            color: var(--dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .form-success-message p {
+            color: var(--gray-500);
+            margin-bottom: var(--space-md);
+        }
+
+        .form-success-message .btn-outline {
+            display: inline-block;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .form-error-banner {
+            padding: 14px 18px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: formSuccessIn 0.4s ease;
+        }
+
+        .form-error-banner i {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -2223,27 +2421,39 @@
                             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="group-name">
                             <label for="name" class="form-label" data-i18n="form.name">Nom</label>
                             <input type="text" id="name" name="name" class="form-control" data-i18n-placeholder="form.name.ph" placeholder="Votre nom" required minlength="2" maxlength="100" pattern="[A-Za-zÀ-ÿ\s\-']+">
+                            <span class="field-icon" aria-hidden="true"></span>
+                            <span class="field-error" id="error-name"></span>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="group-email">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" name="email" class="form-control" data-i18n-placeholder="form.email.ph" placeholder="votre@email.com" required maxlength="100">
+                            <span class="field-icon" aria-hidden="true"></span>
+                            <span class="field-error" id="error-email"></span>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="group-subject">
                             <label for="subject" class="form-label" data-i18n="form.subject">Sujet</label>
                             <input type="text" id="subject" name="subject" class="form-control" data-i18n-placeholder="form.subject.ph" placeholder="Sujet de votre message" required maxlength="100">
+                            <span class="field-icon" aria-hidden="true"></span>
+                            <span class="field-error" id="error-subject"></span>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="group-message">
                             <label for="message" class="form-label">Message</label>
                             <textarea id="message" name="message" class="form-control" data-i18n-placeholder="form.message.ph" placeholder="Décrivez votre besoin..." required minlength="10" maxlength="2000"></textarea>
+                            <span class="field-icon" aria-hidden="true"></span>
+                            <span class="field-error" id="error-message"></span>
+                            <span class="char-counter" id="char-counter">0/2000</span>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" data-i18n="form.submit">Envoyer le message</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <span class="btn-text" data-i18n="form.submit">Envoyer le message</span>
+                            <span class="btn-loader"><span class="spinner"></span> <span data-i18n="form.sending">Envoi en cours...</span></span>
+                        </button>
                     </form>
 
                     <!-- Fetch CSRF token on page load -->
@@ -2297,19 +2507,275 @@
 
     <!-- Scripts -->
     <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const urlParams = new URLSearchParams(window.location.search);
-                            const status = urlParams.get('status');
-                            const formMessage = document.getElementById('form-message');
+        // ===================== FORM VALIDATION & AJAX SUBMIT =====================
+        (function() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submit-btn');
+            const formMessage = document.getElementById('form-message');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+            const charCounter = document.getElementById('char-counter');
+            let isSubmitting = false;
 
-                            if (status === 'success') {
-                                formMessage.innerHTML = '<div style="padding: 15px; background-color: #d1fae5; color: #065f46; border-radius: 12px; font-weight: 500;">Votre message a été envoyé avec succès. Je vous répondrai dans les plus brefs délais.</div>';
-                                formMessage.style.display = 'block';
-                            } else if (status === 'error') {
-                                formMessage.innerHTML = '<div style="padding: 15px; background-color: #fee2e2; color: #991b1b; border-radius: 12px; font-weight: 500;">Une erreur s\'est produite lors de l\'envoi du message. Veuillez réessayer ultérieurement.</div>';
-                                formMessage.style.display = 'block';
-                            }
-                        });
+            function getLang() {
+                return document.documentElement.lang || 'fr';
+            }
+
+            // Validation messages
+            const validationMessages = {
+                fr: {
+                    nameRequired: 'Le nom est requis',
+                    nameMin: 'Le nom doit contenir au moins 2 caractères',
+                    nameFormat: 'Le nom ne peut contenir que des lettres, espaces, tirets et apostrophes',
+                    emailRequired: 'L\'email est requis',
+                    emailFormat: 'Veuillez entrer une adresse email valide',
+                    subjectRequired: 'Le sujet est requis',
+                    messageRequired: 'Le message est requis',
+                    messageMin: 'Le message doit contenir au moins 10 caractères',
+                    submitSuccess: 'Message envoyé avec succès !',
+                    submitSuccessDetail: 'Je vous répondrai dans les plus brefs délais.',
+                    submitError: 'Une erreur s\'est produite lors de l\'envoi. Veuillez réessayer.',
+                    newMessage: 'Envoyer un nouveau message'
+                },
+                en: {
+                    nameRequired: 'Name is required',
+                    nameMin: 'Name must be at least 2 characters',
+                    nameFormat: 'Name can only contain letters, spaces, hyphens and apostrophes',
+                    emailRequired: 'Email is required',
+                    emailFormat: 'Please enter a valid email address',
+                    subjectRequired: 'Subject is required',
+                    messageRequired: 'Message is required',
+                    messageMin: 'Message must be at least 10 characters',
+                    submitSuccess: 'Message sent successfully!',
+                    submitSuccessDetail: 'I will get back to you as soon as possible.',
+                    submitError: 'An error occurred while sending. Please try again.',
+                    newMessage: 'Send a new message'
+                }
+            };
+
+            function msg(key) {
+                var lang = getLang();
+                return (validationMessages[lang] && validationMessages[lang][key]) || validationMessages['fr'][key] || '';
+            }
+
+            // Field validation functions
+            function validateName() {
+                var val = nameInput.value.trim();
+                var group = document.getElementById('group-name');
+                var errorEl = document.getElementById('error-name');
+                var namePattern = /^[A-Za-zÀ-ÿ\s\-']+$/;
+
+                if (!val) {
+                    setFieldState(group, errorEl, 'error', msg('nameRequired'));
+                    return false;
+                }
+                if (val.length < 2) {
+                    setFieldState(group, errorEl, 'error', msg('nameMin'));
+                    return false;
+                }
+                if (!namePattern.test(val)) {
+                    setFieldState(group, errorEl, 'error', msg('nameFormat'));
+                    return false;
+                }
+                setFieldState(group, errorEl, 'valid', '');
+                return true;
+            }
+
+            function validateEmail() {
+                var val = emailInput.value.trim();
+                var group = document.getElementById('group-email');
+                var errorEl = document.getElementById('error-email');
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!val) {
+                    setFieldState(group, errorEl, 'error', msg('emailRequired'));
+                    return false;
+                }
+                if (!emailPattern.test(val)) {
+                    setFieldState(group, errorEl, 'error', msg('emailFormat'));
+                    return false;
+                }
+                setFieldState(group, errorEl, 'valid', '');
+                return true;
+            }
+
+            function validateSubject() {
+                var val = subjectInput.value.trim();
+                var group = document.getElementById('group-subject');
+                var errorEl = document.getElementById('error-subject');
+
+                if (!val) {
+                    setFieldState(group, errorEl, 'error', msg('subjectRequired'));
+                    return false;
+                }
+                setFieldState(group, errorEl, 'valid', '');
+                return true;
+            }
+
+            function validateMessage() {
+                var val = messageInput.value.trim();
+                var group = document.getElementById('group-message');
+                var errorEl = document.getElementById('error-message');
+
+                if (!val) {
+                    setFieldState(group, errorEl, 'error', msg('messageRequired'));
+                    return false;
+                }
+                if (val.length < 10) {
+                    setFieldState(group, errorEl, 'error', msg('messageMin'));
+                    return false;
+                }
+                setFieldState(group, errorEl, 'valid', '');
+                return true;
+            }
+
+            function setFieldState(group, errorEl, state, message) {
+                group.classList.remove('valid', 'error');
+                if (state) {
+                    group.classList.add(state);
+                }
+                errorEl.textContent = message || '';
+            }
+
+            // Character counter
+            function updateCharCounter() {
+                var len = messageInput.value.length;
+                charCounter.textContent = len + '/2000';
+                charCounter.classList.remove('warning', 'danger');
+                if (len >= 1800) {
+                    charCounter.classList.add('danger');
+                } else if (len >= 1400) {
+                    charCounter.classList.add('warning');
+                }
+            }
+
+            // Attach validation on blur
+            nameInput.addEventListener('blur', function() { if (this.value.trim()) validateName(); });
+            emailInput.addEventListener('blur', function() { if (this.value.trim()) validateEmail(); });
+            subjectInput.addEventListener('blur', function() { if (this.value.trim()) validateSubject(); });
+            messageInput.addEventListener('blur', function() { if (this.value.trim()) validateMessage(); });
+
+            // Attach validation on input (after first blur / error)
+            nameInput.addEventListener('input', function() {
+                if (document.getElementById('group-name').classList.contains('error')) validateName();
+            });
+            emailInput.addEventListener('input', function() {
+                if (document.getElementById('group-email').classList.contains('error')) validateEmail();
+            });
+            subjectInput.addEventListener('input', function() {
+                if (document.getElementById('group-subject').classList.contains('error')) validateSubject();
+            });
+            messageInput.addEventListener('input', function() {
+                updateCharCounter();
+                if (document.getElementById('group-message').classList.contains('error')) validateMessage();
+            });
+
+            // Init char counter
+            updateCharCounter();
+
+            // AJAX form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                if (isSubmitting) return;
+
+                // Validate all fields
+                var isNameValid = validateName();
+                var isEmailValid = validateEmail();
+                var isSubjectValid = validateSubject();
+                var isMessageValid = validateMessage();
+
+                if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
+                    // Focus the first invalid field
+                    var firstError = form.querySelector('.form-group.error .form-control');
+                    if (firstError) firstError.focus();
+                    return;
+                }
+
+                // Start loading state
+                isSubmitting = true;
+                submitBtn.classList.add('loading');
+                formMessage.style.display = 'none';
+
+                var formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'same-origin'
+                })
+                .then(function(response) {
+                    if (response.ok || response.redirected) {
+                        showSuccess();
+                    } else {
+                        showError();
+                    }
+                })
+                .catch(function() {
+                    showError();
+                })
+                .finally(function() {
+                    isSubmitting = false;
+                    submitBtn.classList.remove('loading');
+                });
+            });
+
+            function showSuccess() {
+                var contactFormDiv = form.closest('.contact-form');
+                var lang = getLang();
+                var successMsg = msg('submitSuccess');
+                var successDetail = msg('submitSuccessDetail');
+                var newMsgLabel = msg('newMessage');
+
+                form.style.display = 'none';
+                formMessage.style.display = 'block';
+                formMessage.innerHTML = '<div class="form-success-message">' +
+                    '<div class="success-icon"><i class="fas fa-check"></i></div>' +
+                    '<h3>' + successMsg + '</h3>' +
+                    '<p>' + successDetail + '</p>' +
+                    '<button type="button" class="btn btn-outline" id="btn-new-message">' + newMsgLabel + '</button>' +
+                    '</div>';
+
+                document.getElementById('btn-new-message').addEventListener('click', function() {
+                    form.reset();
+                    form.style.display = '';
+                    formMessage.style.display = 'none';
+                    formMessage.innerHTML = '';
+                    updateCharCounter();
+                    // Reset all field states
+                    ['group-name', 'group-email', 'group-subject', 'group-message'].forEach(function(id) {
+                        var g = document.getElementById(id);
+                        if (g) g.classList.remove('valid', 'error');
+                    });
+                    ['error-name', 'error-email', 'error-subject', 'error-message'].forEach(function(id) {
+                        var el = document.getElementById(id);
+                        if (el) el.textContent = '';
+                    });
+                });
+
+                // Clean URL if needed
+                if (window.history && window.history.replaceState) {
+                    var cleanUrl = window.location.pathname + window.location.hash;
+                    window.history.replaceState({}, '', cleanUrl);
+                }
+            }
+
+            function showError() {
+                formMessage.style.display = 'block';
+                formMessage.innerHTML = '<div class="form-error-banner"><i class="fas fa-exclamation-circle"></i> ' + msg('submitError') + '</div>';
+            }
+
+            // Handle legacy ?status= redirect (from server-side PHP in case fetch fails)
+            var urlParams = new URLSearchParams(window.location.search);
+            var status = urlParams.get('status');
+            if (status === 'success') {
+                showSuccess();
+            } else if (status === 'error') {
+                showError();
+            }
+        })();
 
         // ===================== TRANSLATIONS =====================
         const translations = {
@@ -2387,6 +2853,7 @@
                 'form.subject.ph': 'Sujet de votre message',
                 'form.message.ph': 'Décrivez votre besoin...',
                 'form.submit': 'Envoyer le message',
+                'form.sending': 'Envoi en cours...',
                 'footer.tagline': 'Expert Salesforce - Release Management &amp; Architecture Technique'
             },
             en: {
@@ -2463,6 +2930,7 @@
                 'form.subject.ph': 'Subject of your message',
                 'form.message.ph': 'Describe your needs...',
                 'form.submit': 'Send message',
+                'form.sending': 'Sending...',
                 'footer.tagline': 'Salesforce Expert - Release Management &amp; Technical Architecture'
             }
         };
