@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Apply theme BEFORE render to avoid flash
+        (function() {
+            var saved = localStorage.getItem('theme');
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions l&eacute;gales | Wisee.fr</title>
+    <meta name="description" content="Mentions l&eacute;gales du site wisee.fr - WISEE EURL, h&eacute;bergement, cookies, RGPD et propri&eacute;t&eacute; intellectuelle.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://wisee.fr/mentions-legales.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-800: #1e293b;
+
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+        }
+
+        /* ===================== DARK MODE VARIABLES ===================== */
+        [data-theme="dark"] {
+            --dark: #e2e8f0;
+            --light: #0f172a;
+            --gray-100: #1e293b;
+            --gray-200: #334155;
+            --gray-300: #475569;
+            --gray-400: #94a3b8;
+            --gray-500: #cbd5e1;
+            --gray-800: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        [data-theme="dark"] body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        /* ===================== NAVBAR ===================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(248, 250, 252, 0.85);
+            border-bottom: 1px solid var(--gray-200);
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 23, 42, 0.85);
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid #334155;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-back {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-back:hover {
+            color: var(--primary);
+        }
+
+        /* ===================== MAIN CONTENT ===================== */
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: calc(var(--space-xl) + 60px) var(--space-sm) var(--space-xl);
+        }
+
+        .legal-content h1 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: var(--space-xs);
+            color: var(--dark);
+        }
+
+        .legal-content .subtitle {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+            margin-bottom: var(--space-xl);
+        }
+
+        .legal-content h2 {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .legal-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .legal-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: var(--space-md);
+            margin-bottom: var(--space-xs);
+            color: var(--dark);
+        }
+
+        .legal-content p {
+            color: var(--gray-500);
+            margin-bottom: var(--space-sm);
+            line-height: 1.75;
+        }
+
+        .legal-content ul {
+            color: var(--gray-500);
+            margin-bottom: var(--space-sm);
+            padding-left: 1.5rem;
+            line-height: 1.85;
+        }
+
+        .legal-content ul li {
+            margin-bottom: 0.35rem;
+        }
+
+        .legal-content strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .legal-content strong {
+            color: #e2e8f0;
+        }
+
+        .legal-content a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .legal-content a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+            margin: var(--space-lg) 0;
+        }
+
+        /* ===================== FOOTER ===================== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: var(--space-lg) 0;
+            text-align: center;
+        }
+
+        [data-theme="dark"] footer {
+            background: #020617;
+        }
+
+        .footer-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.7));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: var(--space-xs);
+            display: inline-block;
+        }
+
+        .copyright {
+            color: var(--gray-400);
+            font-size: 0.85rem;
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 640px) {
+            .legal-content {
+                padding-top: calc(var(--space-lg) + 60px);
+            }
+
+            .legal-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .legal-content h2 {
+                font-size: 1.15rem;
+            }
+
+            .legal-content ul {
+                padding-left: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="/" class="logo"><span>Wisee.fr</span></a>
+                <a href="/" class="nav-back">&larr; Retour &agrave; l'accueil</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="legal-content">
+        <h1>Mentions l&eacute;gales</h1>
+        <p class="subtitle">Derni&egrave;re mise &agrave; jour : avril 2026</p>
+
+        <!-- Editeur du site -->
+        <h2>&Eacute;diteur du site</h2>
+        <p>Le site <a href="https://wisee.fr">wisee.fr</a> est &eacute;dit&eacute; par :</p>
+        <ul>
+            <li><strong>Raison sociale :</strong> WISEE EURL</li>
+            <li><strong>Repr&eacute;sentant l&eacute;gal / Directeur de la publication :</strong> Abdelhakim Irbah</li>
+            <li><strong>SIRET :</strong> 853 413 078 00025</li>
+            <li><strong>N&deg; TVA intracommunautaire :</strong> FR03853413078</li>
+            <li><strong>Adresse :</strong> <span id="ml-addr"></span></li>
+            <li><strong>Email :</strong> <span id="ml-em"></span></li>
+            <li><strong>Site :</strong> <a href="https://wisee.fr">https://wisee.fr</a></li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <!-- Hebergeur -->
+        <h2>H&eacute;bergeur</h2>
+        <p>Le site est h&eacute;berg&eacute; par :</p>
+        <ul>
+            <li><strong>Raison sociale :</strong> O2Switch SARL</li>
+            <li><strong>Adresse :</strong> Chemin des Pardiaux, 63000 Clermont-Ferrand, France</li>
+            <li><strong>Site :</strong> <a href="https://www.o2switch.fr" target="_blank" rel="noopener noreferrer">https://www.o2switch.fr</a></li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <!-- Cookies -->
+        <h2>Cookies et stockage local</h2>
+        <p>Le site <strong>n'utilise aucun cookie de tracking</strong> ni aucun cookie tiers.</p>
+        <p>Le site utilise uniquement le <strong>localStorage</strong> du navigateur pour sauvegarder les pr&eacute;f&eacute;rences utilisateur :</p>
+        <ul>
+            <li>Th&egrave;me d'affichage (clair / sombre)</li>
+            <li>Langue pr&eacute;f&eacute;r&eacute;e (fran&ccedil;ais / anglais)</li>
+        </ul>
+        <p>Aucun outil de suivi ou d'analyse (tel que Google Analytics) n'est utilis&eacute; sur ce site.</p>
+
+        <div class="divider"></div>
+
+        <!-- RGPD -->
+        <h2>Donn&eacute;es personnelles (RGPD)</h2>
+
+        <h3>Donn&eacute;es collect&eacute;es</h3>
+        <p>Les donn&eacute;es personnelles collect&eacute;es via le formulaire de contact sont :</p>
+        <ul>
+            <li>Nom</li>
+            <li>Adresse email</li>
+            <li>Sujet du message</li>
+            <li>Contenu du message</li>
+        </ul>
+
+        <h3>Finalit&eacute;</h3>
+        <p>Ces donn&eacute;es sont collect&eacute;es dans le seul but de <strong>r&eacute;pondre aux demandes de contact</strong>.</p>
+
+        <h3>Base l&eacute;gale</h3>
+        <p>Le traitement repose sur le <strong>consentement</strong> de l'utilisateur, manifest&eacute; par l'envoi volontaire du formulaire de contact.</p>
+
+        <h3>Destinataire</h3>
+        <p>Les donn&eacute;es sont destin&eacute;es exclusivement &agrave; <strong>Abdelhakim Irbah</strong>. Elles ne sont partag&eacute;es avec aucun tiers.</p>
+
+        <h3>Dur&eacute;e de conservation</h3>
+        <p>Les donn&eacute;es sont conserv&eacute;es le temps n&eacute;cessaire au traitement de la demande.</p>
+
+        <h3>Vos droits</h3>
+        <p>Conform&eacute;ment au R&egrave;glement G&eacute;n&eacute;ral sur la Protection des Donn&eacute;es (RGPD), vous disposez des droits suivants :</p>
+        <ul>
+            <li>Droit d'<strong>acc&egrave;s</strong> &agrave; vos donn&eacute;es</li>
+            <li>Droit de <strong>rectification</strong></li>
+            <li>Droit de <strong>suppression</strong></li>
+            <li>Droit d'<strong>opposition</strong></li>
+            <li>Droit &agrave; la <strong>portabilit&eacute;</strong></li>
+        </ul>
+        <p>Pour exercer ces droits, vous pouvez nous contacter par email : <span id="ml-em2"></span></p>
+
+        <h3>Transfert hors UE</h3>
+        <p><strong>Aucun transfert</strong> de donn&eacute;es personnelles n'est effectu&eacute; en dehors de l'Union europ&eacute;enne.</p>
+
+        <div class="divider"></div>
+
+        <!-- Propriete intellectuelle -->
+        <h2>Propri&eacute;t&eacute; intellectuelle</h2>
+        <p>L'ensemble du contenu du site (textes, images, logos, graphismes) est la <strong>propri&eacute;t&eacute; de WISEE EURL</strong>, sauf mention contraire.</p>
+        <p>Les logos des entreprises clientes sont utilis&eacute;s &agrave; titre de r&eacute;f&eacute;rence professionnelle et restent la propri&eacute;t&eacute; de leurs d&eacute;tenteurs respectifs.</p>
+        <p>Toute reproduction, repr&eacute;sentation ou diffusion, int&eacute;grale ou partielle, du contenu de ce site sans autorisation pr&eacute;alable est interdite.</p>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Wisee.fr</div>
+            <p class="copyright">&copy; 2026 Wisee.fr | Abdelhakim Irbah</p>
+        </div>
+    </footer>
+
+    <script>
+        // Contact info obfuscation — fragments reversed to defeat static scraping
+        (function() {
+            var _p = ['fr', 'ee.', 'wis', '@', 'bah', '.ir', 'kim', 'ha'];
+            var em = _p.reverse().join('');
+            var targets = [document.getElementById('ml-em'), document.getElementById('ml-em2')];
+            targets.forEach(function(el) {
+                if (el) {
+                    var a = document.createElement('a');
+                    a.href = 'mai' + 'lto:' + em;
+                    a.textContent = em;
+                    a.style.color = 'inherit';
+                    a.style.textDecoration = 'none';
+                    el.replaceWith(a);
+                }
+            });
+
+            var _a = [' Sceaux', ', 92330', ' Leclerc', 'G\u00e9n\u00e9ral', ' du ', ' Avenue', '162'];
+            var addr = _a.reverse().join('');
+            var addrEl = document.getElementById('ml-addr');
+            if (addrEl) { addrEl.textContent = addr; }
+        })();
+    </script>
+</body>
+</html>
