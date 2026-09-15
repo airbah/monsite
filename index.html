@@ -117,1984 +117,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7c3aed;
-            --accent: #06b6d4;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-800: #1e293b;
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/design.css">
 
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2.5rem;
-            --space-xl: 4rem;
-
-            --card-shadow:
-                0 1px 1px rgba(0, 0, 0, 0.02),
-                0 2px 4px rgba(0, 0, 0, 0.02),
-                0 4px 8px rgba(0, 0, 0, 0.03),
-                0 8px 16px rgba(0, 0, 0, 0.03);
-            --card-shadow-hover:
-                0 4px 8px rgba(0, 0, 0, 0.04),
-                0 8px 16px rgba(0, 0, 0, 0.06),
-                0 16px 32px rgba(0, 0, 0, 0.06),
-                0 32px 64px rgba(0, 0, 0, 0.04);
-        }
-
-        /* ===================== DARK MODE VARIABLES ===================== */
-        [data-theme="dark"] {
-            --dark: #e2e8f0;
-            --light: #0f172a;
-            --gray-100: #1e293b;
-            --gray-200: #334155;
-            --gray-300: #475569;
-            --gray-400: #94a3b8;
-            --gray-500: #cbd5e1;
-            --gray-800: #e2e8f0;
-            --card-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
-            --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-        }
-
-        h2 {
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            margin-bottom: var(--space-md);
-            position: relative;
-            display: inline-block;
-            letter-spacing: -0.02em;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: clamp(1.25rem, 2vw, 1.5rem);
-            margin-bottom: var(--space-sm);
-            letter-spacing: -0.01em;
-        }
-
-        p {
-            margin-bottom: var(--space-md);
-            color: var(--gray-500);
-        }
-
-        strong {
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-sm);
-        }
-
-        section {
-            padding: var(--space-xl) 0;
-            position: relative;
-        }
-
-        section.alt {
-            background-color: var(--gray-100);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-xl);
-            position: relative;
-        }
-
-        .section-header h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-header p {
-            max-width: 600px;
-            margin: var(--space-sm) auto 0;
-            color: var(--gray-500);
-        }
-
-        /* ===================== NAVIGATION ===================== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: rgba(248, 250, 252, 0.85);
-            border-bottom: 1px solid transparent;
-        }
-
-        .navbar.scrolled {
-            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--space-sm) 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-            position: relative;
-            z-index: 1001;
-        }
-
-        .logo span {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-
-        .nav-links a {
-            color: var(--gray-500);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--dark);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* ===================== NAV OVERLAY (mobile) ===================== */
-        .nav-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 999;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-
-        .nav-overlay.active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-
-        /* ===================== LANG TOGGLE ===================== */
-        .lang-toggle {
-            display: flex;
-            align-items: center;
-            background: var(--gray-100);
-            border: 1px solid var(--gray-200);
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1001;
-            flex-shrink: 0;
-        }
-
-        .lang-toggle button {
-            background: none;
-            border: none;
-            padding: 0.4rem 0.6rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            color: var(--gray-500);
-            transition: all 0.3s ease;
-        }
-
-        .lang-toggle button.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .lang-toggle button:hover:not(.active) {
-            color: var(--dark);
-        }
-
-        /* ===================== BOUTONS ===================== */
-        .btn {
-            display: inline-block;
-            padding: 0.85rem 1.75rem;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            border: none;
-            font-size: 0.95rem;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.25);
-        }
-
-        /* ===================== HERO ===================== */
-        .hero {
-            padding: calc(var(--space-xl) * 2.5) 0 var(--space-xl);
-            display: flex;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-            background: var(--dark);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background:
-                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.3), transparent),
-                radial-gradient(ellipse 60% 40% at 80% 50%, rgba(124, 58, 237, 0.2), transparent),
-                radial-gradient(ellipse 50% 60% at 10% 80%, rgba(6, 182, 212, 0.15), transparent);
-            animation: heroGlow 8s ease-in-out infinite alternate;
-        }
-
-        @keyframes heroGlow {
-            0% { opacity: 0.8; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.05); }
-        }
-
-        /* Grille de points en arriere-plan */
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 0;
-        }
-
-        .hero-content {
-            max-width: 750px;
-            z-index: 1;
-            position: relative;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 100px;
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: var(--space-md);
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .hero h1 {
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: var(--space-sm);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
-            color: var(--gray-400);
-            margin-bottom: var(--space-lg);
-            font-weight: 400;
-            line-height: 1.7;
-        }
-
-        .hero-subtitle .highlight {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: var(--space-sm);
-            flex-wrap: wrap;
-        }
-
-        .hero .btn-outline {
-            color: rgba(255, 255, 255, 0.8);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .hero .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.4);
-            color: white;
-            box-shadow: none;
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: var(--space-lg);
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.3);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-15px) translateX(-50%); }
-            60% { transform: translateY(-8px) translateX(-50%); }
-        }
-
-        /* ===================== STATS BAR ===================== */
-        .stats-bar {
-            background: white;
-            border-bottom: 1px solid var(--gray-200);
-            padding: var(--space-lg) 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-md);
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: var(--space-sm);
-        }
-
-        .stat-number {
-            font-size: clamp(2rem, 3vw, 2.75rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--gray-500);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* ===================== A PROPOS ===================== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-
-        .about-text p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .about-highlights {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-sm);
-        }
-
-        .about-highlight-item {
-            background: white;
-            padding: var(--space-md);
-            border-radius: 16px;
-            border: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-        }
-
-        .about-highlight-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--gray-300);
-        }
-
-        .about-highlight-item i {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            display: block;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .about-highlight-item h4 {
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-            color: var(--dark);
-        }
-
-        .about-highlight-item p {
-            font-size: 0.85rem;
-            margin: 0;
-            color: var(--gray-500);
-        }
-
-        /* ===================== EXPERTISE ===================== */
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--space-md);
-        }
-
-        .expertise-card {
-            background: white;
-            border-radius: 16px;
-            padding: var(--space-lg);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--gray-200);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--primary);
-        }
-
-        .expertise-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .expertise-card:hover::before {
-            opacity: 1;
-        }
-
-        .expertise-card .icon {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: var(--space-md);
-            color: var(--primary);
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08));
-            border-radius: 14px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .expertise-card:hover .icon {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            transform: scale(1.1) rotate(3deg);
-        }
-
-        .expertise-card h3 {
-            margin-bottom: var(--space-xs);
-            transition: all 0.3s ease;
-        }
-
-        .expertise-card p {
-            color: var(--gray-500);
-            margin-bottom: 0;
-            flex-grow: 1;
-            font-size: 0.92rem;
-            line-height: 1.7;
-        }
-
-        /* ===================== PROJETS ===================== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .project-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            background: white;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            height: 100%;
-            border: 1px solid var(--gray-200);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--card-shadow-hover);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-img.gradient-1 {
-            background: linear-gradient(135deg, #1e3a5f, #2563eb, #7c3aed);
-        }
-
-        .project-img.gradient-2 {
-            background: linear-gradient(135deg, #f97316, #ef4444, #ec4899);
-        }
-
-        .project-img.gradient-3 {
-            background: linear-gradient(135deg, #059669, #06b6d4, #2563eb);
-        }
-
-        .project-img-pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
-        .project-img i {
-            position: relative;
-            z-index: 1;
-            opacity: 0.9;
-        }
-
-        .project-content {
-            padding: var(--space-md);
-            background: white;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .project-title {
-            margin-bottom: var(--space-xs);
-        }
-
-        .project-desc {
-            color: var(--gray-500);
-            margin-bottom: var(--space-sm);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        .project-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: auto;
-            padding-top: var(--space-md);
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .project-cta:hover {
-            color: var(--secondary);
-            gap: 0.75rem;
-        }
-        .project-cta i {
-            transition: transform 0.3s ease;
-        }
-        .project-cta:hover i {
-            transform: translateX(4px);
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-xs);
-            margin-top: var(--space-sm);
-        }
-
-        .tag {
-            background-color: var(--gray-100);
-            color: var(--gray-800);
-            font-size: 0.75rem;
-            padding: 0.3rem 0.75rem;
-            border-radius: 8px;
-            font-weight: 500;
-        }
-
-        .tag.primary {
-            background: rgba(37, 99, 235, 0.08);
-            color: var(--primary);
-        }
-
-        .tag.secondary {
-            background: rgba(124, 58, 237, 0.08);
-            color: var(--secondary);
-        }
-
-        .tag.accent {
-            background: rgba(6, 182, 212, 0.08);
-            color: var(--accent);
-        }
-
-        /* ===================== EXPERIENCE ===================== */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: var(--space-md) 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: var(--space-lg);
-            width: 50%;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: var(--space-lg);
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: var(--space-lg);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: 3px solid white;
-            border-radius: 50%;
-            top: 12px;
-            z-index: 2;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
-        }
-
-        .timeline-item:hover .timeline-dot {
-            transform: scale(1.4);
-            box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.2);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-        }
-
-        .timeline-content {
-            background: white;
-            border-radius: 16px;
-            padding: var(--space-md);
-            position: relative;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid var(--gray-200);
-        }
-
-        .timeline-item:hover .timeline-content {
-            transform: translateY(-4px);
-            box-shadow: var(--card-shadow-hover);
-            border-color: var(--primary);
-        }
-
-        .timeline-date {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-            font-size: 0.85rem;
-            letter-spacing: 0.02em;
-        }
-
-        .timeline-title {
-            margin-bottom: var(--space-xs);
-        }
-
-        .timeline-desc {
-            color: var(--gray-500);
-            font-size: 0.92rem;
-            margin: 0;
-            line-height: 1.7;
-        }
-
-        /* ===================== CONTACT ===================== */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: var(--space-xl);
-            align-items: start;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        .contact-intro {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--gray-500);
-            margin-bottom: var(--space-sm);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: var(--gray-100);
-        }
-
-        .contact-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .contact-text {
-            color: var(--gray-500);
-            font-size: 0.95rem;
-        }
-
-        .contact-text strong {
-            display: block;
-            color: var(--dark);
-            margin-bottom: 0.15rem;
-            font-size: 0.9rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: var(--space-sm);
-            margin-top: var(--space-sm);
-        }
-
-        .social-link {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--gray-100);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-500);
-            font-size: 1.2rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            transform: translateY(-4px);
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        .contact-form {
-            background: white;
-            border-radius: 20px;
-            padding: var(--space-lg);
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--gray-200);
-        }
-
-        .form-group {
-            margin-bottom: var(--space-md);
-            position: relative;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: var(--space-xs);
-            color: var(--gray-800);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.85rem 2.2rem 0.85rem 1rem;
-            border: 1.5px solid var(--gray-200);
-            border-radius: 12px;
-            font-size: 0.95rem;
-            color: var(--dark);
-            background: var(--gray-100);
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
-        }
-
-        textarea.form-control {
-            min-height: 130px;
-            resize: vertical;
-        }
-
-        .contact-form .btn-primary {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-            position: relative;
-        }
-
-        /* ===================== FOOTER ===================== */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: var(--space-xl) 0 var(--space-lg);
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.7));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: var(--space-sm);
-            display: inline-block;
-        }
-
-        .footer-content > p {
-            color: var(--gray-400);
-            margin-bottom: var(--space-md);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-        }
-
-        .footer-link {
-            color: var(--gray-400);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .footer-link:hover {
-            color: white;
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-md);
-        }
-
-        .footer-social a {
-            color: var(--gray-400);
-            font-size: 1.25rem;
-            transition: all 0.3s;
-        }
-
-        .footer-social a:hover {
-            color: var(--accent);
-        }
-
-        .copyright {
-            color: var(--gray-500);
-            font-size: 0.85rem;
-        }
-
-        .footer-divider {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            margin: var(--space-md) auto;
-            border-radius: 2px;
-        }
-
-        /* ===================== LOGOS CLIENTS ===================== */
-        .clients-section {
-            padding: var(--space-xl) 0;
-            background: white;
-            border-top: 1px solid var(--gray-200);
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .clients-section .section-header {
-            margin-bottom: var(--space-lg);
-        }
-
-        .clients-logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: var(--space-lg) var(--space-xl);
-        }
-
-        .client-logo {
-            height: 36px;
-            width: auto;
-            filter: grayscale(100%) opacity(0.5);
-            transition: all 0.4s ease;
-        }
-
-        .client-logo:hover {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.1);
-        }
-
-        .client-logo.logo-sm {
-            height: 28px;
-        }
-
-        .client-logo.logo-lg {
-            height: 44px;
-        }
-
-        /* ===================== CERTIFICATIONS BADGES ===================== */
-        .cert-badges {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-md);
-            flex-wrap: wrap;
-        }
-
-        .cert-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.25rem;
-            background: white;
-            border: 1px solid var(--gray-200);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .cert-badge:hover {
-            border-color: var(--primary);
-            box-shadow: var(--card-shadow);
-        }
-
-        .cert-badge img {
-            height: 28px;
-            width: auto;
-        }
-
-        .cert-badge span {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        /* ===================== TOOLS LOGOS ===================== */
-        .tools-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-            margin-top: var(--space-md);
-            align-items: center;
-        }
-
-        .tool-logo {
-            height: 24px;
-            width: auto;
-            filter: grayscale(100%) opacity(0.6);
-            transition: all 0.3s ease;
-        }
-
-        .tool-logo:hover {
-            filter: grayscale(0%) opacity(1);
-        }
-
-        @media (max-width: 768px) {
-            .clients-logos {
-                gap: var(--space-md) var(--space-lg);
-            }
-
-            .client-logo {
-                height: 28px;
-            }
-
-            .client-logo.logo-lg {
-                height: 34px;
-            }
-
-            .cert-badges {
-                flex-direction: column;
-            }
-        }
-
-        /* ===================== PAGE LOADER ===================== */
-        .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            background: linear-gradient(135deg, var(--dark) 0%, #1a1a3e 40%, var(--primary-dark) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .page-loader.loaded {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .loader-logo {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: loaderPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes loaderPulse {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
-
-        .loader-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.15);
-            border-top-color: var(--accent);
-            border-right-color: var(--secondary);
-            border-radius: 50%;
-            animation: loaderSpin 0.8s linear infinite;
-        }
-
-        @keyframes loaderSpin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Section reveal on page load */
-        .section-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .section-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===================== THEME TOGGLE BUTTON ===================== */
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            background: var(--gray-100);
-            border: 1px solid var(--gray-200);
-            border-radius: 10px;
-            cursor: pointer;
-            color: var(--gray-500);
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-            z-index: 1001;
-        }
-
-        .theme-toggle:hover {
-            color: var(--primary);
-            border-color: var(--primary);
-            background: rgba(37, 99, 235, 0.08);
-        }
-
-        .theme-toggle i {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .theme-toggle:hover i {
-            transform: rotate(20deg) scale(1.1);
-        }
-
-        /* ===================== DARK MODE OVERRIDES ===================== */
-        body,
-        .navbar,
-        .expertise-card,
-        .project-card,
-        .project-content,
-        .timeline-content,
-        .contact-form,
-        .form-control,
-        .about-highlight-item,
-        .cert-badge,
-        .stats-bar,
-        .clients-section,
-        section,
-        section.alt,
-        .contact-item,
-        .social-link,
-        .tag,
-        footer {
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        /* Body */
-        [data-theme="dark"] body {
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
-
-        /* Hero */
-        [data-theme="dark"] .hero {
-            background: #0f172a;
-        }
-
-        /* Navbar */
-        [data-theme="dark"] .navbar {
-            background: rgba(15, 23, 42, 0.85);
-        }
-
-        [data-theme="dark"] .navbar.scrolled {
-            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid #334155;
-        }
-
-        [data-theme="dark"] .mobile-menu-btn {
-            color: #e2e8f0;
-        }
-
-        /* Nav links mobile panel */
-        @media (max-width: 768px) {
-            [data-theme="dark"] .nav-links {
-                background: #0f172a;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.4);
-            }
-        }
-
-        /* Lang toggle dark */
-        [data-theme="dark"] .lang-toggle {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        [data-theme="dark"] .lang-toggle button {
-            color: #94a3b8;
-        }
-
-        [data-theme="dark"] .lang-toggle button:hover:not(.active) {
-            color: #e2e8f0;
-        }
-
-        /* Theme toggle dark */
-        [data-theme="dark"] .theme-toggle {
-            background: #1e293b;
-            border-color: #334155;
-            color: #fbbf24;
-        }
-
-        [data-theme="dark"] .theme-toggle:hover {
-            border-color: #fbbf24;
-            background: rgba(251, 191, 36, 0.1);
-        }
-
-        /* Stats bar */
-        [data-theme="dark"] .stats-bar {
-            background: #111827;
-            border-bottom-color: #1e293b;
-        }
-
-        /* Clients section */
-        [data-theme="dark"] .clients-section {
-            background: #111827;
-            border-top-color: #1e293b;
-            border-bottom-color: #1e293b;
-        }
-
-        [data-theme="dark"] .client-logo {
-            filter: grayscale(100%) opacity(0.4) brightness(2);
-        }
-
-        [data-theme="dark"] .client-logo:hover {
-            filter: grayscale(0%) opacity(1) brightness(1.1);
-        }
-
-        /* About highlights */
-        [data-theme="dark"] .about-highlight-item {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        [data-theme="dark"] .about-highlight-item:hover {
-            border-color: #475569;
-        }
-
-        [data-theme="dark"] .about-highlight-item h4 {
-            color: #e2e8f0;
-        }
-
-        /* Cert badges */
-        [data-theme="dark"] .cert-badge {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        [data-theme="dark"] .cert-badge:hover {
-            border-color: var(--primary);
-        }
-
-        [data-theme="dark"] .cert-badge span {
-            color: #e2e8f0;
-        }
-
-        [data-theme="dark"] .cert-badge img {
-            filter: brightness(1.2);
-        }
-
-        /* Section alt (expertise, experience) */
-        [data-theme="dark"] section.alt {
-            background-color: #111827;
-        }
-
-        /* Expertise cards */
-        [data-theme="dark"] .expertise-card {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        [data-theme="dark"] .expertise-card:hover {
-            border-color: var(--primary);
-        }
-
-        [data-theme="dark"] .expertise-card .icon {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(124, 58, 237, 0.15));
-        }
-
-        /* Project cards */
-        [data-theme="dark"] .project-card {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        [data-theme="dark"] .project-content {
-            background: #1e293b;
-        }
-
-        /* Tags */
-        [data-theme="dark"] .tag {
-            background-color: #334155;
-            color: #cbd5e1;
-        }
-
-        [data-theme="dark"] .tag.primary {
-            background: rgba(37, 99, 235, 0.15);
-            color: #60a5fa;
-        }
-
-        [data-theme="dark"] .tag.secondary {
-            background: rgba(124, 58, 237, 0.15);
-            color: #a78bfa;
-        }
-
-        [data-theme="dark"] .tag.accent {
-            background: rgba(6, 182, 212, 0.15);
-            color: #22d3ee;
-        }
-
-        /* Timeline */
-        [data-theme="dark"] .timeline-content {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        [data-theme="dark"] .timeline-item:hover .timeline-content {
-            border-color: var(--primary);
-        }
-
-        [data-theme="dark"] .timeline-dot {
-            border-color: #1e293b;
-        }
-
-        /* Contact */
-        [data-theme="dark"] .contact-item:hover {
-            background: #1e293b;
-        }
-
-        [data-theme="dark"] .contact-text strong {
-            color: #e2e8f0;
-        }
-
-        [data-theme="dark"] .social-link {
-            background: #1e293b;
-            color: #94a3b8;
-        }
-
-        [data-theme="dark"] .social-link:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        /* Contact form */
-        [data-theme="dark"] .contact-form {
-            background: #1e293b;
-            border-color: #334155;
-        }
-
-        [data-theme="dark"] .form-control {
-            background: #0f172a;
-            border-color: #334155;
-            color: #e2e8f0;
-        }
-
-        [data-theme="dark"] .form-control:focus {
-            background: #111827;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
-        }
-
-        [data-theme="dark"] .form-control::placeholder {
-            color: #64748b;
-        }
-
-        [data-theme="dark"] .form-label {
-            color: #cbd5e1;
-        }
-
-        /* Footer */
-        [data-theme="dark"] footer {
-            background: #020617;
-        }
-
-        /* Strong text */
-        [data-theme="dark"] strong {
-            color: #e2e8f0;
-        }
-
-        /* Tool logos */
-        [data-theme="dark"] .tool-logo {
-            filter: grayscale(100%) opacity(0.5) brightness(2);
-        }
-
-        [data-theme="dark"] .tool-logo:hover {
-            filter: grayscale(0%) opacity(1) brightness(1.1);
-        }
-
-        /* Buttons in dark mode */
-        [data-theme="dark"] .btn-outline {
-            border-color: rgba(37, 99, 235, 0.4);
-        }
-
-        /* Form messages */
-        [data-theme="dark"] #form-message div {
-            opacity: 0.9;
-        }
-
-        /* ===================== ANIMATIONS ===================== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===================== RESPONSIVE ===================== */
-        @media (max-width: 1024px) {
-            .timeline::before {
-                left: 40px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 80px;
-                padding-right: 0;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-dot {
-                left: 32px !important;
-                right: auto !important;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: var(--space-lg) 0;
-            }
-
-            .hero {
-                padding-top: calc(var(--space-xl) * 2);
-            }
-
-            .hero-content {
-                text-align: center;
-                margin: 0 auto;
-            }
-
-            .hero-badge {
-                margin: 0 auto var(--space-md);
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 400px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 120px var(--space-lg) var(--space-lg);
-                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-                gap: var(--space-lg);
-                align-items: flex-start;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-sm);
-            }
-
-            .about-highlights {
-                grid-template-columns: 1fr;
-            }
-
-            .lang-toggle {
-                position: absolute;
-                top: var(--space-sm);
-                right: 100px;
-            }
-
-            .theme-toggle {
-                position: absolute;
-                top: var(--space-sm);
-                right: 60px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-cta {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .timeline-content {
-                padding: var(--space-sm);
-            }
-
-            .expertise-grid, .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* ===================== BACK TO TOP ===================== */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow:
-                0 4px 12px rgba(37, 99, 235, 0.3),
-                0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow:
-                0 8px 20px rgba(37, 99, 235, 0.4),
-                0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        @media (max-width: 768px) {
-            .back-to-top {
-                width: 44px;
-                height: 44px;
-                bottom: 1.5rem;
-                right: 1.5rem;
-                font-size: 1rem;
-            }
-        }
-
-        /* ===================== FORM VALIDATION ===================== */
-        .form-group.valid .form-control {
-            border-color: #22c55e;
-            background: #f0fdf4;
-        }
-
-        .form-group.valid .form-control:focus {
-            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
-        }
-
-        .form-group.error .form-control {
-            border-color: #ef4444;
-            background: #fef2f2;
-        }
-
-        .form-group.error .form-control:focus {
-            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
-        }
-
-        .form-group .field-icon {
-            position: absolute;
-            right: 12px;
-            top: 38px;
-            font-size: 0.9rem;
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .form-group.valid .field-icon {
-            opacity: 1;
-            transform: scale(1);
-            color: #22c55e;
-        }
-
-        .form-group.error .field-icon {
-            opacity: 1;
-            transform: scale(1);
-            color: #ef4444;
-        }
-
-        .form-group.valid .field-icon::before {
-            content: '\2713';
-        }
-
-        .form-group.error .field-icon::before {
-            content: '\2717';
-        }
-
-        .field-error {
-            display: block;
-            color: #ef4444;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-top: 6px;
-            padding-left: 4px;
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .form-group.error .field-error {
-            max-height: 40px;
-            opacity: 1;
-        }
-
-        .char-counter {
-            display: block;
-            text-align: right;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-top: 6px;
-            color: var(--gray-400);
-            transition: color 0.3s ease;
-        }
-
-        .char-counter.warning {
-            color: #f59e0b;
-        }
-
-        .char-counter.danger {
-            color: #ef4444;
-            font-weight: 600;
-        }
-
-        .btn-primary.loading {
-            pointer-events: none;
-            opacity: 0.85;
-            position: relative;
-        }
-
-        .btn-primary .btn-text {
-            transition: opacity 0.3s ease;
-        }
-
-        .btn-primary.loading .btn-text {
-            opacity: 0;
-        }
-
-        .btn-primary .btn-loader {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .btn-primary.loading .btn-loader {
-            opacity: 1;
-        }
-
-        .spinner {
-            width: 18px;
-            height: 18px;
-            border: 2.5px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .form-success-message {
-            text-align: center;
-            padding: var(--space-lg);
-            animation: formSuccessIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @keyframes formSuccessIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9) translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .form-success-message .success-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--space-md);
-            font-size: 1.75rem;
-            color: white;
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
-        }
-
-        .form-success-message h3 {
-            color: var(--dark);
-            margin-bottom: var(--space-xs);
-        }
-
-        .form-success-message p {
-            color: var(--gray-500);
-            margin-bottom: var(--space-md);
-        }
-
-        .form-success-message .btn-outline {
-            display: inline-block;
-            padding: 0.65rem 1.25rem;
-            font-size: 0.9rem;
-        }
-
-        .form-error-banner {
-            padding: 14px 18px;
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #991b1b;
-            border-radius: 12px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: var(--space-md);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: formSuccessIn 0.4s ease;
-        }
-
-        .form-error-banner i {
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-    </style>
 </head>
 <body>
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <span class="loader-logo">Wisee.fr</span>
-            <div class="loader-spinner"></div>
-        </div>
-    </div>
-
+    <a class="skip-link" href="#main-content" data-i18n="ui.skip">Aller au contenu</a>
     <noscript>
         <div style="padding: 1rem; background: #fef3c7; color: #92400e; text-align: center; font-family: sans-serif;">
             Ce site fonctionne mieux avec JavaScript activé. Veuillez activer JavaScript pour une expérience optimale.
         </div>
     </noscript>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navigation principale">
         <div class="container nav-container">
-            <a href="#" class="logo"><span>Wisee.fr</span></a>
-            <button class="mobile-menu-btn" aria-label="Ouvrir le menu de navigation">
+            <a href="#home" class="logo" aria-label="Wisee — accueil"><span class="brand-mark" aria-hidden="true">w.</span><span>wisee<span class="brand-suffix">.fr</span></span></a>
+            <button class="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="main-nav">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="nav-links">
+            <div class="nav-links" id="main-nav">
                 <a href="#about" data-i18n="nav.about">À propos</a>
                 <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
                 <a href="#projects" data-i18n="nav.missions">Missions</a>
-                <a href="#experience" data-i18n="nav.parcours">Parcours</a>
-                <a href="#contact" data-i18n="nav.contact">Contact</a>
+                <a href="#resources" class="nav-resource"><span data-i18n="nav.resources">Ressources</span> <span class="nav-dot" aria-hidden="true"></span></a>
+                <a href="#contact" class="nav-contact" data-i18n="nav.contact">Contact</a>
                 <div class="lang-toggle">
                     <button class="active" data-lang="fr">FR</button>
                     <button data-lang="en">EN</button>
@@ -2107,29 +153,36 @@
         <div class="nav-overlay" id="navOverlay"></div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero section-reveal" id="home">
-        <div class="container">
+    <main id="main-content">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="container hero-grid">
             <div class="hero-content">
-                <div class="hero-badge" style="border-color: rgba(239, 68, 68, 0.3);">
-                    <span class="dot" style="background: #ef4444; animation: none;"></span>
-                    <span data-i18n="hero.badge">En mission - Non disponible actuellement</span>
-                </div>
-                <h1 class="hero-title">Abdelhakim Irbah</h1>
-                <p class="hero-subtitle" data-i18n-html="hero.subtitle"><span class="highlight">Salesforce Release Manager</span> &amp; Architecte Technique. Certifié Platform Developer I &amp; Administrator. +10 ans d'expertise Salesforce au service des grands comptes.</p>
+                <p class="eyebrow"><span class="small-line"></span> SALESFORCE · ARCHITECTURE · DEVOPS</p>
+                <h1 id="hero-title" data-i18n-html="ui.headline">De la complexité<br>à la <em>clarté.</em></h1>
+                <p class="hero-intro" data-i18n="ui.intro">Abdelhakim Irbah, Salesforce Release Manager & Architecte Technique.</p>
+                <p class="hero-subtitle" data-i18n="ui.description">J’accompagne les grands comptes dans la conception de leurs architectures et la fiabilisation de leurs déploiements Salesforce.</p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Voir mes missions</a>
-                    <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Me contacter</a>
-                    <a href="cv.html" target="_blank" class="btn btn-outline" data-i18n="hero.cv"><i class="fas fa-file-pdf" style="margin-right: 0.5rem;"></i>Télécharger CV</a>
+                    <a href="#projects" class="btn btn-primary"><span data-i18n="hero.cta1">Voir mes missions</span><span aria-hidden="true">↗</span></a>
+                    <a href="#resources" class="btn btn-outline"><span data-i18n="ui.discover">Découvrir les ressources</span><span aria-hidden="true">↓</span></a>
                 </div>
+                <div class="hero-meta"><span class="availability-dot" aria-hidden="true"></span><span data-i18n="ui.availability">En mission actuellement</span><span class="meta-separator">/</span><span>Paris, France</span></div>
             </div>
+            <aside class="feature-preview" aria-labelledby="preview-title">
+                <div class="preview-topline"><span class="eyebrow">WISEE / LAB</span><span class="status-label" data-i18n="ui.soon">Bientôt disponible</span></div>
+                <h2 id="preview-title">Copado<br><span>Source Format</span></h2>
+                <p data-i18n="ui.previewIntro">Comprendre les objets. Relier les concepts.</p>
+                <div class="mini-model" aria-label="Aperçu : une release relie les user stories à leurs commits">
+                    <div class="model-node node-release"><span class="node-icon" aria-hidden="true">◇</span><div><small>01 / RELEASE</small><b>Release</b></div><span class="node-port"></span></div>
+                    <div class="model-connector" aria-hidden="true"><span>LOOKUP</span></div>
+                    <div class="model-node node-story"><span class="node-icon" aria-hidden="true">≡</span><div><small>02 / USER STORY</small><b>User Story</b></div><span class="node-port"></span></div>
+                    <div class="model-connector" aria-hidden="true"><span>MASTER-DETAIL</span></div>
+                    <div class="model-node node-commit"><span class="node-icon" aria-hidden="true">⌘</span><div><small>03 / COMMIT</small><b>User Story Commit</b></div><span class="node-port"></span></div>
+                </div>
+                <a class="preview-link" href="#resources"><span data-i18n="ui.previewCta">Aperçu du futur espace</span><span aria-hidden="true">↗</span></a>
+            </aside>
         </div>
-        <a href="#about" class="hero-scroll" aria-label="Défiler vers le contenu">
-            <i class="fas fa-chevron-down"></i>
-        </a>
     </section>
 
-    <main>
     <!-- Stats Bar -->
     <div class="stats-bar">
         <div class="container">
@@ -2174,6 +227,39 @@
         </div>
     </div>
 
+    <section id="resources" class="resources-section" aria-labelledby="resources-title">
+        <div class="container">
+            <div class="resource-heading">
+                <div><p class="eyebrow" data-i18n="ui.knowledge">01 / PARTAGE DE CONNAISSANCES</p><h2 id="resources-title" data-i18n-html="ui.resourcesTitle">L’expérience terrain,<br>en accès clair.</h2></div>
+                <p data-i18n="ui.resourcesIntro">Un espace pour documenter, explorer et mieux comprendre l’écosystème Salesforce. Premier sujet : Copado Source Format.</p>
+            </div>
+            <div class="resource-workspace">
+                <div class="resource-sidebar">
+                    <div class="resource-icon" aria-hidden="true">⌘</div>
+                    <span class="status-label" data-i18n="ui.preparation">En préparation</span>
+                    <h3>Copado<br> Source Format</h3>
+                    <p data-i18n="ui.moduleIntro">Une cartographie pour naviguer entre les objets, leurs champs et leurs relations.</p>
+                    <dl class="resource-stats"><div><dt>36</dt><dd data-i18n="ui.objects">objets</dd></div><div><dt>109</dt><dd data-i18n="ui.relations">relations</dd></div><div><dt>9</dt><dd data-i18n="ui.views">vues</dd></div></dl>
+                    <p class="resource-footnote" data-i18n="ui.scope">Périmètre du module préparé en septembre 2026. Aperçu simplifié ci-contre.</p>
+                </div>
+                <div class="resource-main">
+                    <div class="workspace-topline"><span class="eyebrow" data-i18n="ui.modelPreview">APERÇU DU MODÈLE</span><span class="workspace-version">SOURCE FORMAT</span></div>
+                    <div class="model-tabs" role="tablist" aria-label="Domaines du modèle">
+                        <button type="button" id="tab-stories" role="tab" aria-selected="true" aria-controls="panel-stories" data-preview="stories" data-i18n="ui.stories">US & commits</button>
+                        <button type="button" id="tab-promotions" role="tab" aria-selected="false" aria-controls="panel-promotions" tabindex="-1" data-preview="promotions">Promotions</button>
+                        <button type="button" id="tab-execution" role="tab" aria-selected="false" aria-controls="panel-execution" tabindex="-1" data-preview="execution" data-i18n="ui.execution">Exécution</button>
+                    </div>
+<div class="model-panel" id="panel-stories" role="tabpanel" aria-labelledby="tab-stories" tabindex="0"><div class="relationship-preview"><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>User Story</strong></div><span class="relationship-line" aria-hidden="true"></span><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>User Story Commit</strong></div><span class="relationship-line" aria-hidden="true"></span><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>Snapshot Commit</strong></div></div><p class="model-note" data-i18n="ui.storyNote">User Story Commit relie une user story à son Snapshot Commit. Le modèle complet précise les champs et les cardinalités.</p></div><div class="model-panel" id="panel-promotions" role="tabpanel" aria-labelledby="tab-promotions" tabindex="0" hidden><div class="relationship-preview"><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>User Story</strong></div><span class="relationship-line" aria-hidden="true"></span><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>Promoted User Story</strong></div><span class="relationship-line" aria-hidden="true"></span><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>Promotion</strong></div></div><p class="model-note" data-i18n="ui.promotionNote">Promoted User Story est la jonction entre une user story et une promotion. Ses deux relations sont de type Master-Detail.</p></div><div class="model-panel" id="panel-execution" role="tabpanel" aria-labelledby="tab-execution" tabindex="0" hidden><div class="relationship-preview"><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>Job Execution</strong></div><span class="relationship-line" aria-hidden="true"></span><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>Job Step</strong></div><span class="relationship-line" aria-hidden="true"></span><div class="relationship-node"><span class="entity-symbol" aria-hidden="true">◇</span><small>COPADO</small><strong>Result</strong></div></div><p class="model-note" data-i18n="ui.executionNote">Une Job Step peut être rattachée à une exécution et référencer son dernier Result. Le modèle complet distingue les différents liens.</p></div>                    <div class="workspace-footer"><span class="legend-dot" aria-hidden="true"></span><span data-i18n="ui.legend">Objets et liens conceptuels · aperçu interactif</span></div>
+                </div>
+            </div>
+            <div class="resource-features">
+                <div><span class="feature-number">01</span><div><h3 data-i18n="ui.docTitle">Documentation</h3><p data-i18n="ui.docText">Rôles des objets, périmètre et repères de lecture.</p></div></div>
+                <div><span class="feature-number">02</span><div><h3 data-i18n="ui.mapTitle">Cartographie visuelle</h3><p data-i18n="ui.mapText">Neuf vues pour suivre les relations, domaine par domaine.</p></div></div>
+                <div><span class="feature-number">03</span><div><h3 data-i18n="ui.dictTitle">Dictionnaire des champs</h3><p data-i18n="ui.dictText">Noms API, types et relations pour comprendre le schéma.</p></div></div>
+            </div>
+        </div>
+    </section>
+
     <!-- À propos Section -->
     <section id="about" class="section-reveal">
         <div class="container">
@@ -2185,6 +271,7 @@
                 <div class="about-text">
                     <p data-i18n-html="about.p1">Je suis Abdelhakim Irbah, <strong>Salesforce Release Manager</strong> et <strong>Architecte Technique</strong> basé à Paris. Depuis plus de 10 ans, j'accompagne les grands comptes (Bouygues Telecom, Engie, PSA, Air France KLM, SNCF...) dans leurs projets Salesforce, de l'architecture à la mise en production.</p>
                     <p data-i18n-html="about.p2">Certifié <strong>Platform Developer I</strong> et <strong>Administrator</strong>, je maîtrise l'ensemble de l'écosystème Salesforce : Sales Cloud, Service Cloud, Community Cloud, Vlocity. Mon expertise en <strong>Release Management</strong> avec Copado et en intégration SI me permet de garantir des déploiements fiables et continus sur des organisations complexes.</p>
+                    <a class="text-link" href="cv.html" target="_blank" rel="noopener"><span data-i18n="ui.cv">Consulter mon CV</span> <span aria-hidden="true">↗</span></a>
                     <div class="cert-badges">
                         <div class="cert-badge">
                             <img src="img/salesforce.svg" alt="Logo Salesforce - Certification Platform Developer I" loading="lazy">
@@ -2277,7 +364,7 @@
                 <div class="project-card fade-in">
                     <div class="project-img gradient-1">
                         <div class="project-img-pattern"></div>
-                        <i class="fas fa-broadcast-tower"></i>
+                        <img class="project-client-mark" src="img/bouygues-telecom.svg" alt="Bouygues Telecom" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Bouygues Telecom</h3>
@@ -2296,7 +383,7 @@
                 <div class="project-card fade-in">
                     <div class="project-img gradient-2">
                         <div class="project-img-pattern"></div>
-                        <i class="fas fa-bolt"></i>
+                        <img class="project-client-mark" src="img/engie.svg" alt="Engie" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Engie</h3>
@@ -2314,7 +401,7 @@
                 <div class="project-card fade-in">
                     <div class="project-img gradient-3">
                         <div class="project-img-pattern"></div>
-                        <i class="fas fa-car"></i>
+                        <img class="project-client-mark" src="img/stellantis.svg" alt="Stellantis" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">PSA (Stellantis)</h3>
@@ -2332,7 +419,7 @@
                 <div class="project-card fade-in">
                     <div class="project-img gradient-1">
                         <div class="project-img-pattern"></div>
-                        <i class="fas fa-plane"></i>
+                        <img class="project-client-mark" src="img/airfranceklm.svg" alt="Air France KLM" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Air France KLM</h3>
@@ -2350,7 +437,7 @@
                 <div class="project-card fade-in">
                     <div class="project-img gradient-2">
                         <div class="project-img-pattern"></div>
-                        <i class="fas fa-train"></i>
+                        <img class="project-client-mark" src="img/sncf.svg" alt="SNCF" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">SNCF</h3>
@@ -2368,7 +455,7 @@
                 <div class="project-card fade-in">
                     <div class="project-img gradient-3">
                         <div class="project-img-pattern"></div>
-                        <i class="fas fa-mountain"></i>
+                        <img class="project-client-mark" src="img/tcs.svg" alt="Touring Club Suisse" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Touring Club Suisse</h3>
@@ -2543,7 +630,7 @@
 
                         <button type="submit" class="btn btn-primary" id="submit-btn">
                             <span class="btn-text" data-i18n="form.submit">Envoyer le message</span>
-                            <span class="btn-loader"><span class="spinner"></span> <span data-i18n="form.sending">Envoi en cours...</span></span>
+                            <span class="btn-loader" aria-hidden="true"><span class="spinner"></span> <span data-i18n="form.sending">Envoi en cours...</span></span>
                         </button>
                     </form>
 
@@ -2581,6 +668,7 @@
                     <a href="#about" class="footer-link" data-i18n="nav.about">À propos</a>
                     <a href="#expertise" class="footer-link" data-i18n="nav.expertise">Expertise</a>
                     <a href="#projects" class="footer-link" data-i18n="nav.missions">Missions</a>
+                    <a href="#resources" class="footer-link" data-i18n="nav.resources">Ressources</a>
                     <a href="#experience" class="footer-link" data-i18n="nav.parcours">Parcours</a>
                     <a href="#contact" class="footer-link" data-i18n="nav.contact">Contact</a>
                 </div>
@@ -2876,13 +964,47 @@
         // ===================== TRANSLATIONS =====================
         const translations = {
             fr: {
+                "nav.resources": "Ressources",
+                "ui.skip": "Aller au contenu",
+                "ui.headline": "De la complexité<br>à la <em>clarté.</em>",
+                "ui.intro": "Abdelhakim Irbah, Salesforce Release Manager & Architecte Technique.",
+                "ui.description": "J’accompagne les grands comptes dans la conception de leurs architectures et la fiabilisation de leurs déploiements Salesforce.",
+                "ui.discover": "Découvrir les ressources",
+                "ui.availability": "En mission actuellement",
+                "ui.soon": "Bientôt disponible",
+                "ui.previewIntro": "Comprendre les objets. Relier les concepts.",
+                "ui.previewCta": "Aperçu du futur espace",
+                "ui.knowledge": "01 / PARTAGE DE CONNAISSANCES",
+                "ui.resourcesTitle": "L’expérience terrain,<br>en accès clair.",
+                "ui.resourcesIntro": "Un espace pour documenter, explorer et mieux comprendre l’écosystème Salesforce. Premier sujet : Copado Source Format.",
+                "ui.preparation": "En préparation",
+                "ui.moduleIntro": "Une cartographie pour naviguer entre les objets, leurs champs et leurs relations.",
+                "ui.objects": "objets",
+                "ui.relations": "relations",
+                "ui.views": "vues",
+                "ui.scope": "Périmètre du module préparé en septembre 2026. Aperçu simplifié ci-contre.",
+                "ui.modelPreview": "APERÇU DU MODÈLE",
+                "ui.stories": "US & commits",
+                "ui.execution": "Exécution",
+                "ui.legend": "Objets et liens conceptuels · aperçu interactif",
+                "ui.docTitle": "Documentation",
+                "ui.docText": "Rôles des objets, périmètre et repères de lecture.",
+                "ui.mapTitle": "Cartographie visuelle",
+                "ui.mapText": "Neuf vues pour suivre les relations, domaine par domaine.",
+                "ui.dictTitle": "Dictionnaire des champs",
+                "ui.dictText": "Noms API, types et relations pour comprendre le schéma.",
+                "ui.cv": "Consulter mon CV",
+                "ui.storyNote": "User Story Commit relie une user story à son Snapshot Commit. Le modèle complet précise les champs et les cardinalités.",
+                "ui.promotionNote": "Promoted User Story est la jonction entre une user story et une promotion. Ses deux relations sont de type Master-Detail.",
+                "ui.executionNote": "Une Job Step peut être rattachée à une exécution et référencer son dernier Result. Le modèle complet distingue les différents liens.",
+
                 'nav.about': 'À propos',
                 'nav.expertise': 'Expertise',
                 'nav.missions': 'Missions',
                 'nav.parcours': 'Parcours',
                 'nav.contact': 'Contact',
                 'hero.badge': 'En mission - Non disponible actuellement',
-                'hero.subtitle': '<span class="highlight">Salesforce Release Manager</span> &amp; Architecte Technique. Certifié Platform Developer I &amp; Administrator. +10 ans d\'expertise Salesforce au service des grands comptes.',
+                'hero.subtitle': '<span class="highlight">Salesforce Release Manager</span> & Architecte Technique. Certifié Platform Developer I & Administrator. +10 ans d\'expertise Salesforce au service des grands comptes.',
                 'hero.cta1': 'Voir mes missions',
                 'hero.cta2': 'Me contacter',
                 'hero.cv': 'Télécharger CV',
@@ -2898,7 +1020,7 @@
                 'about.cert.copado': 'Expert Copado',
                 'about.h1': 'Certifié Salesforce',
                 'about.h3': 'Architecture SI',
-                'about.h3.desc': 'Intégration multi-cloud &amp; APIs',
+                'about.h3.desc': 'Intégration multi-cloud & APIs',
                 'about.h4': 'Leadership technique',
                 'about.h4.desc': 'Pilotage d\'équipes jusqu\'à 15 personnes',
                 'expertise.title': 'Mon expertise',
@@ -2908,16 +1030,16 @@
                 'expertise.card2.desc': 'Design de solutions multi-cloud (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Intégration avec les SI existants via APIs REST, Talend, Informatica et Boomi.',
                 'expertise.card3.title': 'Développement Salesforce',
                 'expertise.card3.desc': 'Développement Apex, Visualforce, Composants Lightning et ReactJS. Webservices REST, paramétrage avancé, règles de validation et workflows complexes.',
-                'expertise.card4.title': 'Conseil &amp; Pilotage',
+                'expertise.card4.title': 'Conseil & Pilotage',
                 'expertise.card4.desc': 'Animation d\'équipes techniques (jusqu\'à 15 consultants). Spécifications techniques, design de solutions, définition des bonnes pratiques de développement et conseil client.',
                 'projects.title': 'Missions réalisées',
                 'projects.subtitle': 'Quelques missions significatives auprès de grands comptes',
                 'projects.cta': 'En savoir plus <i class="fas fa-arrow-right"></i>',
                 'project.bouygues.desc': 'Release Manager Salesforce. Mise en place et gestion du Release Management sur les projets SalesCloud et Vlocity. Implémentation de Copado avec pipeline complexe.',
-                'project.engie.desc': 'Architecte Technique &amp; Release Manager. Stratégie de release management unifiée pour 26 développeurs sur 3 projets partageant la même Org Salesforce.',
+                'project.engie.desc': 'Architecte Technique & Release Manager. Stratégie de release management unifiée pour 26 développeurs sur 3 projets partageant la même Org Salesforce.',
                 'project.psa.desc': 'Architecte Technique Salesforce chez IBM Bluewolf. Plateforme de souscription de services connectés pour les véhicules des marques du Groupe PSA.',
                 'project.airfrance.desc': 'Responsable Technique Salesforce chez Capgemini. Projet international Sales Cloud (2000 licences) avec intégration via Informatica. Animation d\'ateliers techniques.',
-                'project.sncf.desc': 'Responsable Technique &amp; Architecte Salesforce chez Capgemini. Intégration de la Console Service Cloud dans le SI SNCF pour 11 000 utilisateurs.',
+                'project.sncf.desc': 'Responsable Technique & Architecte Salesforce chez Capgemini. Intégration de la Console Service Cloud dans le SI SNCF pour 11 000 utilisateurs.',
                 'project.tcs.desc': 'Responsable d\'une équipe de 15 consultants techniques. Intégration multi-cloud Service Cloud avec Zuora et Cameleon Cloud CPQ pour 1700 utilisateurs.',
                 'tag.multiprojects': 'Multi-projets',
                 'tag.2000licenses': '2000 licences',
@@ -2926,7 +1048,7 @@
                 'exp.bouygues.date': '2021 - Présent',
                 'exp.bouygues.title': 'Release Manager - Bouygues Telecom',
                 'exp.bouygues.desc': 'Mise en place et gestion du Release Management Salesforce (SalesCloud, Vlocity). Implémentation de Copado avec pipeline complexe et intégration Gitlab.',
-                'exp.engie.title': 'Architecte Technique &amp; Release Manager - Engie',
+                'exp.engie.title': 'Architecte Technique & Release Manager - Engie',
                 'exp.engie.desc': 'Stratégie de release management unifiée sur les projets Salesforce de la DGP Engie. Coordination de 26 développeurs sur 3 projets (Talan/Manao).',
                 'exp.psa.title': 'Architecte Technique Salesforce - PSA (IBM Bluewolf)',
                 'exp.psa.desc': 'Plateforme de souscription de services connectés pour les véhicules du Groupe PSA. Community Cloud, Drupal, AWS.',
@@ -2934,8 +1056,8 @@
                 'exp.freelance.desc': 'Missions pour Kering (Capgemini), Chronopost, Criteo et ETS Global. Architecture, développement Apex/Lightning et conseil technique.',
                 'exp.capgemini.title': 'Responsable Technique Salesforce - Capgemini',
                 'exp.capgemini.desc': 'Missions pour Touring Club Suisse, Air France KLM, SNCF, Veolia et Sodexo. Management d\'équipes jusqu\'à 15 consultants. Projets internationaux.',
-                'exp.formation.title': 'Formation &amp; Début de carrière',
-                'exp.formation.desc': 'Master 2 MIAGE/SIC (IAE Paris &amp; Paris 1 Panthéon-Sorbonne). Missions chez AXA France, LCL et SOFIDEEC en coordination de projets et ingénierie.',
+                'exp.formation.title': 'Formation & Début de carrière',
+                'exp.formation.desc': 'Master 2 MIAGE/SIC (IAE Paris & Paris 1 Panthéon-Sorbonne). Missions chez AXA France, LCL et SOFIDEEC en coordination de projets et ingénierie.',
                 'contact.title': 'Me contacter',
                 'contact.subtitle': 'Besoin d\'un expert Salesforce ? Discutons de votre projet',
                 'contact.intro': 'Vous cherchez un Release Manager Salesforce ou un Architecte Technique pour votre projet ? N\'hésitez pas à me contacter pour en discuter.',
@@ -2950,16 +1072,50 @@
                 'form.message.ph': 'Décrivez votre besoin...',
                 'form.submit': 'Envoyer le message',
                 'form.sending': 'Envoi en cours...',
-                'footer.tagline': 'Expert Salesforce - Release Management &amp; Architecture Technique'
+                'footer.tagline': 'Expert Salesforce - Release Management & Architecture Technique'
             },
             en: {
+                "nav.resources": "Resources",
+                "ui.skip": "Skip to content",
+                "ui.headline": "From complexity<br>to <em>clarity.</em>",
+                "ui.intro": "Abdelhakim Irbah, Salesforce Release Manager & Technical Architect.",
+                "ui.description": "I help enterprise teams design their architectures and build reliable Salesforce deployment processes.",
+                "ui.discover": "Discover the resources",
+                "ui.availability": "Currently on assignment",
+                "ui.soon": "Coming soon",
+                "ui.previewIntro": "Understand the objects. Connect the concepts.",
+                "ui.previewCta": "Preview the upcoming space",
+                "ui.knowledge": "01 / SHARING KNOWLEDGE",
+                "ui.resourcesTitle": "Field experience,<br>made clear.",
+                "ui.resourcesIntro": "A space to document, explore and better understand the Salesforce ecosystem. First up: Copado Source Format.",
+                "ui.preparation": "In preparation",
+                "ui.moduleIntro": "A map to navigate objects, their fields and their relationships.",
+                "ui.objects": "objects",
+                "ui.relations": "relationships",
+                "ui.views": "views",
+                "ui.scope": "Scope of the module prepared in September 2026. Simplified preview alongside.",
+                "ui.modelPreview": "MODEL PREVIEW",
+                "ui.stories": "Stories & commits",
+                "ui.execution": "Execution",
+                "ui.legend": "Objects and conceptual links · interactive preview",
+                "ui.docTitle": "Documentation",
+                "ui.docText": "Object responsibilities, scope and reading guidance.",
+                "ui.mapTitle": "Visual data model",
+                "ui.mapText": "Nine views to follow relationships, domain by domain.",
+                "ui.dictTitle": "Field dictionary",
+                "ui.dictText": "API names, types and relationships to understand the schema.",
+                "ui.cv": "View my résumé",
+                "ui.storyNote": "User Story Commit links a user story to its Snapshot Commit. The full model details fields and cardinalities.",
+                "ui.promotionNote": "Promoted User Story joins a user story and a promotion. Both relationships are Master-Detail.",
+                "ui.executionNote": "A Job Step can belong to an execution and reference its latest Result. The full model distinguishes these links.",
+
                 'nav.about': 'About',
                 'nav.expertise': 'Expertise',
                 'nav.missions': 'Projects',
                 'nav.parcours': 'Career',
                 'nav.contact': 'Contact',
                 'hero.badge': 'On assignment - Currently unavailable',
-                'hero.subtitle': '<span class="highlight">Salesforce Release Manager</span> &amp; Technical Architect. Certified Platform Developer I &amp; Administrator. 10+ years of Salesforce expertise serving enterprise clients.',
+                'hero.subtitle': '<span class="highlight">Salesforce Release Manager</span> & Technical Architect. Certified Platform Developer I & Administrator. 10+ years of Salesforce expertise serving enterprise clients.',
                 'hero.cta1': 'View my projects',
                 'hero.cta2': 'Contact me',
                 'hero.cv': 'Download CV',
@@ -2975,7 +1131,7 @@
                 'about.cert.copado': 'Copado Expert',
                 'about.h1': 'Salesforce Certified',
                 'about.h3': 'IT Architecture',
-                'about.h3.desc': 'Multi-cloud integration &amp; APIs',
+                'about.h3.desc': 'Multi-cloud integration & APIs',
                 'about.h4': 'Technical Leadership',
                 'about.h4.desc': 'Managing teams of up to 15 people',
                 'expertise.title': 'My expertise',
@@ -2985,16 +1141,16 @@
                 'expertise.card2.desc': 'Multi-cloud solution design (Sales Cloud, Service Cloud, Community Cloud, Vlocity). Integration with existing IT systems via REST APIs, Talend, Informatica and Boomi.',
                 'expertise.card3.title': 'Salesforce Development',
                 'expertise.card3.desc': 'Apex development, Visualforce, Lightning Components and ReactJS. REST Webservices, advanced configuration, validation rules and complex workflows.',
-                'expertise.card4.title': 'Consulting &amp; Management',
+                'expertise.card4.title': 'Consulting & Management',
                 'expertise.card4.desc': 'Leading technical teams (up to 15 consultants). Technical specifications, solution design, development best practices and client advisory.',
                 'projects.title': 'Completed projects',
                 'projects.subtitle': 'Key enterprise projects with major corporations',
                 'projects.cta': 'Learn more <i class="fas fa-arrow-right"></i>',
                 'project.bouygues.desc': 'Salesforce Release Manager. Setup and management of Release Management for SalesCloud and Vlocity projects. Copado implementation with complex pipeline.',
-                'project.engie.desc': 'Technical Architect &amp; Release Manager. Unified release management strategy for 26 developers across 3 projects sharing the same Salesforce Org.',
+                'project.engie.desc': 'Technical Architect & Release Manager. Unified release management strategy for 26 developers across 3 projects sharing the same Salesforce Org.',
                 'project.psa.desc': 'Salesforce Technical Architect at IBM Bluewolf. Connected services subscription platform for PSA Group vehicle brands.',
                 'project.airfrance.desc': 'Salesforce Technical Lead at Capgemini. International Sales Cloud project (2,000 licenses) with Informatica integration. Technical workshop facilitation.',
-                'project.sncf.desc': 'Technical Lead &amp; Salesforce Architect at Capgemini. Service Cloud Console integration into SNCF IT system for 11,000 users.',
+                'project.sncf.desc': 'Technical Lead & Salesforce Architect at Capgemini. Service Cloud Console integration into SNCF IT system for 11,000 users.',
                 'project.tcs.desc': 'Leading a team of 15 technical consultants. Multi-cloud Service Cloud integration with Zuora and Cameleon Cloud CPQ for 1,700 users.',
                 'tag.multiprojects': 'Multi-project',
                 'tag.2000licenses': '2,000 licenses',
@@ -3003,7 +1159,7 @@
                 'exp.bouygues.date': '2021 - Present',
                 'exp.bouygues.title': 'Release Manager - Bouygues Telecom',
                 'exp.bouygues.desc': 'Setup and management of Salesforce Release Management (SalesCloud, Vlocity). Copado implementation with complex pipeline and Gitlab integration.',
-                'exp.engie.title': 'Technical Architect &amp; Release Manager - Engie',
+                'exp.engie.title': 'Technical Architect & Release Manager - Engie',
                 'exp.engie.desc': 'Unified release management strategy for Engie DGP Salesforce projects. Coordinating 26 developers across 3 projects (Talan/Manao).',
                 'exp.psa.title': 'Salesforce Technical Architect - PSA (IBM Bluewolf)',
                 'exp.psa.desc': 'Connected services subscription platform for PSA Group vehicles. Community Cloud, Drupal, AWS.',
@@ -3011,8 +1167,8 @@
                 'exp.freelance.desc': 'Projects for Kering (Capgemini), Chronopost, Criteo and ETS Global. Architecture, Apex/Lightning development and technical consulting.',
                 'exp.capgemini.title': 'Salesforce Technical Lead - Capgemini',
                 'exp.capgemini.desc': 'Projects for Touring Club Suisse, Air France KLM, SNCF, Veolia and Sodexo. Managing teams of up to 15 consultants. International projects.',
-                'exp.formation.title': 'Education &amp; Early career',
-                'exp.formation.desc': 'Master\'s Degree MIAGE/SIC (IAE Paris &amp; Paris 1 Pantheon-Sorbonne). Assignments at AXA France, LCL and SOFIDEEC in project coordination and engineering.',
+                'exp.formation.title': 'Education & Early career',
+                'exp.formation.desc': 'Master\'s Degree MIAGE/SIC (IAE Paris & Paris 1 Pantheon-Sorbonne). Assignments at AXA France, LCL and SOFIDEEC in project coordination and engineering.',
                 'contact.title': 'Contact me',
                 'contact.subtitle': 'Need a Salesforce expert? Let\'s discuss your project',
                 'contact.intro': 'Looking for a Salesforce Release Manager or Technical Architect for your project? Don\'t hesitate to get in touch.',
@@ -3027,13 +1183,15 @@
                 'form.message.ph': 'Describe your needs...',
                 'form.submit': 'Send message',
                 'form.sending': 'Sending...',
-                'footer.tagline': 'Salesforce Expert - Release Management &amp; Technical Architecture'
+                'footer.tagline': 'Salesforce Expert - Release Management & Technical Architecture'
             }
         };
 
         // ===================== LANG SWITCH =====================
         function setLanguage(lang) {
+            if (!Object.prototype.hasOwnProperty.call(translations, lang)) lang = 'fr';
             document.documentElement.lang = lang;
+            document.dispatchEvent(new CustomEvent('wisee:language', { detail: lang }));
 
             // Update text content
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -3093,6 +1251,7 @@
 
         function openMobileMenu() {
             navLinks.classList.add('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
             navOverlay.classList.add('active');
             mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
             document.body.style.overflow = 'hidden';
@@ -3100,6 +1259,7 @@
 
         function closeMobileMenu() {
             navLinks.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
             navOverlay.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             document.body.style.overflow = '';
@@ -3114,6 +1274,10 @@
         });
 
         navOverlay.addEventListener('click', closeMobileMenu);
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) { closeMobileMenu(); mobileMenuBtn.focus(); }
+        });
+        window.matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) closeMobileMenu(); });
 
         navItems.forEach(item => {
             item.addEventListener('click', closeMobileMenu);
@@ -3164,33 +1328,6 @@
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('DOMContentLoaded', handleScroll);
-
-        // ===================== PAGE LOADER =====================
-        window.addEventListener('load', function() {
-            const loader = document.getElementById('pageLoader');
-            // Minimum display of 500ms so the loader is visible
-            const minDelay = 500;
-            const loadTime = performance.now();
-            const remaining = Math.max(0, minDelay - loadTime);
-
-            setTimeout(function() {
-                // Fade out the loader
-                loader.classList.add('loaded');
-
-                // Reveal sections sequentially
-                const sections = document.querySelectorAll('.section-reveal');
-                sections.forEach(function(section, index) {
-                    setTimeout(function() {
-                        section.classList.add('revealed');
-                    }, index * 120);
-                });
-
-                // Remove loader from DOM after transition ends
-                loader.addEventListener('transitionend', function() {
-                    loader.remove();
-                });
-            }, remaining);
-        });
 
         // ===================== DARK MODE TOGGLE =====================
         const themeToggle = document.getElementById('themeToggle');
@@ -3257,5 +1394,6 @@
         })();
 
     </script>
+    <script src="js/design.js"></script>
 </body>
 </html>
