@@ -329,3 +329,8 @@ footer .footer-link:hover { color: #fff; }
 .footer-links { flex-wrap: wrap; }
 .project-img.gradient-1, .project-img.gradient-2, .project-img.gradient-3 { background: #f0f3f7; }
 .project-client-mark { max-width: 150px; max-height: 43px; width: auto; height: auto; }
+
+/* Accès au module Copado publié. */
+.resource-open { margin-top: 22px; width: 100%; font-size: 11px; gap: 10px; }
+.resource-features h3 a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 4px; }
+.resource-features h3 a:hover { color: var(--primary); }

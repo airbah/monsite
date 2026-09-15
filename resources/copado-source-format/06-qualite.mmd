@@ -1,0 +1,56 @@
+erDiagram
+    direction LR
+    Deployment_Flow {
+        id Id PK
+    }
+    Environment {
+        id Id PK
+    }
+    Stage {
+        id Id PK
+    }
+    Quality_Gate_Rule {
+        id Id PK
+    }
+    Quality_Gate_Rule_Condition {
+        id Id PK
+    }
+    Automation_Rule {
+        id Id PK
+    }
+    JobStep {
+        id Id PK
+    }
+    Test {
+        id Id PK
+    }
+    ExtensionConfiguration {
+        id Id PK
+    }
+    JobExecution {
+        id Id PK
+    }
+    Result {
+        id Id PK
+    }
+    Environment |o..o{ JobExecution : "Destination"
+    Deployment_Flow |o..o{ JobExecution : "Pipeline"
+    Environment |o..o{ JobExecution : "Source"
+    JobStep |o..o{ JobExecution : "Job_Step"
+    JobExecution |o..o{ JobStep : "JobExecution"
+    Result |o..o{ JobStep : "Result"
+    Quality_Gate_Rule_Condition |o..o{ JobStep : "Quality_Gate_Rule_Condition"
+    Quality_Gate_Rule |o..o{ JobStep : "Quality_Gate_Rule"
+    JobStep |o..o{ Result : "JobStep"
+    Test |o..o{ Result : "Test"
+    Quality_Gate_Rule ||--o{ Quality_Gate_Rule_Condition : "Quality_Gate_Rule"
+    Environment |o..o{ Quality_Gate_Rule_Condition : "Environment"
+    Deployment_Flow |o..o{ Quality_Gate_Rule_Condition : "Pipeline"
+    ExtensionConfiguration ||..o{ Quality_Gate_Rule_Condition : "Extension_Configuration"
+    Stage |o..o{ Quality_Gate_Rule_Condition : "Stage"
+    ExtensionConfiguration |o..o{ Test : "Integration"
+    ExtensionConfiguration |o..o{ Test : "ExtensionConfiguration"
+    JobExecution |o..o{ Test : "LatestJobExecution"
+    JobExecution |o..o{ ExtensionConfiguration : "copadoQuality__Latest_Job_Execution"
+    Deployment_Flow ||--o{ Automation_Rule : "Pipeline"
+    Quality_Gate_Rule_Condition |o..o{ Automation_Rule : "Quality_Gate_Rule_Condition"

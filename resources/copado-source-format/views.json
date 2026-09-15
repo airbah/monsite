@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "01-vue-ensemble",
+    "title": "Vue d'ensemble"
+  },
+  {
+    "slug": "02-commits",
+    "title": "US, fichiers et snapshots"
+  },
+  {
+    "slug": "03-promotions",
+    "title": "Promotions et livraison"
+  },
+  {
+    "slug": "04-pipeline",
+    "title": "Pipeline et environnements"
+  },
+  {
+    "slug": "05-execution",
+    "title": "Moteur d'exécution"
+  },
+  {
+    "slug": "06-qualite",
+    "title": "Qualité et automatisation"
+  },
+  {
+    "slug": "07-packages",
+    "title": "Packages — module optionnel"
+  },
+  {
+    "slug": "08-pilotage",
+    "title": "Planification des US"
+  },
+  {
+    "slug": "09-complet",
+    "title": "Toutes les relations retenues"
+  }
+]

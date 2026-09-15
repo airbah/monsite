@@ -1,0 +1,217 @@
+erDiagram
+    direction LR
+    Project {
+        id Id PK
+    }
+    Release {
+        id Id PK
+    }
+    User_Story {
+        id Id PK
+    }
+    Epic {
+        id Id PK
+    }
+    Sprint {
+        id Id PK
+    }
+    Team {
+        id Id PK
+    }
+    User_Story_Task {
+        id Id PK
+    }
+    User_Story_Commit {
+        id Id PK
+    }
+    User_Story_Metadata {
+        id Id PK
+    }
+    Git_Org_Commit {
+        id Id PK
+    }
+    Git_Backup {
+        id Id PK
+    }
+    Git_Repository {
+        id Id PK
+    }
+    Promotion {
+        id Id PK
+    }
+    Promoted_User_Story {
+        id Id PK
+    }
+    Deployment {
+        id Id PK
+    }
+    Deployment_Flow {
+        id Id PK
+    }
+    Deployment_Flow_Step {
+        id Id PK
+    }
+    Environment {
+        id Id PK
+    }
+    Org {
+        id Id PK
+    }
+    Stage {
+        id Id PK
+    }
+    Stage_Connection {
+        id Id PK
+    }
+    JobExecution {
+        id Id PK
+    }
+    JobStep {
+        id Id PK
+    }
+    JobTemplate {
+        id Id PK
+    }
+    Result {
+        id Id PK
+    }
+    Function {
+        id Id PK
+    }
+    Quality_Gate_Rule {
+        id Id PK
+    }
+    Quality_Gate_Rule_Condition {
+        id Id PK
+    }
+    Test {
+        id Id PK
+    }
+    ExtensionConfiguration {
+        id Id PK
+    }
+    Automation_Rule {
+        id Id PK
+    }
+    Artifact {
+        id Id PK
+    }
+    Artifact_Version {
+        id Id PK
+    }
+    Artifact_Dependency {
+        id Id PK
+    }
+    Installed_Artifact_Version {
+        id Id PK
+    }
+    Bundled_Story {
+        id Id PK
+    }
+    Deployment_Flow |o..o{ Project : "Deployment_Flow"
+    Project |o..o{ Release : "Project"
+    Release |o..o{ Release : "Parent_Release"
+    User_Story |o..o{ Release : "Artifact_User_Story"
+    Environment |o..o{ Release : "Environment"
+    Environment |o..o{ User_Story : "Environment"
+    Epic |o..o{ User_Story : "Epic"
+    Deployment |o..o{ User_Story : "Last_Validation_Deployment"
+    Promotion |o..o{ User_Story : "Last_Validation_Promotion"
+    Org |o..o{ User_Story : "Org_Credential"
+    Project |o..o{ User_Story : "Project"
+    Release |o..o{ User_Story : "Release"
+    Sprint |o..o{ User_Story : "Sprint"
+    Team |o..o{ User_Story : "Team"
+    Release |o..o{ Epic : "Release"
+    Project |o..o{ Sprint : "Project"
+    Release |o..o{ Sprint : "Release"
+    Team |o..o{ Sprint : "Team"
+    User_Story ||--o{ User_Story_Task : "User_Story"
+    User_Story ||--o{ User_Story_Commit : "User_Story"
+    Git_Org_Commit ||--o{ User_Story_Commit : "Snapshot_Commit"
+    User_Story ||--o{ User_Story_Metadata : "User_Story"
+    Org ||--o{ Git_Org_Commit : "Org"
+    Git_Backup |o..o{ Git_Org_Commit : "Git_Backup"
+    Git_Repository ||--o{ Git_Backup : "Git_Repository"
+    Org ||--o{ Git_Backup : "Org"
+    Deployment_Flow |o..o{ Git_Backup : "Pipeline"
+    Environment |o..o{ Promotion : "Destination_Environment"
+    Org |o..o{ Promotion : "Destination_Org_Credential"
+    Project |o..o{ Promotion : "Project"
+    Release |o..o{ Promotion : "Release"
+    Environment |o..o{ Promotion : "Source_Environment"
+    Org |o..o{ Promotion : "Source_Org_Credential"
+    Deployment_Flow |o..o{ Promotion : "Pipeline"
+    User_Story ||--o{ Promoted_User_Story : "User_Story"
+    Promotion ||--o{ Promoted_User_Story : "Promotion"
+    Org |o..o{ Deployment : "From_Org"
+    Deployment |o..o{ Deployment : "Parent_Deployment"
+    Promotion |o..o{ Deployment : "Promotion"
+    Deployment |o..o{ Deployment : "Template"
+    Deployment |o..o{ Deployment : "Rolled_back_Deployment"
+    JobTemplate |o..o{ Deployment_Flow : "CommitJobTemplate"
+    JobTemplate |o..o{ Deployment_Flow : "Deployment_Job_Template"
+    Git_Repository |o..o{ Deployment_Flow : "Git_Repository"
+    JobTemplate |o..o{ Deployment_Flow : "Promotion_Job_Template"
+    Deployment_Flow ||--o{ Deployment_Flow_Step : "Deployment_Flow"
+    Environment |o..o{ Deployment_Flow_Step : "Destination_Environment"
+    Environment |o..o{ Deployment_Flow_Step : "Source_Environment"
+    Stage_Connection |o..o{ Deployment_Flow_Step : "Stage_Connection"
+    JobTemplate |o..o{ Environment : "CommitJobTemplateOverride"
+    JobTemplate |o..o{ Environment : "Deployment_Job_Template_Override"
+    Deployment |o..o{ Environment : "Latest_Deployment"
+    JobTemplate |o..o{ Environment : "Promotion_Job_Template_Override"
+    Org |o..o{ Org : "Developer_Hub_Org"
+    Environment |o..o{ Org : "Environment"
+    Deployment_Flow ||--o{ Stage_Connection : "Pipeline"
+    Stage ||--o{ Stage_Connection : "Stage"
+    Stage_Connection |o..o{ Stage_Connection : "Next_Stage_Connection"
+    Deployment |o..o{ JobExecution : "Deployment"
+    Environment |o..o{ JobExecution : "Destination"
+    Deployment_Flow |o..o{ JobExecution : "Pipeline"
+    Promotion |o..o{ JobExecution : "Promotion"
+    Git_Backup |o..o{ JobExecution : "Snapshot"
+    Environment |o..o{ JobExecution : "Source"
+    JobTemplate |o..o{ JobExecution : "Template"
+    User_Story_Commit |o..o{ JobExecution : "UserStoryCommit"
+    JobStep |o..o{ JobExecution : "Job_Step"
+    JobExecution |o..o{ JobStep : "JobExecution"
+    JobTemplate |o..o{ JobStep : "JobTemplate"
+    Result |o..o{ JobStep : "Result"
+    User_Story |o..o{ JobStep : "UserStory"
+    Quality_Gate_Rule_Condition |o..o{ JobStep : "Quality_Gate_Rule_Condition"
+    Quality_Gate_Rule |o..o{ JobStep : "Quality_Gate_Rule"
+    Deployment |o..o{ Result : "Deployment"
+    Function |o..o{ Result : "Function"
+    JobStep |o..o{ Result : "JobStep"
+    Promotion |o..o{ Result : "Promotion"
+    Test |o..o{ Result : "Test"
+    User_Story |o..o{ Result : "User_Story"
+    Quality_Gate_Rule ||--o{ Quality_Gate_Rule_Condition : "Quality_Gate_Rule"
+    Environment |o..o{ Quality_Gate_Rule_Condition : "Environment"
+    Deployment_Flow |o..o{ Quality_Gate_Rule_Condition : "Pipeline"
+    ExtensionConfiguration ||..o{ Quality_Gate_Rule_Condition : "Extension_Configuration"
+    Stage |o..o{ Quality_Gate_Rule_Condition : "Stage"
+    User_Story |o..o{ Test : "User_Story"
+    ExtensionConfiguration |o..o{ Test : "Integration"
+    ExtensionConfiguration |o..o{ Test : "ExtensionConfiguration"
+    JobExecution |o..o{ Test : "LatestJobExecution"
+    Promotion |o..o{ Test : "Promotion"
+    JobExecution |o..o{ ExtensionConfiguration : "copadoQuality__Latest_Job_Execution"
+    Deployment_Flow ||--o{ Automation_Rule : "Pipeline"
+    Quality_Gate_Rule_Condition |o..o{ Automation_Rule : "Quality_Gate_Rule_Condition"
+    Git_Repository |o..o{ Artifact : "Artifact_Repository"
+    Artifact_Version |o..o{ Artifact : "Artifact_Version"
+    Org |o..o{ Artifact : "Org_Credential"
+    Deployment_Flow |o..o{ Artifact : "Pipeline"
+    Org |o..o{ Artifact : "Target_Dev_Hub_Org"
+    Artifact ||--o{ Artifact_Version : "Artifact"
+    Release |o..o{ Artifact_Version : "Release"
+    User_Story |o..o{ Artifact_Version : "User_Story"
+    Artifact ||--o{ Artifact_Dependency : "Dependent_Artifact"
+    Artifact_Version |o..o{ Artifact_Dependency : "Depending_Artifact_Version"
+    Artifact |o..o{ Artifact_Dependency : "Depending_Artifact"
+    Artifact_Version ||--o{ Installed_Artifact_Version : "Package_Version"
+    Environment ||--o{ Installed_Artifact_Version : "Environment"
+    Artifact_Version |o..o{ Bundled_Story : "Package_Version"
+    User_Story |o..o{ Bundled_Story : "User_Story"

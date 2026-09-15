@@ -1,0 +1,39 @@
+erDiagram
+    direction LR
+    Project {
+        id Id PK
+    }
+    Release {
+        id Id PK
+    }
+    User_Story {
+        id Id PK
+    }
+    User_Story_Commit {
+        id Id PK
+    }
+    User_Story_Metadata {
+        id Id PK
+    }
+    Promotion {
+        id Id PK
+    }
+    Promoted_User_Story {
+        id Id PK
+    }
+    Deployment {
+        id Id PK
+    }
+    JobExecution {
+        id Id PK
+    }
+    Project |o..o{ Release : "Project"
+    Release |o..o{ User_Story : "Release"
+    User_Story ||--o{ User_Story_Commit : "User_Story"
+    User_Story ||--o{ User_Story_Metadata : "User_Story"
+    User_Story ||--o{ Promoted_User_Story : "User_Story"
+    Promotion ||--o{ Promoted_User_Story : "Promotion"
+    Promotion |o..o{ Deployment : "Promotion"
+    Deployment |o..o{ JobExecution : "Deployment"
+    Promotion |o..o{ JobExecution : "Promotion"
+    User_Story_Commit |o..o{ JobExecution : "UserStoryCommit"

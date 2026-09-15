@@ -1,0 +1,37 @@
+erDiagram
+    direction LR
+    Project {
+        id Id PK
+    }
+    Deployment_Flow {
+        id Id PK
+    }
+    Deployment_Flow_Step {
+        id Id PK
+    }
+    Stage {
+        id Id PK
+    }
+    Stage_Connection {
+        id Id PK
+    }
+    Environment {
+        id Id PK
+    }
+    Org {
+        id Id PK
+    }
+    Git_Repository {
+        id Id PK
+    }
+    Deployment_Flow |o..o{ Project : "Deployment_Flow"
+    Git_Repository |o..o{ Deployment_Flow : "Git_Repository"
+    Deployment_Flow ||--o{ Deployment_Flow_Step : "Deployment_Flow"
+    Environment |o..o{ Deployment_Flow_Step : "Destination_Environment"
+    Environment |o..o{ Deployment_Flow_Step : "Source_Environment"
+    Stage_Connection |o..o{ Deployment_Flow_Step : "Stage_Connection"
+    Org |o..o{ Org : "Developer_Hub_Org"
+    Environment |o..o{ Org : "Environment"
+    Deployment_Flow ||--o{ Stage_Connection : "Pipeline"
+    Stage ||--o{ Stage_Connection : "Stage"
+    Stage_Connection |o..o{ Stage_Connection : "Next_Stage_Connection"

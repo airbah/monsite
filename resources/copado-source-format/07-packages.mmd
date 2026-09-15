@@ -1,0 +1,43 @@
+erDiagram
+    direction LR
+    Artifact {
+        id Id PK
+    }
+    Artifact_Version {
+        id Id PK
+    }
+    Artifact_Dependency {
+        id Id PK
+    }
+    Installed_Artifact_Version {
+        id Id PK
+    }
+    Bundled_Story {
+        id Id PK
+    }
+    User_Story {
+        id Id PK
+    }
+    Release {
+        id Id PK
+    }
+    Org {
+        id Id PK
+    }
+    Release |o..o{ Release : "Parent_Release"
+    User_Story |o..o{ Release : "Artifact_User_Story"
+    Org |o..o{ User_Story : "Org_Credential"
+    Release |o..o{ User_Story : "Release"
+    Org |o..o{ Org : "Developer_Hub_Org"
+    Artifact_Version |o..o{ Artifact : "Artifact_Version"
+    Org |o..o{ Artifact : "Org_Credential"
+    Org |o..o{ Artifact : "Target_Dev_Hub_Org"
+    Artifact ||--o{ Artifact_Version : "Artifact"
+    Release |o..o{ Artifact_Version : "Release"
+    User_Story |o..o{ Artifact_Version : "User_Story"
+    Artifact ||--o{ Artifact_Dependency : "Dependent_Artifact"
+    Artifact_Version |o..o{ Artifact_Dependency : "Depending_Artifact_Version"
+    Artifact |o..o{ Artifact_Dependency : "Depending_Artifact"
+    Artifact_Version ||--o{ Installed_Artifact_Version : "Package_Version"
+    Artifact_Version |o..o{ Bundled_Story : "Package_Version"
+    User_Story |o..o{ Bundled_Story : "User_Story"

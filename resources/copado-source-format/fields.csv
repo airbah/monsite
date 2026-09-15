@@ -1,0 +1,990 @@
+object,field,label,type,referenceTo,nullable,formula,origin
+copado__Project__c,Id,Record ID,id,,False,False,Salesforce
+copado__Project__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Project__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Project__c,Name,Project Name,string,,True,False,Salesforce
+copado__Project__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Project__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Project__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Project__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Project__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Project__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Project__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Project__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Project__c,copado__Deployment_Flow__c,Pipeline,Lookup,copado__Deployment_Flow__c,True,False,Socle Copado
+copado__Project__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__Project__c,copado__End_Date__c,End Date,date,,True,False,Socle Copado
+copado__Project__c,copado__Exclude_Tabs_from_Promotion_Page__c,Exclude Tabs from Promotion Page,multipicklist,,True,False,Socle Copado
+copado__Project__c,copado__Index_Metadata__c,Index Metadata,boolean,,False,False,Socle Copado
+copado__Project__c,copado__Start_Date__c,Start Date,date,,True,False,Socle Copado
+copado__Project__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Project__c,copado__API_Name__c,API Name,string,,True,False,Socle Copado
+copado__Release__c,Id,Record ID,id,,False,False,Salesforce
+copado__Release__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Release__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Release__c,Name,Release Name,string,,True,False,Salesforce
+copado__Release__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Release__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Release__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Release__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Release__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Release__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Release__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Release__c,copado__Base_Branch__c,Base Branch,string,,True,False,Socle Copado
+copado__Release__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__Release__c,copado__Planned_Date__c,Planned Date,date,,True,False,Socle Copado
+copado__Release__c,copado__Project__c,Project,Lookup,copado__Project__c,True,False,Socle Copado
+copado__Release__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Release__c,copado__Version__c,Version,string,,True,False,Socle Copado
+copado__Release__c,copado__Completion_Date__c,Completion Date,datetime,,True,False,Socle Copado
+copado__Release__c,copado__Parent_Release__c,Parent Release,Lookup,copado__Release__c,True,False,Socle Copado
+copado__Release__c,copado__Status_Notes__c,Status Notes,textarea,,True,False,Socle Copado
+copado__Release__c,copado__Testing_Completed__c,Testing Completed,datetime,,True,False,Socle Copado
+copado__Release__c,copado__Type__c,Type,picklist,,True,False,Socle Copado
+copado__Release__c,copado__Artifact_User_Story__c,Artifact User Story,Lookup,copado__User_Story__c,True,False,Socle Copado
+copado__Release__c,copado__Base_Branch_Origin__c,Base Branch Origin,string,,True,False,Socle Copado
+copado__Release__c,copado__Environment__c,Environment,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__User_Story__c,Id,Record ID,id,,False,False,Salesforce
+copado__User_Story__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__User_Story__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__User_Story__c,Name,User Story Reference,string,,False,False,Salesforce
+copado__User_Story__c,RecordTypeId,Record Type ID,Lookup,RecordType,True,False,Salesforce
+copado__User_Story__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__User_Story__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__User_Story__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__User_Story__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__User_Story__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__User_Story__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__User_Story__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__User_Story__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__User_Story__c,copado__Acceptance_Criteria_Status__c,Acceptance Criteria Status,picklist,,True,False,Socle Copado
+copado__User_Story__c,copado__Acceptance_Criteria__c,Acceptance Criteria,textarea,,True,False,Socle Copado
+copado__User_Story__c,copado__Apex_Code_Coverage__c,Apex Code Coverage,percent,,True,False,Socle Copado
+copado__User_Story__c,copado__Apex_Tests_Passed__c,Apex Tests Passed,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Backburner_Rank__c,Backburner Rank,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Backlog_Rank__c,Backlog Rank,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Base_Branch__c,Base Branch,string,,True,False,Socle Copado
+copado__User_Story__c,copado__Business_Analyst__c,Business Analyst,Lookup,User,True,False,Socle Copado
+copado__User_Story__c,copado__Cancellation_Reason__c,Cancellation Reason,textarea,,True,False,Socle Copado
+copado__User_Story__c,copado__Classes_Without_Coverage__c,Classes Without Coverage,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Close_Date__c,Close Date,date,,True,False,Socle Copado
+copado__User_Story__c,copado__Compliance_Criteria__c,Compliance Criteria,textarea,,True,False,Socle Copado
+copado__User_Story__c,copado__Compliance_Status__c,Compliance Status,picklist,,True,False,Socle Copado
+copado__User_Story__c,copado__Compliance__c,Compliance,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Data_Privacy__c,Data Privacy,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Developer__c,Developer,Lookup,User,True,False,Socle Copado
+copado__User_Story__c,copado__Documentation_Complete__c,Documentation Complete,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Environment_Type__c,Environment Type,string,,True,True,Socle Copado
+copado__User_Story__c,copado__Environment__c,Environment,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__User_Story__c,copado__Epic__c,Epic,Lookup,copado__Epic__c,True,False,Socle Copado
+copado__User_Story__c,copado__Exclude_From_CBM__c,Exclude from Pipelines,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Failing_Methods__c,Failing Methods,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Feature__c,Feature,Lookup,copado__Copado_Feature__c,True,False,Socle Copado
+copado__User_Story__c,copado__Functional_Specifications__c,Functional Specifications,textarea,,True,False,Socle Copado
+copado__User_Story__c,copado__Git_Merge_Status__c,Git Merge Status,picklist,,True,False,Socle Copado
+copado__User_Story__c,copado__Git_Repository__c,Git Repository,string,,True,True,Socle Copado
+copado__User_Story__c,copado__Has_Apex_Code__c,Has Apex Code,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Is_Bundle__c,Is Bundle,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Last_Compliance_Scan_Date__c,Last Compliance Scan Date,datetime,,True,False,Socle Copado
+copado__User_Story__c,copado__Last_Promotion_Date__c,Last Promotion Date,datetime,,True,False,Socle Copado
+copado__User_Story__c,copado__Last_Validation_Deployment_Status__c,Last Validation Status,string,,True,True,Socle Copado
+copado__User_Story__c,copado__Last_Validation_Deployment__c,Last Validation Deployment,Lookup,copado__Deployment__c,True,False,Socle Copado
+copado__User_Story__c,copado__Last_Validation_Promotion__c,Last Validation Promotion,Lookup,copado__Promotion__c,True,False,Socle Copado
+copado__User_Story__c,copado__Latest_Commit_Date__c,Latest Commit Date,datetime,,True,False,Socle Copado
+copado__User_Story__c,copado__Legal__c,Legal,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Manual_Step_Required__c,Manual Step Required,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Manual_Tests_Passed__c,Manual Tests Passed,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Metadata_Types_in_Selection__c,Metadata Types in Selection,multipicklist,,True,False,Socle Copado
+copado__User_Story__c,copado__Minimum_Apex_Code_Coverage__c,Minimum Apex Code Coverage,percent,,True,False,Socle Copado
+copado__User_Story__c,copado__Order__c,Order,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Org_Credential__c,Credential,Lookup,copado__Org__c,True,False,Socle Copado
+copado__User_Story__c,copado__Parent_Epic_Title__c,Parent Epic Title,string,,True,True,Socle Copado
+copado__User_Story__c,copado__Platform__c,Platform,string,,True,True,Socle Copado
+copado__User_Story__c,copado__Priority__c,Priority,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Progress_Status__c,Progress Status,string,,True,True,Socle Copado
+copado__User_Story__c,copado__Progress__c,Progress,percent,,True,False,Socle Copado
+copado__User_Story__c,copado__Project__c,Project,Lookup,copado__Project__c,True,False,Socle Copado
+copado__User_Story__c,copado__Promote_Change__c,Ready to Promote,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Promote_and_Deploy__c,Promote and Deploy,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Promote_as_Single_Step__c,Promote as Single Step,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Promotion_Test_Level__c,Promotion Test Level,picklist,,True,False,Socle Copado
+copado__User_Story__c,copado__Pull_Requests_Approved__c,Pull Requests Approved,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__QR_Code__c,QR Code,string,,True,True,Socle Copado
+copado__User_Story__c,copado__Release__c,Release,Lookup,copado__Release__c,True,False,Socle Copado
+copado__User_Story__c,copado__Sprint__c,Sprint,Lookup,copado__Sprint__c,True,False,Socle Copado
+copado__User_Story__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__User_Story__c,copado__Stop_Indexing_Metadata__c,Exclude from Overlap Awareness,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__Story_Points_Other__c,Planned Points,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Story_Points_SFDC__c,Actual Points,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Team__c,Team,Lookup,copado__Team__c,True,False,Socle Copado
+copado__User_Story__c,copado__Technical_Specifications__c,Technical Specifications,textarea,,True,False,Socle Copado
+copado__User_Story__c,copado__Test_Script_Owner__c,Test Script Owner,Lookup,User,True,False,Socle Copado
+copado__User_Story__c,copado__Theme__c,Theme,Lookup,copado__Theme__c,True,False,Socle Copado
+copado__User_Story__c,copado__Total_Story_Points__c,Total Planned Points,double,,True,True,Socle Copado
+copado__User_Story__c,copado__Triggers_Without_Coverage__c,Triggers Without Coverage,double,,True,False,Socle Copado
+copado__User_Story__c,copado__US_Feature__c,Feature,Lookup,copado__Application_Feature__c,True,False,Socle Copado
+copado__User_Story__c,copado__User_Story_Title__c,Title,string,,True,False,Socle Copado
+copado__User_Story__c,copado__Validate_Only__c,Validate Only,boolean,,False,False,Socle Copado
+copado__User_Story__c,copado__View_in_Git__c,View in Git,string,,True,True,Socle Copado
+copado__User_Story__c,copado__userStory_Role__c,As a...,textarea,,True,False,Socle Copado
+copado__User_Story__c,copado__userStory_need__c,Want to...,textarea,,True,False,Socle Copado
+copado__User_Story__c,copado__userStory_reason__c,So that...,textarea,,True,False,Socle Copado
+copado__User_Story__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__User_Story__c,copadoQuality__Functional_Review__c,Functional Review,Lookup,copadoQuality__Functional_Review__c,True,False,Copado Quality
+copado__User_Story__c,cmcSf__Apex_Test_Level__c,Apex Test Level,picklist,,True,False,Extension Source Format
+copado__User_Story__c,copado__Actual_Points_Other__c,Actual Points Other,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Planned_Points_Other__c,Planned Points Other,double,,True,False,Socle Copado
+copado__User_Story__c,copado__Total_Actual_Points__c,Total Actual Points,double,,True,True,Socle Copado
+copado__User_Story__c,cmcSf__Migration_Date__c,Migration Date,datetime,,True,False,Extension Source Format
+copado__User_Story__c,copado__Pending_Tests__c,Pending Tests,double,,True,False,Socle Copado
+copado__Epic__c,Id,Record ID,id,,False,False,Salesforce
+copado__Epic__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Epic__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Epic__c,Name,Epic Ref,string,,False,False,Salesforce
+copado__Epic__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Epic__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Epic__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Epic__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Epic__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Epic__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Epic__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Epic__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Epic__c,copado__Application__c,Application,Lookup,copado__Application__c,True,False,Socle Copado
+copado__Epic__c,copado__Cancelled_Reason__c,Cancelled Reason,string,,True,False,Socle Copado
+copado__Epic__c,copado__Epic_Details__c,Epic Details,textarea,,True,False,Socle Copado
+copado__Epic__c,copado__Epic_Title__c,Epic Title,string,,True,False,Socle Copado
+copado__Epic__c,copado__Release__c,Release,Lookup,copado__Release__c,True,False,Socle Copado
+copado__Epic__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Epic__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__Epic__c,copado__Technical_Assumptions__c,Technical Assumptions,textarea,,True,False,Socle Copado
+copado__Sprint__c,Id,Record ID,id,,False,False,Salesforce
+copado__Sprint__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Sprint__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Sprint__c,Name,Sprint Name,string,,True,False,Salesforce
+copado__Sprint__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Sprint__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Sprint__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Sprint__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Sprint__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Sprint__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Sprint__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Sprint__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Sprint__c,copado__ActualVelocity__c,Actual Velocity,double,,True,False,Socle Copado
+copado__Sprint__c,copado__Days_in_sprint__c,Days in sprint,double,,True,False,Socle Copado
+copado__Sprint__c,copado__End_Date__c,End Date,date,,True,False,Socle Copado
+copado__Sprint__c,copado__Full_time_resources_in_sprint__c,Full time resources in sprint,double,,True,False,Socle Copado
+copado__Sprint__c,copado__InitialPlannedVelocity__c,Initial Planned Velocity,double,,True,False,Socle Copado
+copado__Sprint__c,copado__Objective__c,Sprint Goal,textarea,,True,False,Socle Copado
+copado__Sprint__c,copado__PlannedVelocity__c,Planned Velocity,double,,True,False,Socle Copado
+copado__Sprint__c,copado__Project__c,Project,Lookup,copado__Project__c,True,False,Socle Copado
+copado__Sprint__c,copado__Release__c,Release,Lookup,copado__Release__c,True,False,Socle Copado
+copado__Sprint__c,copado__Start_Date__c,Start Date,date,,True,False,Socle Copado
+copado__Sprint__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Sprint__c,copado__Story_points__c,Total Capacity (Points),double,,True,False,Socle Copado
+copado__Sprint__c,copado__Team__c,Team,Lookup,copado__Team__c,True,False,Socle Copado
+copado__Sprint__c,copado__Working_Days_Left__c,Working Days Left,double,,True,True,Socle Copado
+copado__Sprint__c,copado__Working_days_in_sprint__c,Working days in sprint,double,,True,False,Socle Copado
+copado__Sprint__c,copado__Actual_Velocity__c,Actual Velocity,double,,True,False,Socle Copado
+copado__Sprint__c,copado__Planned_Velocity__c,Planned Velocity,double,,True,False,Socle Copado
+copado__Team__c,Id,Record ID,id,,False,False,Salesforce
+copado__Team__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Team__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Team__c,Name,Team Name,string,,True,False,Salesforce
+copado__Team__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Team__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Team__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Team__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Team__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Team__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Team__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Team__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Team__c,copado__Active__c,Active,boolean,,False,False,Socle Copado
+copado__Team__c,copado__Department__c,Department,picklist,,True,False,Socle Copado
+copado__Team__c,copado__Vision__c,Vision,textarea,,True,False,Socle Copado
+copado__Team__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__Team__c,copado__Sprint_Wall_FieldSet_Name__c,Sprint Wall FieldSet Name,string,,True,False,Socle Copado
+copado__User_Story_Task__c,Id,Record ID,id,,False,False,Salesforce
+copado__User_Story_Task__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__User_Story_Task__c,Name,User Story Task Name,string,,False,False,Salesforce
+copado__User_Story_Task__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__User_Story_Task__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__User_Story_Task__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__User_Story_Task__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__User_Story_Task__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__User_Story_Task__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__User_Story_Task__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__User_Story_Task__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__User_Story_Task__c,copado__User_Story__c,User Story,Master-Detail,copado__User_Story__c,False,False,Socle Copado
+copado__User_Story_Task__c,copado__Comments__c,Comments,textarea,,True,False,Socle Copado
+copado__User_Story_Task__c,copado__Hours_Remaining__c,Hours Remaining,double,,True,False,Socle Copado
+copado__User_Story_Task__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__User_Story_Task__c,copado__Subject__c,Subject,string,,True,False,Socle Copado
+copado__User_Story_Commit__c,Id,Record ID,id,,False,False,Salesforce
+copado__User_Story_Commit__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__User_Story_Commit__c,Name,US Commit,string,,True,False,Salesforce
+copado__User_Story_Commit__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__User_Story_Commit__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__User_Story_Commit__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__User_Story_Commit__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__User_Story_Commit__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__User_Story_Commit__c,copado__User_Story__c,User Story,Master-Detail,copado__User_Story__c,False,False,Socle Copado
+copado__User_Story_Commit__c,copado__Snapshot_Commit__c,Snapshot Commit,Master-Detail,copado__Git_Org_Commit__c,False,False,Socle Copado
+copado__User_Story_Commit__c,copado__CommitMessage__c,Commit Message,string,,True,True,Socle Copado
+copado__User_Story_Commit__c,copado__External_Id__c,External Id,string,,True,False,Socle Copado
+copado__User_Story_Commit__c,copado__LastJobExecutionId__c,Last Job Execution ID,string,,True,False,Socle Copado
+copado__User_Story_Commit__c,copado__Status__c,Status,string,,True,True,Socle Copado
+copado__User_Story_Commit__c,copado__View_in_Git__c,View in Git,string,,True,True,Socle Copado
+copado__User_Story_Commit__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__User_Story_Metadata__c,Id,Record ID,id,,False,False,Salesforce
+copado__User_Story_Metadata__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__User_Story_Metadata__c,Name,User Story Metadata Name,string,,True,False,Salesforce
+copado__User_Story_Metadata__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__User_Story_Metadata__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__User_Story_Metadata__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__User_Story_Metadata__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__User_Story_Metadata__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__User_Story_Metadata__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__User_Story_Metadata__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__User_Story_Metadata__c,copado__User_Story__c,User Story,Master-Detail,copado__User_Story__c,False,False,Socle Copado
+copado__User_Story_Metadata__c,copado__Action__c,Action,string,,True,False,Socle Copado
+copado__User_Story_Metadata__c,copado__Category__c,Category,string,,True,False,Socle Copado
+copado__User_Story_Metadata__c,copado__JsonInformation__c,Json Information,string,,True,False,Socle Copado
+copado__User_Story_Metadata__c,copado__Last_Commit_Date__c,Last Commit Date,datetime,,True,False,Socle Copado
+copado__User_Story_Metadata__c,copado__Metadata_API_Name__c,File Name,string,,True,False,Socle Copado
+copado__User_Story_Metadata__c,copado__ModuleDirectory__c,Directory,string,,True,False,Socle Copado
+copado__User_Story_Metadata__c,copado__Status_Icon__c,Status Icon,string,,True,True,Socle Copado
+copado__User_Story_Metadata__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__User_Story_Metadata__c,copado__Type__c,Type,string,,True,False,Socle Copado
+copado__User_Story_Metadata__c,copado__Unique_ID__c,Unique ID,string,,True,False,Socle Copado
+copado__Git_Org_Commit__c,Id,Record ID,id,,False,False,Salesforce
+copado__Git_Org_Commit__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Git_Org_Commit__c,Name,Commit Name,string,,False,False,Salesforce
+copado__Git_Org_Commit__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Git_Org_Commit__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Git_Org_Commit__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Git_Org_Commit__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Git_Org_Commit__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Git_Org_Commit__c,copado__Org__c,Credential,Master-Detail,copado__Org__c,False,False,Socle Copado
+copado__Git_Org_Commit__c,copado__Changes__c,Changes,textarea,,True,False,Socle Copado
+copado__Git_Org_Commit__c,copado__Commit_Date__c,Commit Date,datetime,,True,False,Socle Copado
+copado__Git_Org_Commit__c,copado__Commit_Id__c,Commit Id,string,,True,False,Socle Copado
+copado__Git_Org_Commit__c,copado__Commit_Message__c,Commit Message,textarea,,True,False,Socle Copado
+copado__Git_Org_Commit__c,copado__Git_Backup__c,Git Snapshot,Lookup,copado__Git_Backup__c,True,False,Socle Copado
+copado__Git_Org_Commit__c,copado__Git_Operation__c,Git Operation,picklist,,True,False,Socle Copado
+copado__Git_Org_Commit__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Git_Org_Commit__c,copado__View_in_Git__c,View in Git,string,,True,True,Socle Copado
+copado__Git_Org_Commit__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__Git_Backup__c,Id,Record ID,id,,False,False,Salesforce
+copado__Git_Backup__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Git_Backup__c,Name,Git Snapshot Name,string,,True,False,Salesforce
+copado__Git_Backup__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Git_Backup__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Git_Backup__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Git_Backup__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Git_Backup__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Git_Backup__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Git_Backup__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Git_Backup__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Git_Backup__c,copado__Git_Repository__c,Git Repository,Master-Detail,copado__Git_Repository__c,False,False,Socle Copado
+copado__Git_Backup__c,copado__Org__c,Credential,Master-Detail,copado__Org__c,False,False,Socle Copado
+copado__Git_Backup__c,copado__Branch__c,Branch,string,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Compliance_Status__c,Compliance Status,string,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Frequency__c,Frequency,picklist,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Git_Snapshot_Permissions__c,Git Snapshot Permissions,picklist,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Last_Backup__c,Last Snapshot,datetime,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Last_Compliance_Scan_Date__c,Last Compliance Scan Date,datetime,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Metadata_Types__c,Metadata Types,textarea,,True,False,Socle Copado
+copado__Git_Backup__c,copado__View_in_Git__c,View in Git,string,,True,True,Socle Copado
+copado__Git_Backup__c,copado__Cron_Expression__c,Cron Expression,string,,True,False,Socle Copado
+copado__Git_Backup__c,copado__External_Id__c,External Id,string,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Other_Information__c,Other Information,textarea,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Pipeline__c,Pipeline,Lookup,copado__Deployment_Flow__c,True,False,Socle Copado
+copado__Git_Backup__c,copado__Scope__c,Scope,textarea,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Snapshot_Frequency__c,Frequency,picklist,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Scheduled_Commit_Message__c,Commit Message,textarea,,True,False,Socle Copado
+copado__Git_Backup__c,copado__Apex_Job_ID__c,Apex Job ID,string,,True,False,Socle Copado
+copado__Git_Repository__c,Id,Record ID,id,,False,False,Salesforce
+copado__Git_Repository__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Git_Repository__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Git_Repository__c,Name,Git Repository Name,string,,True,False,Salesforce
+copado__Git_Repository__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Git_Repository__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Git_Repository__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Git_Repository__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Git_Repository__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Git_Repository__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Git_Repository__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Git_Repository__c,copado__Branch_Base_URL__c,Branch Base URL,string,,True,False,Socle Copado
+copado__Git_Repository__c,copado__Commit_Base_URL__c,Commit Base URL,string,,True,False,Socle Copado
+copado__Git_Repository__c,copado__Git_Provider__c,Git Provider,picklist,,True,False,Socle Copado
+copado__Git_Repository__c,copado__Pull_Request_Base_URL__c,Pull Request Base URL,string,,True,False,Socle Copado
+copado__Git_Repository__c,copado__Source_Format__c,Source Format,picklist,,True,False,Socle Copado
+copado__Git_Repository__c,copado__Tag_Base_URL__c,Tag Base URL,string,,True,False,Socle Copado
+copado__Git_Repository__c,copado__URI__c,URI,string,,True,False,Socle Copado
+copado__Git_Repository__c,copado__Allow_Functions_Git_Cache__c,Allow Functions Git Cache,boolean,,False,False,Socle Copado
+copado__Git_Repository__c,copado__Is_repository_connected_via_copa_tunnel__c,Is repository connected via copa tunnel?,picklist,,True,False,Socle Copado
+copado__Git_Repository__c,copado__OAuth__c,OAuth,boolean,,False,False,Socle Copado
+copado__Git_Repository__c,copado__Enterprise_Hostname__c,GitHub Enterprise Hostname,string,,True,False,Socle Copado
+copado__Promotion__c,Id,Record ID,id,,False,False,Salesforce
+copado__Promotion__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Promotion__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Promotion__c,Name,Promotion Name,string,,False,False,Salesforce
+copado__Promotion__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Promotion__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Promotion__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Promotion__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Promotion__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Promotion__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Promotion__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Promotion__c,copado__Back_Promotion__c,Is Back-Promotion,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Completed__c,Completed,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Connection_Behavior__c,Connection Behavior,string,,True,False,Socle Copado
+copado__Promotion__c,copado__Create_Full_Permission_Sets_Step__c,Create Full Permission Sets Step,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Create_Full_Profiles_Step__c,Create Full Profiles Step,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Destination_Environment__c,Destination Environment,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__Promotion__c,copado__Destination_Org_Credential__c,Destination Credential,Lookup,copado__Org__c,True,False,Socle Copado
+copado__Promotion__c,copado__Exclude_From_Auto_Resolve__c,Exclude From Auto Resolve,multipicklist,,True,False,Socle Copado
+copado__Promotion__c,copado__Last_Deployment_Execution_Id__c,Last Deployment Execution Id,string,,True,False,Socle Copado
+copado__Promotion__c,copado__Last_Promotion_Execution_Id__c,Last Promotion Execution Id,string,,True,False,Socle Copado
+copado__Promotion__c,copado__Merge_Conflict__c,Merge Conflict,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Order_by__c,Order User Stories by,string,,True,False,Socle Copado
+copado__Promotion__c,copado__Platform__c,Platform,string,,True,True,Socle Copado
+copado__Promotion__c,copado__Project__c,Project,Lookup,copado__Project__c,True,False,Socle Copado
+copado__Promotion__c,copado__Release__c,Release,Lookup,copado__Release__c,True,False,Socle Copado
+copado__Promotion__c,copado__Send_Deployment_Complete_email__c,Notify When Complete,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Source_Environment__c,Source Environment,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__Promotion__c,copado__Source_Org_Credential__c,Source Credential,Lookup,copado__Org__c,True,False,Socle Copado
+copado__Promotion__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Promotion__c,copado__Is_Rolled_Back__c,Is Rolled Back?,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Override_Destination_Changes__c,Override Destination Changes,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Pipeline__c,Pipeline,Lookup,copado__Deployment_Flow__c,True,False,Socle Copado
+copado__Promotion__c,copado__View_in_Git__c,View in Git,string,,True,True,Socle Copado
+copado__Promotion__c,copado__Promotion_Method__c,Promotion Method,picklist,,True,False,Socle Copado
+copado__Promotion__c,copado__Pull_Requests_Approved__c,Pull Requests Approved,boolean,,False,False,Socle Copado
+copado__Promotion__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__Promotion__c,cmcSf__Apex_Test_Level__c,Apex Test Level,picklist,,True,False,Extension Source Format
+copado__Promotion__c,cmcSf__Attach_Vlocity_Build_File__c,Attach Vlocity(SFI) Build File,boolean,,False,False,Extension Source Format
+copado__Promotion__c,cmcSf__Debug_Mode__c,Debug Mode,boolean,,False,False,Extension Source Format
+copado__Promotion__c,cmcSf__Ignore_Deployment_Warnings__c,Ignore Deployment Warnings,boolean,,False,False,Extension Source Format
+copado__Promotion__c,cmcSf__Ignore_Rollback_Deployment_Warnings__c,Ignore Rollback Deployment Warnings,boolean,,False,False,Extension Source Format
+copado__Promotion__c,cmcSf__Last_Rollback_Execution_Id__c,Last Rollback Execution Id,string,,True,False,Extension Source Format
+copado__Promotion__c,cmcSf__Recreate_Promotion_Branch__c,Recreate Promotion Branch,boolean,,False,False,Extension Source Format
+copado__Promotion__c,cmcSf__Rollback_Status__c,Rollback Status,picklist,,True,False,Extension Source Format
+copado__Promotion__c,cmcSf__Rolled_Back_Date__c,Rolled Back Date,date,,True,False,Extension Source Format
+copado__Promotion__c,cmcSf__Validate_Deploy_Request_Id__c,Validate Deploy Request Id,string,,True,False,Extension Source Format
+copado__Promoted_User_Story__c,Id,Record ID,id,,False,False,Salesforce
+copado__Promoted_User_Story__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Promoted_User_Story__c,Name,Promoted User Story Name,string,,True,False,Salesforce
+copado__Promoted_User_Story__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Promoted_User_Story__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Promoted_User_Story__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Promoted_User_Story__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Promoted_User_Story__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Promoted_User_Story__c,copado__User_Story__c,User Story,Master-Detail,copado__User_Story__c,False,False,Socle Copado
+copado__Promoted_User_Story__c,copado__Promotion__c,Promotion,Master-Detail,copado__Promotion__c,False,False,Socle Copado
+copado__Promoted_User_Story__c,copado__Status__c,Active / Outdated,picklist,,True,False,Socle Copado
+copado__Deployment__c,Id,Record ID,id,,False,False,Salesforce
+copado__Deployment__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Deployment__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Deployment__c,Name,Deployment Name,string,,True,False,Salesforce
+copado__Deployment__c,RecordTypeId,Record Type ID,Lookup,RecordType,True,False,Salesforce
+copado__Deployment__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Deployment__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Deployment__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Deployment__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Deployment__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Deployment__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Deployment__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Deployment__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Deployment__c,copado__Active__c,Active,boolean,,False,False,Socle Copado
+copado__Deployment__c,copado__ApiName__c,Api Name,string,,True,False,Socle Copado
+copado__Deployment__c,copado__Attach_Deployment_File__c,Attach Deployment File,boolean,,False,False,Socle Copado
+copado__Deployment__c,copado__Build_Task__c,Build Task,Lookup,copado__Build_Task__c,True,False,Socle Copado
+copado__Deployment__c,copado__Completed__c,% Completed,percent,,True,True,Socle Copado
+copado__Deployment__c,copado__Compliance_Status__c,Compliance Status,string,,True,False,Socle Copado
+copado__Deployment__c,copado__Date__c,Date,datetime,,True,False,Socle Copado
+copado__Deployment__c,copado__Deployed__c,% Deployed,percent,,True,True,Socle Copado
+copado__Deployment__c,copado__Deployment_Completed_email_sent__c,Deployment Completed email sent,boolean,,False,False,Socle Copado
+copado__Deployment__c,copado__Deployment_Last_Step__c,Deployment Last Step,string,,True,False,Socle Copado
+copado__Deployment__c,copado__Deployment_Source_Type__c,Deployment Source Type,string,,True,False,Socle Copado
+copado__Deployment__c,copado__Deployment_Type__c,Deployment Type,string,,True,False,Socle Copado
+copado__Deployment__c,copado__Deployment_command_sent__c,Deployment command sent,datetime,,True,False,Socle Copado
+copado__Deployment__c,copado__Description__c,Description,string,,True,False,Socle Copado
+copado__Deployment__c,copado__Do_Not_Update_Promotion__c,Do Not Update Promotion,boolean,,False,False,Socle Copado
+copado__Deployment__c,copado__Execution_Context__c,Execution Context,picklist,,True,False,Socle Copado
+copado__Deployment__c,copado__Flag_Status__c,Flag Status,string,,True,True,Socle Copado
+copado__Deployment__c,copado__From_Org__c,Source Credential,Lookup,copado__Org__c,True,False,Socle Copado
+copado__Deployment__c,copado__Git_Repository__c,Git Repository,string,,True,True,Socle Copado
+copado__Deployment__c,copado__Last_Compliance_Scan_Date__c,Last Compliance Scan Date,datetime,,True,False,Socle Copado
+copado__Deployment__c,copado__Last_Deployment_Execution_Id__c,Last Deployment Execution Id,string,,True,False,Socle Copado
+copado__Deployment__c,copado__Parent_Deployment__c,Parent Deployment,Lookup,copado__Deployment__c,True,False,Socle Copado
+copado__Deployment__c,copado__Paused__c,Paused,boolean,,False,False,Socle Copado
+copado__Deployment__c,copado__Promotion__c,Promotion,Lookup,copado__Promotion__c,True,False,Socle Copado
+copado__Deployment__c,copado__Schedule__c,Schedule,picklist,,True,False,Socle Copado
+copado__Deployment__c,copado__Send_Deployment_Complete_email__c,Send Deployment Complete email,boolean,,False,False,Socle Copado
+copado__Deployment__c,copado__Server_URL__c,Server_URL,string,,True,True,Socle Copado
+copado__Deployment__c,copado__Source_Environment__c,Source Environment,string,,True,True,Socle Copado
+copado__Deployment__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Deployment__c,copado__Template__c,Template,Lookup,copado__Deployment__c,True,False,Socle Copado
+copado__Deployment__c,copado__Count_Completed__c,# Completed,double,,True,True,Socle Copado
+copado__Deployment__c,copado__Deployment_Jobs_Count__c,Deployment Jobs Count,double,,True,True,Socle Copado
+copado__Deployment__c,copado__SUM_Deployed__c,SUM Deployed,percent,,True,True,Socle Copado
+copado__Deployment__c,copado__Rolled_back_Deployment__c,Rolled back Deployment,Lookup,copado__Deployment__c,True,False,Socle Copado
+copado__Deployment__c,copado__Platform__c,Platform,string,,True,True,Socle Copado
+copado__Deployment__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,Id,Record ID,id,,False,False,Salesforce
+copado__Deployment_Flow__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Deployment_Flow__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Deployment_Flow__c,Name,Pipeline Name,string,,True,False,Salesforce
+copado__Deployment_Flow__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Deployment_Flow__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Deployment_Flow__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Deployment_Flow__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Deployment_Flow__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Deployment_Flow__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Deployment_Flow__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Deployment_Flow__c,copado__Active__c,Active,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,copado__Block_Commits__c,Block Commits,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,copado__Branch_Management_Coordinates__c,Branch Management Coordinates,textarea,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Calculate_Based_on__c,Calculate Based on,picklist,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__CommitJobTemplate__c,Commit Job Template,Lookup,copado__JobTemplate__c,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Copado_DX_Mode__c,Copado DX Mode,picklist,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Apply_Connection_Behaviours_to_existing__c,Apply Connection Behaviors to All,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,copado__Deployment_Job_Template__c,Deployment Job Template,Lookup,copado__JobTemplate__c,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Disable_Validations__c,Disable Validations,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,copado__Enable_Copado_DX__c,Enable Copado DX,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,copado__Enable_Smart_Conflict_Resolution__c,Enable Smart Conflict Resolution,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,copado__Equal_Branch_Environment_Name__c,Enforce branch/env naming convention,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,copado__Exclude_From_Auto_Resolve__c,Exclude From Auto Resolve,multipicklist,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Flow_Step_Coordinates__c,Flow Step Coordinates,textarea,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Git_Repository__c,Git Repository,Lookup,copado__Git_Repository__c,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Hide_Tabs__c,Hide Tabs,multipicklist,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Main_Branch__c,Main Branch,string,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Manage_Branches__c,Pipeline Manager,string,,True,True,Socle Copado
+copado__Deployment_Flow__c,copado__Merge_Strategy__c,Auto Resolve Conflict Strategy,picklist,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Order_by__c,Order User Stories by,string,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Platform__c,Platform,picklist,,False,False,Socle Copado
+copado__Deployment_Flow__c,copado__Continuous_Delivery_Configuration_Json__c,Continuous Delivery Configuration Json,textarea,,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Promotion_Job_Template__c,Promotion Job Template,Lookup,copado__JobTemplate__c,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Static_Code_Analysis_Settings__c,Static Code Analysis Settings,Lookup,copado__Static_Code_Analysis_Settings__c,True,False,Socle Copado
+copado__Deployment_Flow__c,copado__Continuous_Delivery_Enabled__c,Continuous Delivery Enabled,boolean,,False,False,Socle Copado
+copado__Deployment_Flow__c,cmcSf__Builder_Data__c,Builder Data,textarea,,True,False,Extension Source Format
+copado__Deployment_Flow__c,cmcSf__Initialization_Data__c,Initialization Data,textarea,,True,False,Extension Source Format
+copado__Deployment_Flow_Step__c,Id,Record ID,id,,False,False,Salesforce
+copado__Deployment_Flow_Step__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Deployment_Flow_Step__c,Name,Pipeline Connection Reference,string,,False,False,Salesforce
+copado__Deployment_Flow_Step__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Deployment_Flow_Step__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Deployment_Flow_Step__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Deployment_Flow_Step__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Deployment_Flow_Step__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Deployment_Flow_Step__c,copado__Deployment_Flow__c,Pipeline,Master-Detail,copado__Deployment_Flow__c,False,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Automatically_Merge_and_Deploy__c,Automatically Merge and Deploy,boolean,,False,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Branch__c,Source Branch,string,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Commits_Ahead__c,Commits Ahead,double,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Commits_Behind__c,Commits Behind,double,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Connection_Behavior_Override__c,Connection Behavior Override,Lookup,copado__Connection_Behavior__c,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Connection_Behavior__c,Connection Behavior,string,,True,True,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Destination_Branch__c,Destination Branch,string,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Destination_Environment__c,Destination Environment,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Enable_as_Scratch_Org_Destination__c,Enable as Scratch Org Target,picklist,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Last_Merge_Base__c,Last Merge Base,datetime,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Last_Merge_CBM_Sync__c,Last Merge CBM Sync,datetime,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Last_Pull_CBM_Sync__c,Last Pull CBM Sync,datetime,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Merge_Auto_Resolved_Files__c,Merge Auto Resolved Files,textarea,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Pull_Auto_Resolved_Files__c,Pull Auto Resolved Files,textarea,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Source_Environment__c,Source Environment,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Sync_Merge_State__c,Sync Merge State,picklist,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Sync_Pull_State__c,Sync Pull State,picklist,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Test_Level__c,Test Level,picklist,,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Stage_Connection__c,Stage Connection,Lookup,copado__Stage_Connection__c,True,False,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Next_Stage__c,Next Stage,string,,True,True,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Stage__c,Stage,string,,True,True,Socle Copado
+copado__Deployment_Flow_Step__c,copado__Platform__c,Platform,string,,True,True,Socle Copado
+copado__Environment__c,Id,Record ID,id,,False,False,Salesforce
+copado__Environment__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Environment__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Environment__c,Name,Environment Name,string,,True,False,Salesforce
+copado__Environment__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Environment__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Environment__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Environment__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Environment__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Environment__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Environment__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Environment__c,copado__CommitJobTemplateOverride__c,Commit Job Template Override,Lookup,copado__JobTemplate__c,True,False,Socle Copado
+copado__Environment__c,copado__Compliance_Rule_Group__c,Compliance Rule Group,Lookup,copado__Compliance_Rule_Group__c,True,False,Socle Copado
+copado__Environment__c,copado__Compliance_Scan_Events__c,Compliance Scan Events,multipicklist,,True,False,Socle Copado
+copado__Environment__c,copado__Compliance_Status__c,Compliance Status,string,,True,False,Socle Copado
+copado__Environment__c,copado__Connection_Behavior__c,Incoming Connection Behavior,Lookup,copado__Connection_Behavior__c,True,False,Socle Copado
+copado__Environment__c,copado__Current_Code_Coverage__c,Current Code Coverage,percent,,True,False,Socle Copado
+copado__Environment__c,copado__Current_SCA_Score__c,Current SCA Score,double,,True,False,Socle Copado
+copado__Environment__c,copado__API_Name__c,API Name,string,,True,False,Socle Copado
+copado__Environment__c,copado__Deployment_Job_Template_Override__c,Deployment Job Template Override,Lookup,copado__JobTemplate__c,True,False,Socle Copado
+copado__Environment__c,copado__Index_Back_Promotion_metadata__c,Index Back Promotion Metadata,boolean,,False,False,Socle Copado
+copado__Environment__c,copado__Last_Compliance_Scan_Date__c,Last Compliance Scan Date,datetime,,True,False,Socle Copado
+copado__Environment__c,copado__Last_Refresh_Date__c,Last Refresh Date,date,,True,False,Socle Copado
+copado__Environment__c,copado__Latest_Deployment_Status__c,Latest Deployment Status,picklist,,True,False,Socle Copado
+copado__Environment__c,copado__Latest_Deployment__c,Latest Deployment,Lookup,copado__Deployment__c,True,False,Socle Copado
+copado__Environment__c,copado__Maximum_SCA_Score__c,Maximum SCA Score,double,,True,False,Socle Copado
+copado__Environment__c,copado__Minimum_Apex_Test_Coverage__c,Minimum Apex Test Coverage,percent,,True,False,Socle Copado
+copado__Environment__c,copado__Namespace__c,Namespace,string,,True,False,Socle Copado
+copado__Environment__c,copado__Org_ID__c,Org ID,string,,True,False,Socle Copado
+copado__Environment__c,copado__Platform__c,Platform,picklist,,True,False,Socle Copado
+copado__Environment__c,copado__Promotion_Default_Credential__c,Default Credential,picklist,,True,False,Socle Copado
+copado__Environment__c,copado__Promotion_Job_Template_Override__c,Promotion Job Template Override,Lookup,copado__JobTemplate__c,True,False,Socle Copado
+copado__Environment__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__Environment__c,copado__Run_all_tests__c,Run all local tests,boolean,,False,False,Socle Copado
+copado__Environment__c,copado__Type__c,Type,picklist,,True,False,Socle Copado
+copado__Environment__c,copado__Validation_Promotion_Default_Credential__c,Validation Promotion Default Credential,picklist,,True,False,Socle Copado
+copado__Environment__c,copado__Enable_Rollback__c,Enable Rollback,boolean,,False,False,Socle Copado
+copado__Environment__c,copado__Run_specified_tests__c,Run Specified Tests,boolean,,False,False,Socle Copado
+copado__Environment__c,cmcSf__Apex_Test_Level__c,Apex Test Level,picklist,,True,False,Extension Source Format
+copado__Org__c,Id,Record ID,id,,False,False,Salesforce
+copado__Org__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Org__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Org__c,Name,Credential Name,string,,True,False,Salesforce
+copado__Org__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Org__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Org__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Org__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Org__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Org__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Org__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Org__c,copado__Compliance_Status__c,Compliance Status,string,,True,False,Socle Copado
+copado__Org__c,copado__Custom_Domain__c,Custom Domain,url,,True,False,Socle Copado
+copado__Org__c,copado__Default_Credential__c,Default Credential,boolean,,False,False,Socle Copado
+copado__Org__c,copado__Default_Scratch_Org_Definition__c,Default Scratch Org Definition,Lookup,copado__Scratch_Org_Definition__c,True,False,Socle Copado
+copado__Org__c,copado__Developer_Hub_Org__c,Developer Hub Credential,Lookup,copado__Org__c,True,False,Socle Copado
+copado__Org__c,copado__Disable_Validation__c,Disable Validation,boolean,,False,False,Socle Copado
+copado__Org__c,copado__Environment__c,Environment,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__Org__c,copado__Error__c,Error,string,,True,False,Socle Copado
+copado__Org__c,copado__Last_Apex_Tests_Datetime__c,Last Apex Tests Datetime,datetime,,True,False,Socle Copado
+copado__Org__c,copado__Last_Apex_Tests_Status__c,Last Apex Tests Status,picklist,,True,False,Socle Copado
+copado__Org__c,copado__Last_Compliance_Scan_Date__c,Last Compliance Scan Date,datetime,,True,False,Socle Copado
+copado__Org__c,copado__Last_Git_Backup_Datetime__c,Last Git Backup Datetime,datetime,,True,False,Socle Copado
+copado__Org__c,copado__Last_Git_Backup_Status__c,Last Git Backup Status,picklist,,True,False,Socle Copado
+copado__Org__c,copado__Metadata_Types__c,Metadata Types,textarea,,True,False,Socle Copado
+copado__Org__c,copado__Minimum_Apex_Test_Coverage__c,Minimum Apex Test Coverage,percent,,True,True,Socle Copado
+copado__Org__c,copado__Oauth_Signature__c,Oauth Signature,string,,True,False,Socle Copado
+copado__Org__c,copado__Org_Type__c,Org Type,picklist,,True,False,Socle Copado
+copado__Org__c,copado__Platform__c,Platform,string,,True,True,Socle Copado
+copado__Org__c,copado__Profile_Name__c,Profile Name,string,,True,False,Socle Copado
+copado__Org__c,copado__SFDC_Org_ID__c,SFDC Org ID,string,,True,False,Socle Copado
+copado__Org__c,copado__Scratch_Org_Expiration_Date__c,Scratch Org Expiration Date,datetime,,True,False,Socle Copado
+copado__Org__c,copado__Scratch_Org_Status__c,Scratch Org Status,picklist,,True,False,Socle Copado
+copado__Org__c,copado__Test_Frequency__c,Test Frequency,picklist,,True,False,Socle Copado
+copado__Org__c,copado__Token__c,Security Token,string,,True,False,Socle Copado
+copado__Org__c,copado__Type_Icon__c,Type Icon,string,,True,True,Socle Copado
+copado__Org__c,copado__Username__c,Username,string,,True,False,Socle Copado
+copado__Org__c,copado__Validated_Date__c,Validated Date,datetime,,True,False,Socle Copado
+copado__Org__c,copado__Validated_Status__c,Validated Status,string,,True,True,Socle Copado
+copado__Org__c,copado__is_Developer_Hub_Org__c,Is Developer Hub Credential,boolean,,False,False,Socle Copado
+copado__Org__c,copado__Custom_Connected_App_Info__c,Custom Connected App Info,Lookup,copado__Custom_Connected_App_Info__c,True,False,Socle Copado
+copado__Stage__c,Id,Record ID,id,,False,False,Salesforce
+copado__Stage__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Stage__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Stage__c,Name,Stage Name,string,,True,False,Salesforce
+copado__Stage__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Stage__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Stage__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Stage__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Stage__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Stage__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Stage__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Stage__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Stage__c,copado__Display_Name__c,Display Name,string,,True,False,Socle Copado
+copado__Stage__c,copado__Meta_Stage__c,Meta Stage,picklist,,True,False,Socle Copado
+copado__Stage_Connection__c,Id,Record ID,id,,False,False,Salesforce
+copado__Stage_Connection__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Stage_Connection__c,Name,Stage Connection Name,string,,False,False,Salesforce
+copado__Stage_Connection__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Stage_Connection__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Stage_Connection__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Stage_Connection__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Stage_Connection__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Stage_Connection__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Stage_Connection__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Stage_Connection__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Stage_Connection__c,copado__Pipeline__c,Pipeline,Master-Detail,copado__Deployment_Flow__c,False,False,Socle Copado
+copado__Stage_Connection__c,copado__Stage__c,Stage,Master-Detail,copado__Stage__c,False,False,Socle Copado
+copado__Stage_Connection__c,copado__Next_Stage_Connection__c,Next Stage Connection,Lookup,copado__Stage_Connection__c,True,False,Socle Copado
+copado__Stage_Connection__c,copado__Next_Stage__c,Next Stage,string,,True,True,Socle Copado
+copado__JobExecution__c,Id,Record ID,id,,False,False,Salesforce
+copado__JobExecution__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__JobExecution__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__JobExecution__c,Name,Job Execution Name,string,,False,False,Salesforce
+copado__JobExecution__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__JobExecution__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__JobExecution__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__JobExecution__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__JobExecution__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__JobExecution__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__JobExecution__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__JobExecution__c,copado__Callback__c,Callback,string,,True,False,Socle Copado
+copado__JobExecution__c,copado__Commit__c,Commit,Lookup,copado__Git_Commit__c,True,False,Socle Copado
+copado__JobExecution__c,copado__DataJson__c,DataJson,textarea,,True,False,Socle Copado
+copado__JobExecution__c,copado__Deployment__c,Deployment,Lookup,copado__Deployment__c,True,False,Socle Copado
+copado__JobExecution__c,copado__Destination__c,Destination,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__JobExecution__c,copado__ErrorMessage__c,Error Message,textarea,,True,False,Socle Copado
+copado__JobExecution__c,copado__ParentId__c,Parent Id(Formula),string,,True,True,Socle Copado
+copado__JobExecution__c,copado__ParentRecord_Id__c,Parent Id,string,,True,False,Socle Copado
+copado__JobExecution__c,copado__Pipeline__c,Pipeline,Lookup,copado__Deployment_Flow__c,True,False,Socle Copado
+copado__JobExecution__c,copado__Promotion__c,Promotion,Lookup,copado__Promotion__c,True,False,Socle Copado
+copado__JobExecution__c,copado__Snapshot__c,Snapshot,Lookup,copado__Git_Backup__c,True,False,Socle Copado
+copado__JobExecution__c,copado__Source__c,Source,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__JobExecution__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__JobExecution__c,copado__Template__c,Template,Lookup,copado__JobTemplate__c,True,False,Socle Copado
+copado__JobExecution__c,copado__UserStoryCommit__c,User Story Commit,Lookup,copado__User_Story_Commit__c,True,False,Socle Copado
+copado__JobExecution__c,copado__VolumeOptions__c,VolumeOptions,textarea,,True,False,Socle Copado
+copado__JobExecution__c,copado__Context__c,Context,string,,True,True,Socle Copado
+copado__JobExecution__c,copado__Job_Step__c,Job Step,Lookup,copado__JobStep__c,True,False,Socle Copado
+copado__JobStep__c,Id,Record ID,id,,False,False,Salesforce
+copado__JobStep__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__JobStep__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__JobStep__c,Name,Job Step Name,string,,True,False,Salesforce
+copado__JobStep__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__JobStep__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__JobStep__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__JobStep__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__JobStep__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__JobStep__c,copado__ApiName__c,Api Name,string,,True,False,Socle Copado
+copado__JobStep__c,copado__ConfigJson__c,ConfigJson,textarea,,True,False,Socle Copado
+copado__JobStep__c,copado__CustomType__c,Type,string,,True,False,Socle Copado
+copado__JobStep__c,copado__Destination_Id__c,Destination Id,string,,True,True,Socle Copado
+copado__JobStep__c,copado__ExecutionSequence__c,Execution Sequence,picklist,,True,False,Socle Copado
+copado__JobStep__c,copado__Git_Repository__c,Git Repository,string,,True,True,Socle Copado
+copado__JobStep__c,copado__JobExecution__c,Job Execution,Lookup,copado__JobExecution__c,True,False,Socle Copado
+copado__JobStep__c,copado__JobTemplate__c,Job Template,Lookup,copado__JobTemplate__c,True,False,Socle Copado
+copado__JobStep__c,copado__Order__c,Order,double,,False,False,Socle Copado
+copado__JobStep__c,copado__Parent_Owner_Id__c,Parent Owner Id,string,,True,True,Socle Copado
+copado__JobStep__c,copado__Pipeline_Id__c,Pipeline Id,string,,True,True,Socle Copado
+copado__JobStep__c,copado__ResultDataJson__c,Result Data Json,textarea,,True,False,Socle Copado
+copado__JobStep__c,copado__Result__c,Last Result,Lookup,copado__Result__c,True,False,Socle Copado
+copado__JobStep__c,copado__Source_Id__c,Source Id,string,,True,True,Socle Copado
+copado__JobStep__c,copado__Status__c,Status,string,,True,True,Socle Copado
+copado__JobStep__c,copado__Type__c,Behaviour,picklist,,False,False,Socle Copado
+copado__JobStep__c,copado__UserStory__c,User Story,Lookup,copado__User_Story__c,True,False,Socle Copado
+copado__JobStep__c,copado__Quality_Gate_Rule_Condition__c,Quality Gate Rule Condition,Lookup,copado__Quality_Gate_Rule_Condition__c,True,False,Socle Copado
+copado__JobStep__c,copado__Quality_Gate_Rule__c,Quality Gate Rule,Lookup,copado__Quality_Gate_Rule__c,True,False,Socle Copado
+copado__JobStep__c,copado__Resource_Observations__c,Resource Observations,multipicklist,,True,False,Socle Copado
+copado__JobStep__c,copado__Sub_Job_Execution__c,Sub Job Execution,string,,True,False,Socle Copado
+copado__JobStep__c,copado__Git_RepositoryId__c,Git RepositoryId,string,,True,False,Socle Copado
+copado__JobStep__c,copado__PipelineId__c,PipelineId,string,,True,False,Socle Copado
+copado__JobStep__c,copado__IsSkipped__c,Is Skipped?,boolean,,False,False,Socle Copado
+copado__JobStep__c,copado__Result_Viewer_Component__c,Result Viewer Component,string,,True,False,Socle Copado
+copado__JobStep__c,copado__SkipCondition__c,Skip Step Condition,textarea,,True,False,Socle Copado
+copado__JobStep__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__JobTemplate__c,Id,Record ID,id,,False,False,Salesforce
+copado__JobTemplate__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__JobTemplate__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__JobTemplate__c,Name,Job Template Name,string,,True,False,Salesforce
+copado__JobTemplate__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__JobTemplate__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__JobTemplate__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__JobTemplate__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__JobTemplate__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__JobTemplate__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__JobTemplate__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__JobTemplate__c,copado__ApiName__c,API Name,string,,True,False,Socle Copado
+copado__JobTemplate__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__JobTemplate__c,copado__Type__c,Type,picklist,,False,False,Socle Copado
+copado__JobTemplate__c,copado__Version__c,Version,double,,False,False,Socle Copado
+copado__JobTemplate__c,copado__VolumeOptions__c,VolumeOptions,textarea,,True,False,Socle Copado
+copado__JobTemplate__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__Result__c,Id,Record ID,id,,False,False,Salesforce
+copado__Result__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Result__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Result__c,Name,Result Name,string,,False,False,Salesforce
+copado__Result__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Result__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Result__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Result__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Result__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Result__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Result__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Result__c,copado__ApexCallback__c,Apex Callback,string,,True,False,Socle Copado
+copado__Result__c,copado__Custom_Function_Used_Credits__c,Copado Credits Used,double,,True,False,Socle Copado
+copado__Result__c,copado__Custom_Function_Used_Minutes__c,Function Used Minutes,double,,True,False,Socle Copado
+copado__Result__c,copado__Deployment__c,Deployment,Lookup,copado__Deployment__c,True,False,Socle Copado
+copado__Result__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__Result__c,copado__Duration__c,Duration (in seconds),double,,True,True,Socle Copado
+copado__Result__c,copado__End_Time__c,End Time,datetime,,True,False,Socle Copado
+copado__Result__c,copado__Error_Code__c,Error Code,string,,True,False,Socle Copado
+copado__Result__c,copado__Error_Message__c,Error Message,textarea,,True,False,Socle Copado
+copado__Result__c,copado__Function_Worker_Size__c,Function Worker Size,picklist,,True,False,Socle Copado
+copado__Result__c,copado__Function__c,Function,Lookup,copado__Function__c,True,False,Socle Copado
+copado__Result__c,copado__JobStep__c,Job Step,Lookup,copado__JobStep__c,True,False,Socle Copado
+copado__Result__c,copado__Job_Id__c,External Job ID,string,,True,False,Socle Copado
+copado__Result__c,copado__Job_Type__c,Job API Name,picklist,,False,False,Socle Copado
+copado__Result__c,copado__Link__c,External Result Link,url,,True,False,Socle Copado
+copado__Result__c,copado__ParentId__c,Context ID,string,,True,False,Socle Copado
+copado__Result__c,copado__Progress_Status__c,Progress Status,string,,True,False,Socle Copado
+copado__Result__c,copado__Promotion__c,Promotion,Lookup,copado__Promotion__c,True,False,Socle Copado
+copado__Result__c,copado__Result_Data__c,Result Data,textarea,,True,False,Socle Copado
+copado__Result__c,copado__Start_Time__c,Start Time,datetime,,True,False,Socle Copado
+copado__Result__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Result__c,copado__Test__c,Test,Lookup,copado__Test__c,True,False,Socle Copado
+copado__Result__c,copado__Timeout__c,Timeout (minutes),double,,True,False,Socle Copado
+copado__Result__c,copado__User_Story__c,User Story,Lookup,copado__User_Story__c,True,False,Socle Copado
+copado__Result__c,copado__Parent__c,Parent,string,,True,True,Socle Copado
+copado__Result__c,copado__CreditSyncStatus__c,Credit Sync Status,string,,True,False,Socle Copado
+copado__Result__c,copado__Job_Execution__c,Job Execution,string,,True,True,Socle Copado
+copado__Function__c,Id,Record ID,id,,False,False,Salesforce
+copado__Function__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Function__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Function__c,Name,Function Name,string,,True,False,Salesforce
+copado__Function__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Function__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Function__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Function__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Function__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Function__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Function__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Function__c,copado__API_Name__c,API Name,string,,False,False,Socle Copado
+copado__Function__c,copado__ApexClass__c,ApexClass,string,,True,False,Socle Copado
+copado__Function__c,copado__Callback_Type__c,Callback Type,picklist,,True,False,Socle Copado
+copado__Function__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__Function__c,copado__FlowHandler__c,FlowHandler,string,,True,False,Socle Copado
+copado__Function__c,copado__Image_Name__c,Image Name,string,,True,False,Socle Copado
+copado__Function__c,copado__Options__c,Options,textarea,,True,False,Socle Copado
+copado__Function__c,copado__Parameters__c,Parameters,textarea,,True,False,Socle Copado
+copado__Function__c,copado__Script__c,Script,textarea,,True,False,Socle Copado
+copado__Function__c,copado__Timeout__c,Timeout,double,,True,False,Socle Copado
+copado__Function__c,copado__Type__c,Type,picklist,,False,False,Socle Copado
+copado__Function__c,copado__Version__c,Version,string,,True,False,Socle Copado
+copado__Function__c,copado__Worker_Size__c,Worker Size,picklist,,False,False,Socle Copado
+copado__Function__c,copado__Result_Viewer_Component__c,Result Viewer Component,string,,True,False,Socle Copado
+copado__Function__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__Quality_Gate_Rule__c,Id,Record ID,id,,False,False,Salesforce
+copado__Quality_Gate_Rule__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Quality_Gate_Rule__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Quality_Gate_Rule__c,Name,Quality Gate Rule Name,string,,True,False,Salesforce
+copado__Quality_Gate_Rule__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Quality_Gate_Rule__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Quality_Gate_Rule__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Quality_Gate_Rule__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Quality_Gate_Rule__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Quality_Gate_Rule__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Quality_Gate_Rule__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Quality_Gate_Rule__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Quality_Gate_Rule__c,copado__ActionsList__c,Copado Actions,string,,True,True,Socle Copado
+copado__Quality_Gate_Rule__c,copado__Actions__c,Copado Actions,multipicklist,,False,False,Socle Copado
+copado__Quality_Gate_Rule__c,copado__Execution_sequence__c,Execution Sequence,picklist,,False,False,Socle Copado
+copado__Quality_Gate_Rule__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Quality_Gate_Rule__c,copado__Tool__c,Tool,picklist,,False,False,Socle Copado
+copado__Quality_Gate_Rule__c,copado__Type__c,Type,string,,True,False,Socle Copado
+copado__Quality_Gate_Rule__c,copado__dataJson__c,dataJson,textarea,,True,False,Socle Copado
+copado__Quality_Gate_Rule__c,copado__Is_Updated_Data_Model__c,Is Updated Data Model,boolean,,False,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,Id,Record ID,id,,False,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,Name,Quality Gate Rule Condition Name,string,,False,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Quality_Gate_Rule_Condition__c,copado__Quality_Gate_Rule__c,Quality Gate Rule,Master-Detail,copado__Quality_Gate_Rule__c,False,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__AcceptanceCriteria__c,Acceptance Criteria,textarea,,True,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Actions__c,Copado Actions,string,,True,True,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Environment__c,Environment,Lookup,copado__Environment__c,True,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__ExecutionSequence__c,Execution Sequence,string,,True,True,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Pipeline__c,Pipeline,Lookup,copado__Deployment_Flow__c,True,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Platform__c,Platform,picklist,,False,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Status__c,Status,string,,True,True,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Tool__c,Tool,string,,True,True,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Filter_Criteria__c,Filter Criteria,textarea,,True,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Extension_Configuration__c,Extension Configuration,Lookup,copado__ExtensionConfiguration__c,False,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Stage__c,Stage,Lookup,copado__Stage__c,True,False,Socle Copado
+copado__Quality_Gate_Rule_Condition__c,copado__Tests_From__c,Tests From,picklist,,False,False,Socle Copado
+copado__Test__c,Id,Record ID,id,,False,False,Salesforce
+copado__Test__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Test__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Test__c,Name,Name,string,,True,False,Salesforce
+copado__Test__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Test__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Test__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Test__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Test__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Test__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Test__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Test__c,copado__Application__c,Application,Lookup,copado__Application__c,True,False,Socle Copado
+copado__Test__c,copado__Category__c,Category - Deprecated,string,,True,False,Socle Copado
+copado__Test__c,copado__Configuration__c,Configuration,textarea,,True,False,Socle Copado
+copado__Test__c,copado__Feature__c,Feature,Lookup,copado__Application_Feature__c,True,False,Socle Copado
+copado__Test__c,copado__Priority__c,Priority,picklist,,True,False,Socle Copado
+copado__Test__c,copado__Reference__c,Reference,string,,False,False,Socle Copado
+copado__Test__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Test__c,copado__Tool__c,Tool - Deprecated,string,,True,False,Socle Copado
+copado__Test__c,copado__User_Story__c,User Story,Lookup,copado__User_Story__c,True,False,Socle Copado
+copado__Test__c,copado__Integration__c,Tool - Deprecated,Lookup,copado__ExtensionConfiguration__c,True,False,Socle Copado
+copado__Test__c,copado__ExtensionConfiguration__c,Tool Configuration,Lookup,copado__ExtensionConfiguration__c,True,False,Socle Copado
+copado__Test__c,copado__HasExtraConfiguration__c,Has Extra Configuration,boolean,,False,False,Socle Copado
+copado__Test__c,copado__LatestJobExecution__c,Latest Job Execution,Lookup,copado__JobExecution__c,True,False,Socle Copado
+copado__Test__c,copado__Type__c,Type,string,,True,True,Socle Copado
+copado__Test__c,copado__AcceptanceCriteria__c,Acceptance Criteria,textarea,,True,False,Socle Copado
+copado__Test__c,copado__ReadyToRun__c,Ready to Run,boolean,,False,False,Socle Copado
+copado__Test__c,copado__Parent_Id__c,Parent Id,string,,True,False,Socle Copado
+copado__Test__c,copado__Promotion__c,Promotion,Lookup,copado__Promotion__c,True,False,Socle Copado
+copado__Test__c,copado__Test_Tool__c,Test Tool,string,,True,True,Socle Copado
+copado__Test__c,copado__Parent__c,Parent,string,,True,True,Socle Copado
+copado__Test__c,copado__Latest_Result_Status__c,Latest Result Status,string,,True,True,Socle Copado
+copado__ExtensionConfiguration__c,Id,Record ID,id,,False,False,Salesforce
+copado__ExtensionConfiguration__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__ExtensionConfiguration__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__ExtensionConfiguration__c,Name,Name,string,,True,False,Salesforce
+copado__ExtensionConfiguration__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__ExtensionConfiguration__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__ExtensionConfiguration__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__ExtensionConfiguration__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__ExtensionConfiguration__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__ExtensionConfiguration__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__ExtensionConfiguration__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__ExtensionConfiguration__c,copado__Details__c,Details,textarea,,True,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__ExtensionApplication__c,Copado Phase,picklist,,False,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__Extension_Name__c,Extension Name - Deprecated,picklist,,True,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__Status__c,Status - Deprecated,picklist,,True,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__Type__c,Type - deprecated,picklist,,True,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__Active__c,Active,boolean,,False,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__ExtensionTool__c,Extension Tool,picklist,,False,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__TestType__c,Test Type,string,,True,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__AcceptanceCriteria__c,Acceptance Criteria,textarea,,True,False,Socle Copado
+copado__ExtensionConfiguration__c,copado__Backend_Bypass__c,Backend Bypass,boolean,,False,False,Socle Copado
+copado__ExtensionConfiguration__c,copadoQuality__Latest_Job_Execution__c,Latest Job Execution,Lookup,copado__JobExecution__c,True,False,Copado Quality
+copado__ExtensionConfiguration__c,copadoQuality__Requires_Sync__c,Requires Sync?,boolean,,False,False,Copado Quality
+copado__Automation_Rule__c,Id,Record ID,id,,False,False,Salesforce
+copado__Automation_Rule__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Automation_Rule__c,Name,Automation Rule Name,string,,True,False,Salesforce
+copado__Automation_Rule__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Automation_Rule__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Automation_Rule__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Automation_Rule__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Automation_Rule__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Automation_Rule__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Automation_Rule__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Automation_Rule__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Automation_Rule__c,copado__Pipeline__c,Pipeline,Master-Detail,copado__Deployment_Flow__c,False,False,Socle Copado
+copado__Automation_Rule__c,copado__Active__c,Is Active,boolean,,False,False,Socle Copado
+copado__Automation_Rule__c,copado__Automated_Action_Callback__c,Flow or Class API Name,string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Automated_Action__c,Automated Action,string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Automation_Connector__c,Automation Type,string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Cron_Expression__c,Cron Expression,string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Custom_Automation_Connector__c,Custom Automation Type (API Name),string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Environment__c,Selected Environments,string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Excluded_Environments__c,Excluded Environments,string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Execution__c,Execution Time,picklist,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Last_Execution_Date_Time__c,Last Execution Date Time,datetime,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Scheduled_Job_Id__c,Scheduled Job Id,string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Source_Action_Status__c,Trigger Action Status,picklist,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Source_Action__c,Trigger Action,picklist,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Stage__c,Selected Stages,string,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Filter_Criteria__c,Filter Criteria,textarea,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Config_Json__c,Config Json,textarea,,True,False,Socle Copado
+copado__Automation_Rule__c,copado__Quality_Gate_Rule_Condition__c,Quality Gate Rule Condition,Lookup,copado__Quality_Gate_Rule_Condition__c,True,False,Socle Copado
+copado__Artifact__c,Id,Record ID,id,,False,False,Salesforce
+copado__Artifact__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Artifact__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Artifact__c,Name,Package Name,string,,True,False,Salesforce
+copado__Artifact__c,RecordTypeId,Record Type ID,Lookup,RecordType,True,False,Salesforce
+copado__Artifact__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Artifact__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Artifact__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Artifact__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Artifact__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Artifact__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Artifact__c,LastViewedDate,Last Viewed Date,datetime,,True,False,Salesforce
+copado__Artifact__c,LastReferencedDate,Last Referenced Date,datetime,,True,False,Salesforce
+copado__Artifact__c,copado__Artifact_Repository__c,Package Repository,Lookup,copado__Git_Repository__c,True,False,Socle Copado
+copado__Artifact__c,copado__Artifact_Version__c,Latest Package Version,Lookup,copado__Artifact_Version__c,True,False,Socle Copado
+copado__Artifact__c,copado__Description__c,Description,textarea,,True,False,Socle Copado
+copado__Artifact__c,copado__No_Namespace__c,No Namespace,boolean,,False,False,Socle Copado
+copado__Artifact__c,copado__Org_Credential__c,Source Credential,Lookup,copado__Org__c,True,False,Socle Copado
+copado__Artifact__c,copado__Package_Id__c,Package Id,string,,True,False,Socle Copado
+copado__Artifact__c,copado__Package_Namespace__c,Package Namespace,string,,True,False,Socle Copado
+copado__Artifact__c,copado__Package_Type__c,Package Type,picklist,,True,False,Socle Copado
+copado__Artifact__c,copado__Pipeline__c,Pipeline,Lookup,copado__Deployment_Flow__c,True,False,Socle Copado
+copado__Artifact__c,copado__Sfdc_Login_Url__c,Sfdc Login Url,string,,True,False,Socle Copado
+copado__Artifact__c,copado__Source_Api_Version__c,Source Api Version,picklist,,True,False,Socle Copado
+copado__Artifact__c,copado__Target_Dev_Hub_Org__c,Target Dev Hub Org,Lookup,copado__Org__c,True,False,Socle Copado
+copado__Artifact__c,copado__LastJobExecutionId__c,Last Job Execution Id,string,,True,False,Socle Copado
+copado__Artifact__c,copado__DataJSON__c,Data JSON,textarea,,True,False,Socle Copado
+copado__Artifact__c,copado__DefaultBranch__c,Default Branch,string,,True,False,Socle Copado
+copado__Artifact__c,copado__DefaultPath__c,Default Path,string,,True,False,Socle Copado
+copado__Artifact__c,cmcSf__Api_Version__c,Api Version,string,,True,False,Extension Source Format
+copado__Artifact__c,cmcSf__IsOrgDependent__c,Is Org Dependent,boolean,,False,False,Extension Source Format
+copado__Artifact__c,cmcSf__PackagePath__c,Package Path,string,,True,False,Extension Source Format
+copado__Artifact_Version__c,Id,Record ID,id,,False,False,Salesforce
+copado__Artifact_Version__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Artifact_Version__c,Name,Artifact Versions Name,string,,True,False,Salesforce
+copado__Artifact_Version__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Artifact_Version__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Artifact_Version__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Artifact_Version__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Artifact_Version__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Artifact_Version__c,LastActivityDate,Last Activity Date,date,,True,False,Salesforce
+copado__Artifact_Version__c,copado__Artifact__c,Package,Master-Detail,copado__Artifact__c,False,False,Socle Copado
+copado__Artifact_Version__c,copado__Branch__c,Branch,string,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__Is_released__c,Is released,boolean,,False,False,Socle Copado
+copado__Artifact_Version__c,copado__Package_Version_Id__c,Package Version Id,string,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__Production_Installation_URL__c,Production Installation URL,string,,True,True,Socle Copado
+copado__Artifact_Version__c,copado__Release_Status__c,Release Status,string,,True,True,Socle Copado
+copado__Artifact_Version__c,copado__Release__c,Release,Lookup,copado__Release__c,True,False,Socle Copado
+copado__Artifact_Version__c,copado__Sandbox_Installation_URL__c,Sandbox Installation URL,string,,True,True,Socle Copado
+copado__Artifact_Version__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__Subscriber_Version_Id__c,Subscriber Version Id,string,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__Tag__c,Tag,string,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__User_Story__c,Bundle User Story,Lookup,copado__User_Story__c,True,False,Socle Copado
+copado__Artifact_Version__c,copado__Version_Description__c,Version Description,string,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__Version_Name__c,Version Name,string,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__Version__c,Version,string,,True,True,Socle Copado
+copado__Artifact_Version__c,copado__Version_number__c,Version number,string,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__View_In_Git__c,View In Git,string,,True,True,Socle Copado
+copado__Artifact_Version__c,copado__Data_JSON__c,Data JSON,textarea,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__LastJobExecutionId__c,Last Job Execution Id,string,,True,False,Socle Copado
+copado__Artifact_Version__c,copado__DefinitionFile__c,Definition File,string,,True,False,Socle Copado
+copado__Artifact_Version__c,cmcSf__Ancestor_Id__c,Ancestor Id,string,,True,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Ancestor_Version__c,Ancestor Version,string,,True,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Api_Version__c,Api Version,string,,True,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Code_Coverage__c,Code Coverage,boolean,,False,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Has_Installation_Key__c,Has Installation Key,boolean,,False,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Post_Install_Script__c,Post Install Script,string,,True,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Post_Install_URL__c,Post Install URL,string,,True,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Release_Notes_URL__c,Release Notes URL,string,,True,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Skip_Validation__c,Skip Validation,boolean,,False,False,Extension Source Format
+copado__Artifact_Version__c,cmcSf__Uninstall_Script__c,Uninstall Script,string,,True,False,Extension Source Format
+copado__Artifact_Dependency__c,Id,Record ID,id,,False,False,Salesforce
+copado__Artifact_Dependency__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Artifact_Dependency__c,Name,Artifact Dependencies Name,string,,False,False,Salesforce
+copado__Artifact_Dependency__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Artifact_Dependency__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Artifact_Dependency__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Artifact_Dependency__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Artifact_Dependency__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Artifact_Dependency__c,copado__Dependent_Artifact__c,Dependent Package,Master-Detail,copado__Artifact__c,False,False,Socle Copado
+copado__Artifact_Dependency__c,copado__Depending_Artifact_Version__c,Depending Package Version,Lookup,copado__Artifact_Version__c,True,False,Socle Copado
+copado__Artifact_Dependency__c,copado__Depending_Artifact__c,Depending Package,Lookup,copado__Artifact__c,True,False,Socle Copado
+copado__Artifact_Dependency__c,copado__Depends_on_the_latest_version__c,Depends on the latest version,boolean,,False,False,Socle Copado
+copado__Installed_Artifact_Version__c,Id,Record ID,id,,False,False,Salesforce
+copado__Installed_Artifact_Version__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Installed_Artifact_Version__c,Name,Name,string,,False,False,Salesforce
+copado__Installed_Artifact_Version__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Installed_Artifact_Version__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Installed_Artifact_Version__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Installed_Artifact_Version__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Installed_Artifact_Version__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Installed_Artifact_Version__c,copado__Package_Version__c,Package Version,Master-Detail,copado__Artifact_Version__c,False,False,Socle Copado
+copado__Installed_Artifact_Version__c,copado__Environment__c,Environment,Master-Detail,copado__Environment__c,False,False,Socle Copado
+copado__Installed_Artifact_Version__c,copado__Status__c,Status,picklist,,True,False,Socle Copado
+copado__Bundled_Story__c,Id,Record ID,id,,False,False,Salesforce
+copado__Bundled_Story__c,OwnerId,Owner ID,Lookup,Group;User,False,False,Salesforce
+copado__Bundled_Story__c,IsDeleted,Deleted,boolean,,False,False,Salesforce
+copado__Bundled_Story__c,Name,Bundled Story Name,string,,False,False,Salesforce
+copado__Bundled_Story__c,CreatedDate,Created Date,datetime,,False,False,Salesforce
+copado__Bundled_Story__c,CreatedById,Created By ID,Lookup,User,False,False,Salesforce
+copado__Bundled_Story__c,LastModifiedDate,Last Modified Date,datetime,,False,False,Salesforce
+copado__Bundled_Story__c,LastModifiedById,Last Modified By ID,Lookup,User,False,False,Salesforce
+copado__Bundled_Story__c,SystemModstamp,System Modstamp,datetime,,False,False,Salesforce
+copado__Bundled_Story__c,copado__Package_Version__c,Package Version,Lookup,copado__Artifact_Version__c,True,False,Socle Copado
+copado__Bundled_Story__c,copado__User_Story__c,User Story,Lookup,copado__User_Story__c,True,False,Socle Copado

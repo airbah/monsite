@@ -1,0 +1,36 @@
+erDiagram
+    direction LR
+    Project {
+        id Id PK
+    }
+    Release {
+        id Id PK
+    }
+    User_Story {
+        id Id PK
+    }
+    Epic {
+        id Id PK
+    }
+    Sprint {
+        id Id PK
+    }
+    Team {
+        id Id PK
+    }
+    User_Story_Task {
+        id Id PK
+    }
+    Project |o..o{ Release : "Project"
+    Release |o..o{ Release : "Parent_Release"
+    User_Story |o..o{ Release : "Artifact_User_Story"
+    Epic |o..o{ User_Story : "Epic"
+    Project |o..o{ User_Story : "Project"
+    Release |o..o{ User_Story : "Release"
+    Sprint |o..o{ User_Story : "Sprint"
+    Team |o..o{ User_Story : "Team"
+    Release |o..o{ Epic : "Release"
+    Project |o..o{ Sprint : "Project"
+    Release |o..o{ Sprint : "Release"
+    Team |o..o{ Sprint : "Team"
+    User_Story ||--o{ User_Story_Task : "User_Story"

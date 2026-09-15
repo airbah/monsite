@@ -1,0 +1,39 @@
+erDiagram
+    direction LR
+    Promotion {
+        id Id PK
+    }
+    Deployment {
+        id Id PK
+    }
+    User_Story_Commit {
+        id Id PK
+    }
+    User_Story {
+        id Id PK
+    }
+    JobExecution {
+        id Id PK
+    }
+    JobTemplate {
+        id Id PK
+    }
+    JobStep {
+        id Id PK
+    }
+    Result {
+        id Id PK
+    }
+    Function {
+        id Id PK
+    }
+    Deployment |o..o{ JobExecution : "Deployment"
+    Promotion |o..o{ JobExecution : "Promotion"
+    JobTemplate |o..o{ JobExecution : "Template"
+    User_Story_Commit |o..o{ JobExecution : "UserStoryCommit"
+    JobExecution |o..o{ JobStep : "JobExecution"
+    JobTemplate |o..o{ JobStep : "JobTemplate"
+    Result |o..o{ JobStep : "Result"
+    User_Story |o..o{ JobStep : "UserStory"
+    Function |o..o{ Result : "Function"
+    JobStep |o..o{ Result : "JobStep"

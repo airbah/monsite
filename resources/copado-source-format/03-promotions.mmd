@@ -1,0 +1,34 @@
+erDiagram
+    direction LR
+    User_Story {
+        id Id PK
+    }
+    Promoted_User_Story {
+        id Id PK
+    }
+    Promotion {
+        id Id PK
+    }
+    Deployment {
+        id Id PK
+    }
+    Environment {
+        id Id PK
+    }
+    Org {
+        id Id PK
+    }
+    JobExecution {
+        id Id PK
+    }
+    Environment |o..o{ Promotion : "Destination_Environment"
+    Org |o..o{ Promotion : "Destination_Org_Credential"
+    Environment |o..o{ Promotion : "Source_Environment"
+    Org |o..o{ Promotion : "Source_Org_Credential"
+    User_Story ||--o{ Promoted_User_Story : "User_Story"
+    Promotion ||--o{ Promoted_User_Story : "Promotion"
+    Promotion |o..o{ Deployment : "Promotion"
+    Deployment |o..o{ Deployment : "Rolled_back_Deployment"
+    Environment |o..o{ Org : "Environment"
+    Deployment |o..o{ JobExecution : "Deployment"
+    Promotion |o..o{ JobExecution : "Promotion"
