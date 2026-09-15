@@ -1,29 +1,13 @@
 erDiagram
     direction LR
-    User_Story {
-        id Id PK
-    }
-    User_Story_Metadata {
-        id Id PK
-    }
-    User_Story_Commit {
-        id Id PK
-    }
-    Git_Org_Commit {
-        id Id PK
-    }
-    Git_Backup {
-        id Id PK
-    }
-    Git_Repository {
-        id Id PK
-    }
-    Org {
-        id Id PK
-    }
-    JobExecution {
-        id Id PK
-    }
+    User_Story
+    User_Story_Metadata
+    User_Story_Commit
+    Git_Org_Commit
+    Git_Backup
+    Git_Repository
+    Org
+    JobExecution
     Org |o..o{ User_Story : "Org_Credential"
     User_Story ||--o{ User_Story_Commit : "User_Story"
     Git_Org_Commit ||--o{ User_Story_Commit : "Snapshot_Commit"

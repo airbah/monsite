@@ -1,32 +1,14 @@
 erDiagram
     direction LR
-    Project {
-        id Id PK
-    }
-    Release {
-        id Id PK
-    }
-    User_Story {
-        id Id PK
-    }
-    User_Story_Commit {
-        id Id PK
-    }
-    User_Story_Metadata {
-        id Id PK
-    }
-    Promotion {
-        id Id PK
-    }
-    Promoted_User_Story {
-        id Id PK
-    }
-    Deployment {
-        id Id PK
-    }
-    JobExecution {
-        id Id PK
-    }
+    Project
+    Release
+    User_Story
+    User_Story_Commit
+    User_Story_Metadata
+    Promotion
+    Promoted_User_Story
+    Deployment
+    JobExecution
     Project |o..o{ Release : "Project"
     Release |o..o{ User_Story : "Release"
     User_Story ||--o{ User_Story_Commit : "User_Story"

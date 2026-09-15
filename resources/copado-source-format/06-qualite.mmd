@@ -1,38 +1,16 @@
 erDiagram
     direction LR
-    Deployment_Flow {
-        id Id PK
-    }
-    Environment {
-        id Id PK
-    }
-    Stage {
-        id Id PK
-    }
-    Quality_Gate_Rule {
-        id Id PK
-    }
-    Quality_Gate_Rule_Condition {
-        id Id PK
-    }
-    Automation_Rule {
-        id Id PK
-    }
-    JobStep {
-        id Id PK
-    }
-    Test {
-        id Id PK
-    }
-    ExtensionConfiguration {
-        id Id PK
-    }
-    JobExecution {
-        id Id PK
-    }
-    Result {
-        id Id PK
-    }
+    Deployment_Flow
+    Environment
+    Stage
+    Quality_Gate_Rule
+    Quality_Gate_Rule_Condition
+    Automation_Rule
+    JobStep
+    Test
+    ExtensionConfiguration
+    JobExecution
+    Result
     Environment |o..o{ JobExecution : "Destination"
     Deployment_Flow |o..o{ JobExecution : "Pipeline"
     Environment |o..o{ JobExecution : "Source"

@@ -1,32 +1,14 @@
 erDiagram
     direction LR
-    Promotion {
-        id Id PK
-    }
-    Deployment {
-        id Id PK
-    }
-    User_Story_Commit {
-        id Id PK
-    }
-    User_Story {
-        id Id PK
-    }
-    JobExecution {
-        id Id PK
-    }
-    JobTemplate {
-        id Id PK
-    }
-    JobStep {
-        id Id PK
-    }
-    Result {
-        id Id PK
-    }
-    Function {
-        id Id PK
-    }
+    Promotion
+    Deployment
+    User_Story_Commit
+    User_Story
+    JobExecution
+    JobTemplate
+    JobStep
+    Result
+    Function
     Deployment |o..o{ JobExecution : "Deployment"
     Promotion |o..o{ JobExecution : "Promotion"
     JobTemplate |o..o{ JobExecution : "Template"

@@ -1,26 +1,12 @@
 erDiagram
     direction LR
-    User_Story {
-        id Id PK
-    }
-    Promoted_User_Story {
-        id Id PK
-    }
-    Promotion {
-        id Id PK
-    }
-    Deployment {
-        id Id PK
-    }
-    Environment {
-        id Id PK
-    }
-    Org {
-        id Id PK
-    }
-    JobExecution {
-        id Id PK
-    }
+    User_Story
+    Promoted_User_Story
+    Promotion
+    Deployment
+    Environment
+    Org
+    JobExecution
     Environment |o..o{ Promotion : "Destination_Environment"
     Org |o..o{ Promotion : "Destination_Org_Credential"
     Environment |o..o{ Promotion : "Source_Environment"

@@ -1,29 +1,13 @@
 erDiagram
     direction LR
-    Artifact {
-        id Id PK
-    }
-    Artifact_Version {
-        id Id PK
-    }
-    Artifact_Dependency {
-        id Id PK
-    }
-    Installed_Artifact_Version {
-        id Id PK
-    }
-    Bundled_Story {
-        id Id PK
-    }
-    User_Story {
-        id Id PK
-    }
-    Release {
-        id Id PK
-    }
-    Org {
-        id Id PK
-    }
+    Artifact
+    Artifact_Version
+    Artifact_Dependency
+    Installed_Artifact_Version
+    Bundled_Story
+    User_Story
+    Release
+    Org
     Release |o..o{ Release : "Parent_Release"
     User_Story |o..o{ Release : "Artifact_User_Story"
     Org |o..o{ User_Story : "Org_Credential"

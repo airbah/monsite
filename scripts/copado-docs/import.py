@@ -10,6 +10,7 @@ import copy
 import csv
 import html
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -80,6 +81,8 @@ def main(source):
     denied = {r["field"].removesuffix("__c") for r in original["relationships"] if (r["child"], r["field"]) not in fields}
     for view in views:
         text = (source / (view["slug"] + ".mmd")).read_text()
+        # Les objets sont représentés par leur nom, sans ligne Id/PK répétitive.
+        text = re.sub(r"(?m)^(\s+)(\w+) \{\n\s+id Id PK\n\s+\}", r"\1\2", text)
         text = "\n".join(line for line in text.splitlines() if not any('"' + field + '"' in line for field in denied)) + "\n"
         (OUT / (view["slug"] + ".mmd")).write_text(text)
 

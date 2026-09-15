@@ -1,26 +1,12 @@
 erDiagram
     direction LR
-    Project {
-        id Id PK
-    }
-    Release {
-        id Id PK
-    }
-    User_Story {
-        id Id PK
-    }
-    Epic {
-        id Id PK
-    }
-    Sprint {
-        id Id PK
-    }
-    Team {
-        id Id PK
-    }
-    User_Story_Task {
-        id Id PK
-    }
+    Project
+    Release
+    User_Story
+    Epic
+    Sprint
+    Team
+    User_Story_Task
     Project |o..o{ Release : "Project"
     Release |o..o{ Release : "Parent_Release"
     User_Story |o..o{ Release : "Artifact_User_Story"

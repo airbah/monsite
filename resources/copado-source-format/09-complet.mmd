@@ -1,113 +1,41 @@
 erDiagram
     direction LR
-    Project {
-        id Id PK
-    }
-    Release {
-        id Id PK
-    }
-    User_Story {
-        id Id PK
-    }
-    Epic {
-        id Id PK
-    }
-    Sprint {
-        id Id PK
-    }
-    Team {
-        id Id PK
-    }
-    User_Story_Task {
-        id Id PK
-    }
-    User_Story_Commit {
-        id Id PK
-    }
-    User_Story_Metadata {
-        id Id PK
-    }
-    Git_Org_Commit {
-        id Id PK
-    }
-    Git_Backup {
-        id Id PK
-    }
-    Git_Repository {
-        id Id PK
-    }
-    Promotion {
-        id Id PK
-    }
-    Promoted_User_Story {
-        id Id PK
-    }
-    Deployment {
-        id Id PK
-    }
-    Deployment_Flow {
-        id Id PK
-    }
-    Deployment_Flow_Step {
-        id Id PK
-    }
-    Environment {
-        id Id PK
-    }
-    Org {
-        id Id PK
-    }
-    Stage {
-        id Id PK
-    }
-    Stage_Connection {
-        id Id PK
-    }
-    JobExecution {
-        id Id PK
-    }
-    JobStep {
-        id Id PK
-    }
-    JobTemplate {
-        id Id PK
-    }
-    Result {
-        id Id PK
-    }
-    Function {
-        id Id PK
-    }
-    Quality_Gate_Rule {
-        id Id PK
-    }
-    Quality_Gate_Rule_Condition {
-        id Id PK
-    }
-    Test {
-        id Id PK
-    }
-    ExtensionConfiguration {
-        id Id PK
-    }
-    Automation_Rule {
-        id Id PK
-    }
-    Artifact {
-        id Id PK
-    }
-    Artifact_Version {
-        id Id PK
-    }
-    Artifact_Dependency {
-        id Id PK
-    }
-    Installed_Artifact_Version {
-        id Id PK
-    }
-    Bundled_Story {
-        id Id PK
-    }
+    Project
+    Release
+    User_Story
+    Epic
+    Sprint
+    Team
+    User_Story_Task
+    User_Story_Commit
+    User_Story_Metadata
+    Git_Org_Commit
+    Git_Backup
+    Git_Repository
+    Promotion
+    Promoted_User_Story
+    Deployment
+    Deployment_Flow
+    Deployment_Flow_Step
+    Environment
+    Org
+    Stage
+    Stage_Connection
+    JobExecution
+    JobStep
+    JobTemplate
+    Result
+    Function
+    Quality_Gate_Rule
+    Quality_Gate_Rule_Condition
+    Test
+    ExtensionConfiguration
+    Automation_Rule
+    Artifact
+    Artifact_Version
+    Artifact_Dependency
+    Installed_Artifact_Version
+    Bundled_Story
     Deployment_Flow |o..o{ Project : "Deployment_Flow"
     Project |o..o{ Release : "Project"
     Release |o..o{ Release : "Parent_Release"
